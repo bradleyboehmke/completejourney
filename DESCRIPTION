@@ -1,6 +1,6 @@
 Package: completejourney
 Title: Retail shopping data on 2500 households over two years
-Version: 0.1.0.9000
+Version: 0.0.0.9000
 Authors@R: c(
   person("Brad", "Boehmke",
          email = "bradley.boehmke@8451.com",
