@@ -30,8 +30,8 @@ if (require("dplyr")) {
 products
 
 # Transaction line items that don't have product metadata
-transaction_data \%>\%
-  anti_join(product, "product_id")
+transactions \%>\%
+  anti_join(products, "product_id")
 
 }
 }

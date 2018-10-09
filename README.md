@@ -3,6 +3,10 @@
 
 # completejourney
 
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+
+## Overview
+
 An R data package of the Complete Journey Study provided by
 [84.51](http://www.8451.com). The study tracks retail shopping
 transactions over two years from a group of 2,500 households who are
