@@ -41,7 +41,7 @@ knitr::include_graphics("data_relationships.png")
 This table contains demographic information for a portion of households. Due to nature of the data, the demographic information is not available for all households.
 
 Variable | Description
-------------- | -------------
+------------- | --------------------------------------------
 `household_key` | Uniquely identifies each household
 `age_desc` | Estimated age range
 `marital_status_code` | Marital status (A - married, B - single, U - unknown)
@@ -53,10 +53,10 @@ Variable | Description
 
 ### `transactions`
 
-Contains transaction-level product purchases by households (what you would normally see on a receipt).
+Contains transaction-level product purchases by households (what you would normally see on a receipt).  
 
 Variable | Definition
----|---------
+------------- | --------------------------------------------
 `household_key` | Uniquely identifies each household
 `basket_id` | Uniquely identifies each purchase occasion
 `day` | Day when the transaction occurred
@@ -68,7 +68,7 @@ Variable | Definition
 `trans_time` | Time of day when the transaction occurred
 `week_no` | Week of the transaction; Ranges 1-102
 `coupon_disc` | Discount applied due to a manufacturer coupon
-`coupon_match_disc` | Discount applied due to retailer's match of manufacturer coupon
+`coupon_match_disc` | Discount applied due to retailer's match of manufacturer coupon  
 
 The variable `sales_value` in this table is the amount of dollars received by the retailer on the sale of the specific product, taking the coupon match and loyalty card discount into account. It is not the actual price paid by the customer. If a customer uses a coupon, the actual price paid will be less than the `sales_value` because the manufacturer issuing the coupon will reimburse the retailer for the amount of the coupon.
 
@@ -94,7 +94,7 @@ applied due to a loyalty card. To determine the regular shelf price of the produ
 Contains identifying information for the marketing campaigns each households participated in.
 
 Variable | Definition
----|---------
+------------- | --------------------------------------------
 `description` | Type of campaign (TypeA, TypeB, TypeC)
 `household_key` | Uniquely identifies each household
 `campaign` | Uniquely identifies each campaign; Ranges 1-30
@@ -105,7 +105,7 @@ Contains campaign metatdata, specifically the time a campaign
 was active.
 
 Variable | Definition
----|---------
+------------- | --------------------------------------------
 `description` | Type of campaign (TypeA, TypeB, TypeC)
 `campaign` | Uniquely identifies each campaign; Ranges 1-30
 `start_day` | Start date of campaign
@@ -113,11 +113,10 @@ Variable | Definition
 
 ### `products`
 
-Contains metatdata regarding the products purchased (brand, 
-description, etc.).
+Contains metatdata regarding the products purchased (brand, description, etc.).
 
 Variable | Definition
----|---------
+------------- | --------------------------------------------
 `product_id` | Uniquely identifies each product
 `manufacturer` | Uniquely identifies each manufacturer
 `department` | Groups similar products together
@@ -135,7 +134,7 @@ For campaign TypeA, this table provides the pool of possible coupons. Each custo
 For campaign TypeB and TypeC, all customers participating in a campaign receives all coupons pertaining to that campaign.
 
 Variable | Definition
----|---------
+------------- | --------------------------------------------
 `coupon_upc` | Uniquely identifies each coupon (unique to household and campaign)
 `product_id` | Uniquely identifies each product
 `campaign` | Uniquely identifies each campaign
@@ -147,7 +146,7 @@ code, campaign) that can be used to measure campaign efficacy and coupon usage
 on specific products.
 
 Variable | Definition
----|---------
+------------- | --------------------------------------------
 `household_key` | Uniquely identifies each household
 `day` | Day when transaction occurred
 `coupon_upc` | Uniquely identifies each coupon (unique to household and campaign)
@@ -159,7 +158,7 @@ Contains product placement information (e.g. mailer page placement
 and in-store display placement) corresponding to campaigns.
 
 Variable | Definition
----|---------
+------------- | --------------------------------------------
 `product_id` | Uniquely identifies each product
 `store_id` | Uniquely identifies each store
 `week_no` | Week of the transaction; Ranges 1-102

@@ -1,0 +1,40 @@
+title: completejourney
+url: https://bradleyboehmke.github.io/completejourney
+template:
+  params:
+    bootswatch: spacelab
+
+home:
+  strip_header: true
+  
+navbar:
+  type: default
+  left:
+    - text: Articles
+      icon: fas fa-book
+      menu: 
+      -  text: User Guide
+         href: articles/completejourney.html
+    - text: Reference
+      icon: fa-file-code-o
+      href: reference/index.html
+    - text: News
+      icon: fa-newspaper-o
+      href: news/index.html
+  right:
+    - text: GitHub
+      icon: fa-github fa-lg
+      href: https://github.com/bradleyboehmke/completejourney
+      
+reference:
+  - title: Datasets
+    desc: A complete list of package datasets
+    contents:
+      - '`hh_demographics`'
+      - '`transactions`'
+      - '`campaign_table`'
+      - '`campaign_description`'
+      - '`products`'
+      - '`coupons`'
+      - '`coupon_redemption`'
+      - '`causal_data`'

@@ -33,7 +33,7 @@ The data represents retail shopping transactions over two years from a group of 
 
 ## Installation
 
-You can install `completejourney` from github with:
+You can install `completejourney` from GitHub with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
