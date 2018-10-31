@@ -36,13 +36,13 @@ The following are examples of questions that could be submitted to students or c
 knitr::include_graphics("data_relationships.png")
 ```
 
-### `hh_demographic`
+### `demographics`
 
 This table contains demographic information for a portion of households. Due to nature of the data, the demographic information is not available for all households.
 
 Variable | Description
 ------------- | --------------------------------------------
-`household_key` | Uniquely identifies each household
+`household_id` | Uniquely identifies each household
 `age_desc` | Estimated age range
 `marital_status_code` | Marital status (A - married, B - single, U - unknown)
 `income_desc` | Household income
@@ -57,18 +57,18 @@ Contains transaction-level product purchases by households (what you would norma
 
 Variable | Definition
 ------------- | --------------------------------------------
-`household_key` | Uniquely identifies each household
+`household_id` | Uniquely identifies each household
+`store_id` | Uniquely identifies each store
 `basket_id` | Uniquely identifies each purchase occasion
-`day` | Day when the transaction occurred
 `product_id` | Uniquely identifies each product
 `quantity` | Number of the product purchased during the trip
 `sales_value` | Amount of dollars the retailer receives from sale
-`store_id` | Uniquely identifies each store
 `retail_disc` | Discount applied due to the retailer's loyalty card program
-`trans_time` | Time of day when the transaction occurred
-`week_no` | Week of the transaction; Ranges 1-102
 `coupon_disc` | Discount applied due to a manufacturer coupon
-`coupon_match_disc` | Discount applied due to retailer's match of manufacturer coupon  
+`coupon_match_disc` | Discount applied due to retailer's match of manufacturer coupon 
+`week_no` | Week of the transaction; Ranges 1-102
+`day` | Day when the transaction occurred
+`trans_time` | Time of day when the transaction occurred
 
 The variable `sales_value` in this table is the amount of dollars received by the retailer on the sale of the specific product, taking the coupon match and loyalty card discount into account. It is not the actual price paid by the customer. If a customer uses a coupon, the actual price paid will be less than the `sales_value` because the manufacturer issuing the coupon will reimburse the retailer for the amount of the coupon.
 
@@ -89,25 +89,25 @@ retailer.
 applied due to a loyalty card. To determine the regular shelf price of the product (exclusive of loyalty card discount) we take the sum of the amount paid and the discount, then divide it by the quantity. ($\$2 + \$1.34) \div 2 = \$1.67$. The shelf price of the product including loyalty card discount is $\$2 \div 2 = \$1$. Also, the customer paid $2 for both of these products which is the same amount the retailer received.
 * Line 3 – The actual shelf price of each product here is ($\$2.89 + \$0.45) \div 2 = \$1.67$. Also, the customer paid \$2.34 ($\$2.89 - \$0.55$) for these products, but the retailer will receive $2.89 due to the manufacturer discount.
 
-### `campaign_table` 
+### `campaigns` 
 
 Contains identifying information for the marketing campaigns each households participated in.
 
 Variable | Definition
 ------------- | --------------------------------------------
-`description` | Type of campaign (TypeA, TypeB, TypeC)
-`household_key` | Uniquely identifies each household
+`household_id` | Uniquely identifies each household
 `campaign` | Uniquely identifies each campaign; Ranges 1-30
+`description` | Type of campaign (TypeA, TypeB, TypeC)
 
-### `campaign_description`
+### `campaign_descriptions`
 
 Contains campaign metatdata, specifically the time a campaign 
 was active.
 
 Variable | Definition
 ------------- | --------------------------------------------
-`description` | Type of campaign (TypeA, TypeB, TypeC)
 `campaign` | Uniquely identifies each campaign; Ranges 1-30
+`description` | Type of campaign (TypeA, TypeB, TypeC)
 `start_day` | Start date of campaign
 `end_day` | End date of campaign
 
@@ -139,7 +139,7 @@ Variable | Definition
 `product_id` | Uniquely identifies each product
 `campaign` | Uniquely identifies each campaign
 
-### `coupon_redemption`
+### `coupon_redemptions`
 
 Contains individual coupon redemptions (household, day, UPC 
 code, campaign) that can be used to measure campaign efficacy and coupon usage 
@@ -147,12 +147,12 @@ on specific products.
 
 Variable | Definition
 ------------- | --------------------------------------------
-`household_key` | Uniquely identifies each household
-`day` | Day when transaction occurred
+`household_id` | Uniquely identifies each household
 `coupon_upc` | Uniquely identifies each coupon (unique to household and campaign)
 `campaign` | Uniquely identifies each campaign
+`day` | Day when transaction occurred
 
-### `causal_data`
+### `product_placements`
 
 Contains product placement information (e.g. mailer page placement 
 and in-store display placement) corresponding to campaigns.
@@ -168,32 +168,33 @@ Variable | Definition
 
 ## Example Case Study
 
-John Smith is a valued customer at a national grocery retailer for which we have detailed transaction data. Throughout all the tables in the database, he is identified with a `household_key` of 208.
+John Smith is a valued customer at a national grocery retailer for which we have detailed transaction data. Throughout all the tables in the database, he is identified with a `household_id` of 208.
 
-To learn a little about John, we can obtain his demographic information by looking at the record in the `hh_demographics` table where `household_key = 208`. The table below shows the information we receive, and tells us that he is a homeowner, who makes between \$50,000 and \$74,000 a year and is between 45 and 54 years old.
+To learn a little about John, we can obtain his demographic information by looking at the record in the `demographics` table where `household_id = 208`. The table below shows the information we receive, and tells us that he is a homeowner, who makes between \$50,000 and \$74,000 a year and is between 45 and 54 years old.
 
 ```{r}
 library(completejourney)
 library(dplyr)
+library(bit64)
 
-hh_demographics %>% filter(household_key == 208)
+demographics %>% filter(household_id == 208)
 ```
 
-If we look at John’s records from `campaign_table`, we can see that he received 8 different campaigns. Five of the campaigns were TypeA, and three were TypeB.
+If we look at John’s records from `campaigns`, we can see that he received 8 different campaigns. Five of the campaigns were TypeA, and three were TypeB.
 
 ```{r}
-campaign_table %>% filter(household_key == 208)
+campaigns %>% filter(household_id == 208)
 ```
 
-These campaigns were spread out over the 2 year period of the study. To understand the time periods of these campaigns, look at the records in the `campaign_desc` table for the campaigns listed above for John.
+These campaigns were spread out over the 2 year period of the study. To understand the time periods of these campaigns, look at the records in the `campaigns` table for the campaigns listed above for John.
 
 ```{r}
-johns_campaigns <- campaign_table %>% 
-  filter(household_key == 208) %>% 
+johns_campaigns <- campaigns %>% 
+  filter(household_id == 208) %>% 
   distinct(description) %>%
   pull()
 
-campaign_description %>% filter(description %in% johns_campaigns)
+campaign_descriptions %>% filter(description %in% johns_campaigns)
 ```
 
 Let us take a closer look at campaign 22. When we look at all the distinct coupon_upc’s from the coupon table where campaign = 22, we see that there were 21 distinct coupons sent out as part of that campaign.
