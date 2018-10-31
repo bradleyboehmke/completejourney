@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Complete Journey transactions. — transactions • completejourney</title>
+<title>Product placement data. — product_placements • completejourney</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,11 @@
 
 
 
-<meta property="og:title" content="Complete Journey transactions. — transactions" />
+<meta property="og:title" content="Product placement data. — product_placements" />
 
-<meta property="og:description" content="All products purchased by households within the Complete Journey
-study. Each line found in this table is essentially the same line that would
-be found on a store receipt. This is only a subsample of the complete
-data set to keep package size manageable." />
+<meta property="og:description" content="Product placement data of the Complete Journey study signifying whether a given 
+product was featured in the weekly mailer or was part of an in-store display 
+(other than regular product placement)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -120,56 +119,81 @@ data set to keep package size manageable." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Complete Journey transactions.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/transactions.R'><code>R/transactions.R</code></a></small>
-    <div class="hidden name"><code>transactions.Rd</code></div>
+    <h1>Product placement data.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/product_placements.R'><code>R/product_placements.R</code></a></small>
+    <div class="hidden name"><code>product_placements.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>All products purchased by households within the Complete Journey
-study. Each line found in this table is essentially the same line that would
-be found on a store receipt. This is only a subsample of the complete
-data set to keep package size manageable.</p>
+    <p>Product placement data of the Complete Journey study signifying whether a given 
+product was featured in the weekly mailer or was part of an in-store display 
+(other than regular product placement).</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>transactions</span></pre>
+    <pre class="usage"><span class='no'>product_placements</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 2,595,732 rows and 12 variables</p><dl class='dl-horizontal'>
-  <dt>household_id</dt><dd><p>Uniquely identifies each household</p></dd>
-  <dt>store_id</dt><dd><p>Uniquely identifies each store</p></dd>
-  <dt>basket_id</dt><dd><p>Uniquely identifies a purchase occasion</p></dd>
+    <p>A data frame with 36,786,524 rows and 5 variables</p><dl class='dl-horizontal'>
   <dt>product_id</dt><dd><p>Uniquely identifies each product</p></dd>
-  <dt>quantity</dt><dd><p>Number of the products purchased during the trip</p></dd>
-  <dt>sales_value</dt><dd><p>Amount of dollars retailer receives from sale</p></dd>
-  <dt>retail_disc</dt><dd><p>Discount applied due to retailer's loyalty card program</p></dd>
-  <dt>coupon_disc</dt><dd><p>Discount applied due to manufacturer coupon</p></dd>
-  <dt>coupon_match_disc</dt><dd><p>Discount applied due to retailer's match of manufacturer coupon</p></dd>
+  <dt>store_id</dt><dd><p>Uniquely identifies each store</p></dd>
+  <dt>display</dt><dd><p>Display location  (see details for range of values)</p></dd>
+  <dt>mailer</dt><dd><p>Mailer location (see details for range of values)</p></dd>
   <dt>week_no</dt><dd><p>Week of the transaction; Ranges 1-102</p></dd>
-  <dt>day</dt><dd><p>Day when transaction occurred</p></dd>
-  <dt>trans_time</dt><dd><p>Time of day when the transaction occurred</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p>84.51, Customer Journey study, <a href='http://www.8451.com/area51/'>http://www.8451.com/area51/</a></p>
     
+    <h2 class="hasAnchor" id="display-location-codes"><a class="anchor" href="#display-location-codes"></a>Display Location Codes</h2>
+
+    
+    <ul>
+<li><p>0 - Not on Display</p></li>
+<li><p>1 - Store Front</p></li>
+<li><p>2 - Store Rear</p></li>
+<li><p>3 - Front End Cap</p></li>
+<li><p>4 - Mid-Aisle End Cap</p></li>
+<li><p>5 - Rear End Cap</p></li>
+<li><p>6 - Side-Aisle End Cap</p></li>
+<li><p>7 - In-Aisle</p></li>
+<li><p>9 - Secondary Location Display</p></li>
+<li><p>A - In-Shelf</p></li>
+</ul>
+    
+    <h2 class="hasAnchor" id="mailer-location-codes"><a class="anchor" href="#mailer-location-codes"></a>Mailer Location Codes</h2>
+
+    
+    <ul>
+<li><p>0 - Not on ad</p></li>
+<li><p>A - Interior page feature</p></li>
+<li><p>C - Interior page line item</p></li>
+<li><p>D - Front page feature</p></li>
+<li><p>F - Back page feature</p></li>
+<li><p>H - Wrap from feature</p></li>
+<li><p>J - Wrap interior coupon</p></li>
+<li><p>L - Wrap back feature</p></li>
+<li><p>P - Interior page coupon</p></li>
+<li><p>X - Free on interior page</p></li>
+<li><p>Z - Free on front page, back page or wrap</p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>  <span class='fu'>head</span>(<span class='no'>transactions</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 12
-#&gt;   household_id store_id basket_id product_id quantity sales_value retail_disc
-#&gt;          &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;      &lt;int&gt;    &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;
-#&gt; 1         2375      364   2.70e10    1004906        1        1.39       -0.6 
-#&gt; 2         2375      364   2.70e10    1033142        1        0.82        0   
-#&gt; 3         2375      364   2.70e10    1036325        1        0.99       -0.3 
-#&gt; 4         2375      364   2.70e10    1082185        1        1.21        0   
-#&gt; 5         2375      364   2.70e10    8160430        1        1.5        -0.39
-#&gt; 6         2375      364   2.70e10     826249        2        1.98       -0.6 
-#&gt; # ... with 5 more variables: coupon_disc &lt;dbl&gt;, coupon_match_disc &lt;dbl&gt;,
-#&gt; #   week_no &lt;int&gt;, day &lt;int&gt;, trans_time &lt;int&gt;</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"dplyr"</span>)) {
+<span class='no'>product_placements</span>
+
+<span class='co'># Join product_placements to transactions to analyze</span>
+<span class='co'># product promotion/location</span>
+<span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='http://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>product_placements</span>,
+            <span class='fu'>c</span>(<span class='st'>"product_id"</span>, <span class='st'>"store_id"</span>, <span class='st'>"week_no"</span>))
+}
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -178,6 +202,10 @@ data set to keep package size manageable.</p>
       <li><a href="#format">Format</a></li>
 
       <li><a href="#source">Source</a></li>
+
+      <li><a href="#display-location-codes">Display Location Codes</a></li>
+
+      <li><a href="#mailer-location-codes">Mailer Location Codes</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

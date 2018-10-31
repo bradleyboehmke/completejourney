@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Complete Journey transactions. — transactions • completejourney</title>
+<title>Household demographic metadata. — demographics • completejourney</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,11 @@
 
 
 
-<meta property="og:title" content="Complete Journey transactions. — transactions" />
+<meta property="og:title" content="Household demographic metadata. — demographics" />
 
-<meta property="og:description" content="All products purchased by households within the Complete Journey
-study. Each line found in this table is essentially the same line that would
-be found on a store receipt. This is only a subsample of the complete
-data set to keep package size manageable." />
+<meta property="og:description" content="Household demographic metadata for households participating in the Customer Journey study.
+Due to nature of the data, the demographic information is not available for all
+households." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -120,37 +119,32 @@ data set to keep package size manageable." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Complete Journey transactions.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/transactions.R'><code>R/transactions.R</code></a></small>
-    <div class="hidden name"><code>transactions.Rd</code></div>
+    <h1>Household demographic metadata.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/demographics.R'><code>R/demographics.R</code></a></small>
+    <div class="hidden name"><code>demographics.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>All products purchased by households within the Complete Journey
-study. Each line found in this table is essentially the same line that would
-be found on a store receipt. This is only a subsample of the complete
-data set to keep package size manageable.</p>
+    <p>Household demographic metadata for households participating in the Customer Journey study.
+Due to nature of the data, the demographic information is not available for all
+households.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>transactions</span></pre>
+    <pre class="usage"><span class='no'>demographics</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 2,595,732 rows and 12 variables</p><dl class='dl-horizontal'>
-  <dt>household_id</dt><dd><p>Uniquely identifies each household</p></dd>
-  <dt>store_id</dt><dd><p>Uniquely identifies each store</p></dd>
-  <dt>basket_id</dt><dd><p>Uniquely identifies a purchase occasion</p></dd>
-  <dt>product_id</dt><dd><p>Uniquely identifies each product</p></dd>
-  <dt>quantity</dt><dd><p>Number of the products purchased during the trip</p></dd>
-  <dt>sales_value</dt><dd><p>Amount of dollars retailer receives from sale</p></dd>
-  <dt>retail_disc</dt><dd><p>Discount applied due to retailer's loyalty card program</p></dd>
-  <dt>coupon_disc</dt><dd><p>Discount applied due to manufacturer coupon</p></dd>
-  <dt>coupon_match_disc</dt><dd><p>Discount applied due to retailer's match of manufacturer coupon</p></dd>
-  <dt>week_no</dt><dd><p>Week of the transaction; Ranges 1-102</p></dd>
-  <dt>day</dt><dd><p>Day when transaction occurred</p></dd>
-  <dt>trans_time</dt><dd><p>Time of day when the transaction occurred</p></dd>
+    <p>A data frame with 801 rows and 8 variables</p><dl class='dl-horizontal'>
+<dt>household_id</dt><dd><p>Uniquely identifies each household</p></dd>
+<dt>age_desc</dt><dd><p>Estimated age range</p></dd>
+<dt>marital_status_code</dt><dd><p>Marital status (A - Married, B - Single, U - Unknown)</p></dd>
+<dt>income_desc</dt><dd><p>Household income</p></dd>
+<dt>homeowner_desc</dt><dd><p>Homeowner status (Homeowner, Renter, Unknown)</p></dd>
+<dt>hh_comp_desc</dt><dd><p>Household composition description</p></dd>
+<dt>household_size_desc</dt><dd><p>Size of household up to 5+</p></dd>
+<dt>kid_category_desc</dt><dd><p>Number of children present up to 3+</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -159,17 +153,16 @@ data set to keep package size manageable.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>  <span class='fu'>head</span>(<span class='no'>transactions</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 12
-#&gt;   household_id store_id basket_id product_id quantity sales_value retail_disc
-#&gt;          &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;      &lt;int&gt;    &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;
-#&gt; 1         2375      364   2.70e10    1004906        1        1.39       -0.6 
-#&gt; 2         2375      364   2.70e10    1033142        1        0.82        0   
-#&gt; 3         2375      364   2.70e10    1036325        1        0.99       -0.3 
-#&gt; 4         2375      364   2.70e10    1082185        1        1.21        0   
-#&gt; 5         2375      364   2.70e10    8160430        1        1.5        -0.39
-#&gt; 6         2375      364   2.70e10     826249        2        1.98       -0.6 
-#&gt; # ... with 5 more variables: coupon_disc &lt;dbl&gt;, coupon_match_disc &lt;dbl&gt;,
-#&gt; #   week_no &lt;int&gt;, day &lt;int&gt;, trans_time &lt;int&gt;</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"dplyr"</span>)) {
+<span class='no'>demographics</span>
+
+<span class='co'># Transaction line items that don't have household metadata</span>
+<span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='http://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)
+}
+<span class='co'># }</span><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

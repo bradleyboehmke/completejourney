@@ -87,7 +87,7 @@
       <h1>The Complete Journey User Guide</h1>
                         <h4 class="author">Brad Boehmke</h4>
             
-            <h4 class="date">2018-10-29</h4>
+            <h4 class="date">2018-10-31</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/bradleyboehmke/completejourney/blob/master/vignettes/completejourney.Rmd"><code>vignettes/completejourney.Rmd</code></a></small>
       <div class="hidden name"><code>completejourney.Rmd</code></div>
@@ -114,9 +114,9 @@
 <h2 class="hasAnchor">
 <a href="#dataset-details" class="anchor"></a>Dataset Details</h2>
 <p><img src="data_relationships.png" width="95%" height="95%"></p>
-<div id="hh_demographic" class="section level3">
+<div id="demographics" class="section level3">
 <h3 class="hasAnchor">
-<a href="#hh_demographic" class="anchor"></a><code>hh_demographic</code>
+<a href="#demographics" class="anchor"></a><code>demographics</code>
 </h3>
 <p>This table contains demographic information for a portion of households. Due to nature of the data, the demographic information is not available for all households.</p>
 <table class="table">
@@ -126,7 +126,7 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code>household_key</code></td>
+<td><code>household_id</code></td>
 <td>Uniquely identifies each household</td>
 </tr>
 <tr class="even">
@@ -165,10 +165,10 @@
 <a href="#transactions" class="anchor"></a><code>transactions</code>
 </h3>
 <p>Contains transaction-level product purchases by households (what you would normally see on a receipt).</p>
-<table style="width:82%;" class="table">
+<table class="table">
 <colgroup>
-<col width="19%">
-<col width="62%">
+<col width="22%">
+<col width="77%">
 </colgroup>
 <thead><tr class="header">
 <th>Variable</th>
@@ -176,16 +176,16 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code>household_key</code></td>
+<td><code>household_id</code></td>
 <td>Uniquely identifies each household</td>
 </tr>
 <tr class="even">
-<td><code>basket_id</code></td>
-<td>Uniquely identifies each purchase occasion</td>
+<td><code>store_id</code></td>
+<td>Uniquely identifies each store</td>
 </tr>
 <tr class="odd">
-<td><code>day</code></td>
-<td>Day when the transaction occurred</td>
+<td><code>basket_id</code></td>
+<td>Uniquely identifies each purchase occasion</td>
 </tr>
 <tr class="even">
 <td><code>product_id</code></td>
@@ -200,28 +200,28 @@
 <td>Amount of dollars the retailer receives from sale</td>
 </tr>
 <tr class="odd">
-<td><code>store_id</code></td>
-<td>Uniquely identifies each store</td>
-</tr>
-<tr class="even">
 <td><code>retail_disc</code></td>
 <td>Discount applied due to the retailer’s loyalty card program</td>
 </tr>
+<tr class="even">
+<td><code>coupon_disc</code></td>
+<td>Discount applied due to a manufacturer coupon</td>
+</tr>
 <tr class="odd">
-<td><code>trans_time</code></td>
-<td>Time of day when the transaction occurred</td>
+<td><code>coupon_match_disc</code></td>
+<td>Discount applied due to retailer’s match of manufacturer coupon</td>
 </tr>
 <tr class="even">
 <td><code>week_no</code></td>
 <td>Week of the transaction; Ranges 1-102</td>
 </tr>
 <tr class="odd">
-<td><code>coupon_disc</code></td>
-<td>Discount applied due to a manufacturer coupon</td>
+<td><code>day</code></td>
+<td>Day when the transaction occurred</td>
 </tr>
 <tr class="even">
-<td><code>coupon_match_disc</code></td>
-<td>Discount applied due to retailer’s match of manufacturer coupon</td>
+<td><code>trans_time</code></td>
+<td>Time of day when the transaction occurred</td>
 </tr>
 </tbody>
 </table>
@@ -235,9 +235,9 @@
 <li>Line 3 – The actual shelf price of each product here is (<span class="math inline">\(\$2.89 + \$0.45) \div 2 = \$1.67\)</span>. Also, the customer paid $2.34 (<span class="math inline">\(\$2.89 - \$0.55\)</span>) for these products, but the retailer will receive $2.89 due to the manufacturer discount.</li>
 </ul>
 </div>
-<div id="campaign_table" class="section level3">
+<div id="campaigns" class="section level3">
 <h3 class="hasAnchor">
-<a href="#campaign_table" class="anchor"></a><code>campaign_table</code>
+<a href="#campaigns" class="anchor"></a><code>campaigns</code>
 </h3>
 <p>Contains identifying information for the marketing campaigns each households participated in.</p>
 <table class="table">
@@ -247,23 +247,23 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code>description</code></td>
-<td>Type of campaign (TypeA, TypeB, TypeC)</td>
-</tr>
-<tr class="even">
-<td><code>household_key</code></td>
+<td><code>household_id</code></td>
 <td>Uniquely identifies each household</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>campaign</code></td>
 <td>Uniquely identifies each campaign; Ranges 1-30</td>
+</tr>
+<tr class="odd">
+<td><code>description</code></td>
+<td>Type of campaign (TypeA, TypeB, TypeC)</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="campaign_description" class="section level3">
+<div id="campaign_descriptions" class="section level3">
 <h3 class="hasAnchor">
-<a href="#campaign_description" class="anchor"></a><code>campaign_description</code>
+<a href="#campaign_descriptions" class="anchor"></a><code>campaign_descriptions</code>
 </h3>
 <p>Contains campaign metatdata, specifically the time a campaign was active.</p>
 <table class="table">
@@ -273,12 +273,12 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code>description</code></td>
-<td>Type of campaign (TypeA, TypeB, TypeC)</td>
-</tr>
-<tr class="even">
 <td><code>campaign</code></td>
 <td>Uniquely identifies each campaign; Ranges 1-30</td>
+</tr>
+<tr class="even">
+<td><code>description</code></td>
+<td>Type of campaign (TypeA, TypeB, TypeC)</td>
 </tr>
 <tr class="odd">
 <td><code>start_day</code></td>
@@ -296,10 +296,10 @@
 <a href="#products" class="anchor"></a><code>products</code>
 </h3>
 <p>Contains metatdata regarding the products purchased (brand, description, etc.).</p>
-<table style="width:82%;" class="table">
+<table class="table">
 <colgroup>
-<col width="19%">
-<col width="62%">
+<col width="22%">
+<col width="77%">
 </colgroup>
 <thead><tr class="header">
 <th>Variable</th>
@@ -344,10 +344,10 @@
 <p>This table lists all the coupons sent to customers as part of a campaign, as well as the products for which each coupon is redeemable. Some coupons are redeemable for multiple products. One example is a coupon for any private label frozen vegetable. There are a large number of products where this coupon could be redeemed.</p>
 <p>For campaign TypeA, this table provides the pool of possible coupons. Each customer participating in a TypeA campaign received 16 coupons out of the pool. The 16 coupons were selected based on the customer’s prior purchase behavior. Identifying the specific 16 coupons that each customer received is outside the scope of this database.</p>
 <p>For campaign TypeB and TypeC, all customers participating in a campaign receives all coupons pertaining to that campaign.</p>
-<table style="width:82%;" class="table">
+<table class="table">
 <colgroup>
-<col width="19%">
-<col width="62%">
+<col width="22%">
+<col width="77%">
 </colgroup>
 <thead><tr class="header">
 <th>Variable</th>
@@ -369,15 +369,15 @@
 </tbody>
 </table>
 </div>
-<div id="coupon_redemption" class="section level3">
+<div id="coupon_redemptions" class="section level3">
 <h3 class="hasAnchor">
-<a href="#coupon_redemption" class="anchor"></a><code>coupon_redemption</code>
+<a href="#coupon_redemptions" class="anchor"></a><code>coupon_redemptions</code>
 </h3>
 <p>Contains individual coupon redemptions (household, day, UPC code, campaign) that can be used to measure campaign efficacy and coupon usage on specific products.</p>
-<table style="width:82%;" class="table">
+<table class="table">
 <colgroup>
-<col width="19%">
-<col width="62%">
+<col width="22%">
+<col width="77%">
 </colgroup>
 <thead><tr class="header">
 <th>Variable</th>
@@ -385,33 +385,33 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code>household_key</code></td>
+<td><code>household_id</code></td>
 <td>Uniquely identifies each household</td>
+</tr>
+<tr class="even">
+<td><code>coupon_upc</code></td>
+<td>Uniquely identifies each coupon (unique to household and campaign)</td>
+</tr>
+<tr class="odd">
+<td><code>campaign</code></td>
+<td>Uniquely identifies each campaign</td>
 </tr>
 <tr class="even">
 <td><code>day</code></td>
 <td>Day when transaction occurred</td>
 </tr>
-<tr class="odd">
-<td><code>coupon_upc</code></td>
-<td>Uniquely identifies each coupon (unique to household and campaign)</td>
-</tr>
-<tr class="even">
-<td><code>campaign</code></td>
-<td>Uniquely identifies each campaign</td>
-</tr>
 </tbody>
 </table>
 </div>
-<div id="causal_data" class="section level3">
+<div id="product_placements" class="section level3">
 <h3 class="hasAnchor">
-<a href="#causal_data" class="anchor"></a><code>causal_data</code>
+<a href="#product_placements" class="anchor"></a><code>product_placements</code>
 </h3>
 <p>Contains product placement information (e.g. mailer page placement and in-store display placement) corresponding to campaigns.</p>
-<table style="width:82%;" class="table">
+<table class="table">
 <colgroup>
-<col width="19%">
-<col width="62%">
+<col width="22%">
+<col width="77%">
 </colgroup>
 <thead><tr class="header">
 <th>Variable</th>
@@ -445,93 +445,71 @@
 <div id="example-case-study" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-case-study" class="anchor"></a>Example Case Study</h2>
-<p>John Smith is a valued customer at a national grocery retailer for which we have detailed transaction data. Throughout all the tables in the database, he is identified with a <code>household_key</code> of 208.</p>
-<p>To learn a little about John, we can obtain his demographic information by looking at the record in the <code>hh_demographics</code> table where <code>household_key = 208</code>. The table below shows the information we receive, and tells us that he is a homeowner, who makes between $50,000 and $74,000 a year and is between 45 and 54 years old.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(completejourney)
-<span class="kw">library</span>(dplyr)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'dplyr'</span>
-<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     filter, lag</span>
-<span class="co">#&gt; The following objects are masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
-
-hh_demographics <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(household_key <span class="op">==</span><span class="st"> </span><span class="dv">208</span>)
-<span class="co">#&gt;   household_key age_desc marital_status_code income_desc homeowner_desc</span>
-<span class="co">#&gt; 1           208    45-54                   U      50-74K      Homeowner</span>
-<span class="co">#&gt;       hh_comp_desc household_size_desc kid_category_desc</span>
-<span class="co">#&gt; 1 2 Adults No Kids                   2      None/Unknown</span></code></pre></div>
-<p>If we look at John’s records from <code>campaign_table</code>, we can see that he received 8 different campaigns. Five of the campaigns were TypeA, and three were TypeB.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">campaign_table <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(household_key <span class="op">==</span><span class="st"> </span><span class="dv">208</span>)
-<span class="co">#&gt;   description household_key campaign</span>
-<span class="co">#&gt; 1       TypeA           208       26</span>
-<span class="co">#&gt; 2       TypeA           208       30</span>
-<span class="co">#&gt; 3       TypeA           208        8</span>
-<span class="co">#&gt; 4       TypeA           208       13</span>
-<span class="co">#&gt; 5       TypeA           208       18</span>
-<span class="co">#&gt; 6       TypeB           208       29</span>
-<span class="co">#&gt; 7       TypeB           208       17</span>
-<span class="co">#&gt; 8       TypeB           208       22</span></code></pre></div>
-<p>These campaigns were spread out over the 2 year period of the study. To understand the time periods of these campaigns, look at the records in the <code>campaign_desc</code> table for the campaigns listed above for John.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">johns_campaigns &lt;-<span class="st"> </span>campaign_table <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(household_key <span class="op">==</span><span class="st"> </span><span class="dv">208</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span>(description) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/pull.html">pull</a></span>()
-
-campaign_description <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(description <span class="op">%in%</span><span class="st"> </span>johns_campaigns)
-<span class="co">#&gt;    description campaign start_day end_day</span>
-<span class="co">#&gt; 1        TypeB       24       659     719</span>
-<span class="co">#&gt; 2        TypeB       25       659     691</span>
-<span class="co">#&gt; 3        TypeB       23       646     684</span>
-<span class="co">#&gt; 4        TypeB       21       624     656</span>
-<span class="co">#&gt; 5        TypeB       22       624     656</span>
-<span class="co">#&gt; 6        TypeA       18       587     642</span>
-<span class="co">#&gt; 7        TypeB       19       603     635</span>
-<span class="co">#&gt; 8        TypeB       17       575     607</span>
-<span class="co">#&gt; 9        TypeB       16       561     593</span>
-<span class="co">#&gt; 10       TypeA       13       504     551</span>
-<span class="co">#&gt; 11       TypeB       11       477     523</span>
-<span class="co">#&gt; 12       TypeB       12       477     509</span>
-<span class="co">#&gt; 13       TypeB       10       463     495</span>
-<span class="co">#&gt; 14       TypeB        9       435     467</span>
-<span class="co">#&gt; 15       TypeA        8       412     460</span>
-<span class="co">#&gt; 16       TypeB        7       398     432</span>
-<span class="co">#&gt; 17       TypeB        5       377     411</span>
-<span class="co">#&gt; 18       TypeB        4       372     404</span>
-<span class="co">#&gt; 19       TypeB        1       346     383</span>
-<span class="co">#&gt; 20       TypeB        2       351     383</span>
-<span class="co">#&gt; 21       TypeA       30       323     369</span>
-<span class="co">#&gt; 22       TypeB       29       281     334</span>
-<span class="co">#&gt; 23       TypeB       28       259     320</span>
-<span class="co">#&gt; 24       TypeA       26       224     264</span></code></pre></div>
+<p>John Smith is a valued customer at a national grocery retailer for which we have detailed transaction data. Throughout all the tables in the database, he is identified with a <code>household_id</code> of 208.</p>
+<p>To learn a little about John, we can obtain his demographic information by looking at the record in the <code>demographics</code> table where <code>household_id = 208</code>. The table below shows the information we receive, and tells us that he is a homeowner, who makes between $50,000 and $74,000 a year and is between 45 and 54 years old.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(completejourney)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(bit64)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">demographics <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(household_id <span class="op">==</span><span class="st"> </span><span class="dv">208</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt; # A tibble: 1 x 8</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt;   household_id age_desc marital_status_… income_desc homeowner_desc</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;          &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;         </span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt; 1          208 45-54    U                50-74K      Homeowner     </span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt; # ... with 3 more variables: hh_comp_desc &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt; #   household_size_desc &lt;chr&gt;, kid_category_desc &lt;chr&gt;</span></a></code></pre></div>
+<p>If we look at John’s records from <code>campaigns</code>, we can see that he received 8 different campaigns. Five of the campaigns were TypeA, and three were TypeB.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">campaigns <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(household_id <span class="op">==</span><span class="st"> </span><span class="dv">208</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; # A tibble: 8 x 3</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;   household_id campaign description</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;          &lt;int&gt;    &lt;int&gt; &lt;chr&gt;      </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; 1          208       26 TypeA      </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; 2          208       30 TypeA      </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 3          208        8 TypeA      </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 4          208       13 TypeA      </span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; 5          208       18 TypeA      </span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; 6          208       29 TypeB      </span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 7          208       17 TypeB      </span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; 8          208       22 TypeB</span></a></code></pre></div>
+<p>These campaigns were spread out over the 2 year period of the study. To understand the time periods of these campaigns, look at the records in the <code>campaigns</code> table for the campaigns listed above for John.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">johns_campaigns &lt;-<span class="st"> </span>campaigns <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(household_id <span class="op">==</span><span class="st"> </span><span class="dv">208</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span>(description) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/pull.html">pull</a></span>()</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">campaign_descriptions <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(description <span class="op">%in%</span><span class="st"> </span>johns_campaigns)</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; # A tibble: 24 x 4</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;    campaign description start_day end_day</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;   &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  1       24 TypeB             659     719</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  2       25 TypeB             659     691</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  3       23 TypeB             646     684</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  4       21 TypeB             624     656</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;  5       22 TypeB             624     656</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;  6       18 TypeA             587     642</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;  7       19 TypeB             603     635</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt;  8       17 TypeB             575     607</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt;  9       16 TypeB             561     593</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; 10       13 TypeA             504     551</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; # ... with 14 more rows</span></a></code></pre></div>
 <p>Let us take a closer look at campaign 22. When we look at all the distinct coupon_upc’s from the coupon table where campaign = 22, we see that there were 21 distinct coupons sent out as part of that campaign.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coupons <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(campaign <span class="op">==</span><span class="st"> </span><span class="dv">22</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span>(coupon_upc)
-<span class="co">#&gt;       coupon_upc</span>
-<span class="co">#&gt; 1  2.574082e-313</span>
-<span class="co">#&gt; 2  2.687718e-313</span>
-<span class="co">#&gt; 3  2.722306e-313</span>
-<span class="co">#&gt; 4  4.940699e-314</span>
-<span class="co">#&gt; 5  4.940701e-314</span>
-<span class="co">#&gt; 6  4.940699e-314</span>
-<span class="co">#&gt; 7  2.855577e-313</span>
-<span class="co">#&gt; 8  2.541970e-313</span>
-<span class="co">#&gt; 9  2.608668e-313</span>
-<span class="co">#&gt; 10 2.709951e-313</span>
-<span class="co">#&gt; 11 2.559260e-313</span>
-<span class="co">#&gt; 12 2.535150e-313</span>
-<span class="co">#&gt; 13 2.690187e-313</span>
-<span class="co">#&gt; 14 2.818445e-313</span>
-<span class="co">#&gt; 15 2.821153e-313</span>
-<span class="co">#&gt; 16 2.674487e-313</span>
-<span class="co">#&gt; 17 2.605340e-313</span>
-<span class="co">#&gt; 18 2.574729e-313</span>
-<span class="co">#&gt; 19 2.778321e-313</span>
-<span class="co">#&gt; 20 2.724776e-313</span>
-<span class="co">#&gt; 21 2.724776e-313</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">coupons <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(campaign <span class="op">==</span><span class="st"> </span><span class="dv">22</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span>(coupon_upc)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; # A tibble: 21 x 1</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;    coupon_upc     </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;    &lt;S3: integer64&gt;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  1 52100000031    </span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  2 54400021032    </span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  3 55100090033    </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  4 10000085486    </span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  5 10000089316    </span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  6 10000085487    </span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  7 57797520075    </span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;  8 51450050050    </span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  9 52800031032    </span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; 10 54850010033    </span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; # ... with 11 more rows</span></a></code></pre></div>
 <p>Let us take an even deeper look at one of the specific coupons offered as part of the campaign. If we print out all records from the coupon table where campaign = 22 and coupon_upc = 51800000050, we see that this coupon could actually be redeemed for a number of products.</p>
 </div>
   </div>

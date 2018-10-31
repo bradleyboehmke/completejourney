@@ -30,11 +30,11 @@ reference:
   - title: Datasets
     desc: A complete list of package datasets
     contents:
-      - '`hh_demographics`'
+      - '`demographics`'
       - '`transactions`'
-      - '`campaign_table`'
-      - '`campaign_description`'
+      - '`campaigns`'
+      - '`campaign_descriptions`'
       - '`products`'
       - '`coupons`'
-      - '`coupon_redemption`'
-      - '`causal_data`'
+      - '`coupon_redemptions`'
+      - '`product_placements`'
