@@ -4,13 +4,13 @@
 \name{product_placements}
 \alias{product_placements}
 \title{Product placement data.}
-\format{A data frame with 36,786,524 rows and 5 variables
+\format{A data frame with 20,940,529 rows and 5 variables
 \describe{
   \item{product_id}{Uniquely identifies each product}
   \item{store_id}{Uniquely identifies each store}
   \item{display}{Display location  (see details for range of values)}
   \item{mailer}{Mailer location (see details for range of values)}
-  \item{week_no}{Week of the transaction; Ranges 1-102}
+  \item{week_number}{Week of the transaction; Ranges 1-53}
 }}
 \source{
 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
@@ -65,7 +65,7 @@ product_placements
 # product promotion/location
 transactions \%>\%
   left_join(product_placements,
-            c("product_id", "store_id", "week_no"))
+            c("product_id", "store_id", "week_number"))
 }
 }
 }

@@ -15,8 +15,8 @@
   \item{retail_disc}{Discount applied due to retailer's loyalty card program}
   \item{coupon_disc}{Discount applied due to manufacturer coupon}
   \item{coupon_match_disc}{Discount applied due to retailer's match of manufacturer coupon}
-  \item{week_no}{Week of the transaction; Ranges 1-102}
-  \item{trans_timestamp}{Date and time of when the transaction occurred}
+  \item{week_number}{Week of the transaction; Ranges 1-53}
+  \item{transaction_timestamp}{Date and time of when the transaction occurred}
 }}
 \source{
 84.51, Customer Journey study, \url{http://www.8451.com/area51/}

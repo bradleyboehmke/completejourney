@@ -48,7 +48,7 @@ transactions <- read_csv("../../Data sets/Complete_Journey_UV_Version/transactio
          transaction_timestamp)
 
 # save final data set
-devtools::use_data(transactions)
+devtools::use_data(transactions, overwrite = TRUE)
 
 # demographics -----------------------------------------------------------------
 
@@ -89,7 +89,7 @@ demographics <- read_csv("../../Data sets/Complete_Journey_UV_Version/hh_demogra
     )
 
 # save final data set
-devtools::use_data(demographics)
+devtools::use_data(demographics, overwrite = TRUE)
 
 # products ---------------------------------------------------------------------
 
@@ -136,9 +136,23 @@ products <- read_csv("../../Data sets/Complete_Journey_UV_Version/product.csv") 
   select(product_id, manufacturer_id, department, brand, commodity_desc, sub_commodity_desc, product_size)
 
 # save final data set
-devtools::use_data(products)
+devtools::use_data(products, overwrite = TRUE)
 
+# product_placements -----------------------------------------------------------
 
+product_placements <- read_csv("../../Data sets/Complete_Journey_UV_Version/causal_data.csv") %>%
+  # convert the id variables to characters
+  mutate_at(vars(ends_with("_id")), as.character) %>% 
+  # re-index the week
+  mutate(week_number = week_no - 40) %>% 
+  # only select data from 2017
+  semi_join(., transactions, by = 'week_number') %>%
+  # sort by week first, since that is helpful to understand
+  arrange(week_number, product_id, store_id) %>%
+  select(product_id, store_id, display, mailer, week_number) 
+
+# save final data set
+devtools::use_data(product_placements, overwrite = TRUE)
 
 
 
