@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 ## The Complete Journey
 
-This dataset contains household level transactions over two years from a group of 2,500 households who are frequent shoppers at a retailer. It contains all of each household’s purchases, not just those from a limited number of categories. For certain households, demographic information as well as direct marketing contact history are included.
+This dataset contains household level transactions over one year from a group of 2,500 households who are frequent shoppers at a retailer. It contains all of each household’s purchases, not just those from a limited number of categories. For certain households, demographic information as well as direct marketing contact history are included.
 
 Due to the number of tables and the overall complexity of The Complete Journey, it is suggested that this database be used in more advanced classroom settings. Further, The Complete Journey would be ideal for academic research as it should enable one to study the effects of direct marketing to customers.
 
@@ -45,13 +45,13 @@ This table contains demographic information for a portion of households. Due to 
 Variable | Description
 ------------- | --------------------------------------------
 `household_id` | Uniquely identifies each household
-`age_desc` | Estimated age range
-`marital_status_code` | Marital status (A - married, B - single, U - unknown)
-`income_desc` | Household income
-`homeowner_desc` | Homeowner, renter, etc.
-`hh_comp_desc` | Household composition
-`household_size_desc` | Size of household up to 5+
-`kid_category_desc` | Number of children present up to 3+
+`age` | Estimated age range
+`income` | Household income
+`marital_status` | Marital status (Married, Single, Unknown)
+`home_ownership` | Homeowner, renter, etc.
+`household_size` | Size of household up to 5+
+`household_comp` | Household composition
+`kid_count` | Number of children present up to 3+
 
 ### `transactions`
 
@@ -68,9 +68,8 @@ Variable | Definition
 `retail_disc` | Discount applied due to the retailer's loyalty card program
 `coupon_disc` | Discount applied due to a manufacturer coupon
 `coupon_match_disc` | Discount applied due to retailer's match of manufacturer coupon 
-`week_no` | Week of the transaction; Ranges 1-102
-`day` | Day when the transaction occurred
-`trans_time` | Time of day when the transaction occurred
+`week` | Week of the transaction; Ranges 1-53
+`transaction_timestamp` | Date and time of day when the transaction occurred
 
 The variable `sales_value` in this table is the amount of dollars received by the retailer on the sale of the specific product, taking the coupon match and loyalty card discount into account. It is not the actual price paid by the customer. If a customer uses a coupon, the actual price paid will be less than the `sales_value` because the manufacturer issuing the coupon will reimburse the retailer for the amount of the coupon.
 
@@ -84,11 +83,8 @@ The example below demonstrates how to calculate the actual shelf price of the pr
 knitr::include_graphics("example_transaction_data.png")
 ```
 
-* Line 1 – When this product was purchased the `retail_disc` and `coupon_disc` were both
-zero, meaning the price of the product is the same as the amount received by the
-retailer.
-* Line 2 – Two items of this product were purchased, and there was a retail discount
-applied due to a loyalty card. To determine the regular shelf price of the product (exclusive of loyalty card discount) we take the sum of the amount paid and the discount, then divide it by the quantity. ($\$2 + \$1.34) \div 2 = \$1.67$. The shelf price of the product including loyalty card discount is $\$2 \div 2 = \$1$. Also, the customer paid $2 for both of these products which is the same amount the retailer received.
+* Line 1 – When this product was purchased the `retail_disc` and `coupon_disc` were both zero, meaning the price of the product is the same as the amount received by the retailer.
+* Line 2 – Two items of this product were purchased, and there was a retail discount applied due to a loyalty card. To determine the regular shelf price of the product (exclusive of loyalty card discount) we take the sum of the amount paid and the discount, then divide it by the quantity. ($\$2 + \$1.34) \div 2 = \$1.67$. The shelf price of the product including loyalty card discount is $\$2 \div 2 = \$1$. Also, the customer paid $2 for both of these products which is the same amount the retailer received.
 * Line 3 – The actual shelf price of each product here is ($\$2.89 + \$0.45) \div 2 = \$1.67$. Also, the customer paid \$2.34 ($\$2.89 - \$0.55$) for these products, but the retailer will receive $2.89 due to the manufacturer discount.
 
 ### `campaigns` 
@@ -97,9 +93,9 @@ Contains identifying information for the marketing campaigns each households par
 
 Variable | Definition
 ------------- | --------------------------------------------
+`campaign_id` | Uniquely identifies each campaign; Ranges 1-30
 `household_id` | Uniquely identifies each household
-`campaign` | Uniquely identifies each campaign; Ranges 1-30
-`description` | Type of campaign (TypeA, TypeB, TypeC)
+
 
 ### `campaign_descriptions`
 
@@ -108,10 +104,10 @@ was active.
 
 Variable | Definition
 ------------- | --------------------------------------------
-`campaign` | Uniquely identifies each campaign; Ranges 1-30
-`description` | Type of campaign (TypeA, TypeB, TypeC)
-`start_day` | Start date of campaign
-`end_day` | End date of campaign
+`campaign_id` | Uniquely identifies each campaign; Ranges 1-30
+`campaign_type` | Type of campaign (Type A, Type B, Type C)
+`start_date` | Start date of campaign
+`end_date` | End date of campaign
 
 ### `products`
 
@@ -120,12 +116,12 @@ Contains metatdata regarding the products purchased (brand, description, etc.).
 Variable | Definition
 ------------- | --------------------------------------------
 `product_id` | Uniquely identifies each product
-`manufacturer` | Uniquely identifies each manufacturer
+`manufacturer_id` | Uniquely identifies each manufacturer
 `department` | Groups similar products together
 `brand` | Indicates private or national label brand
-`commodity_desc` | Groups similar products together at lower level
-`sub_commodity_desc` | Groups similar products together at lowest level
-`curr_size_of_product` | Indicates package size (not available for all products)
+`product_category` | Groups similar products together at lower level
+`product_type` | Groups similar products together at lowest level
+`package_size` | Indicates package size (not available for all products)
 
 ### `coupons`
 
@@ -139,7 +135,7 @@ Variable | Definition
 ------------- | --------------------------------------------
 `coupon_upc` | Uniquely identifies each coupon (unique to household and campaign)
 `product_id` | Uniquely identifies each product
-`campaign` | Uniquely identifies each campaign
+`campaign_id` | Uniquely identifies each campaign
 
 ### `coupon_redemptions`
 
@@ -151,10 +147,10 @@ Variable | Definition
 ------------- | --------------------------------------------
 `household_id` | Uniquely identifies each household
 `coupon_upc` | Uniquely identifies each coupon (unique to household and campaign)
-`campaign` | Uniquely identifies each campaign
-`day` | Day when transaction occurred
+`campaign_id` | Uniquely identifies each campaign
+`redemption_date` | Day when transaction occurred
 
-### `product_placements`
+### `promotions`
 
 Contains product placement information (e.g. mailer page placement 
 and in-store display placement) corresponding to campaigns.
@@ -163,9 +159,9 @@ Variable | Definition
 ------------- | --------------------------------------------
 `product_id` | Uniquely identifies each product
 `store_id` | Uniquely identifies each store
-`week_no` | Week of the transaction; Ranges 1-102
-`display` | Display location (0-display, 1-store front, 2-store rear, 3-front end cap, 4-mid-aisle end cap, 5-rear end cap, 6-side aisle end cap, 7-in-aisle, 9-secondary location display, A-in-shelf)
-`mailer` | Mailer location (0-not on ad, A-interior page feature, C-interior page line item, D-front page feature, F-back page feature, H-wrap front feature, J-wrap interior coupon, L-wrap back feature, P-interior page coupon, X-free on interior page, Z-free on front page, back page, or wrap)
+`week` | Week of the transaction; Ranges 1-53
+`display_location` | Display location (0-display, 1-store front, 2-store rear, 3-front end cap, 4-mid-aisle end cap, 5-rear end cap, 6-side aisle end cap, 7-in-aisle, 9-secondary location display, A-in-shelf)
+`mailer_location` | Mailer location (0-not on ad, A-interior page feature, C-interior page line item, D-front page feature, F-back page feature, H-wrap front feature, J-wrap interior coupon, L-wrap back feature, P-interior page coupon, X-free on interior page, Z-free on front page, back page, or wrap)
 
 
 ## Example Case Study
@@ -177,33 +173,29 @@ To learn a little about John, we can obtain his demographic information by looki
 ```{r}
 library(completejourney)
 library(dplyr)
-library(bit64)
 
-demographics %>% filter(household_id == 208)
+demographics %>% filter(household_id == "208")
 ```
 
-If we look at John’s records from `campaigns`, we can see that he received 8 different campaigns. Five of the campaigns were TypeA, and three were TypeB.
+If we look at John’s records from `campaigns`, we can see that he received 8 different campaigns. 
 
 ```{r}
-campaigns %>% filter(household_id == 208)
+campaigns %>% filter(household_id == "208")
 ```
 
-These campaigns were spread out over the 2 year period of the study. To understand the time periods of these campaigns, look at the records in the `campaigns` table for the campaigns listed above for John.
+These campaigns were spread out over the 2 year period of the study. To understand the time periods and types of these campaigns, you can join with the `campaign_descriptions` data. In this example, we see the type of campaign along with the start and end dates of the campaign.  Campaign 26, however, does not have any information associated as it took place outside of 2017.
 
 ```{r}
-johns_campaigns <- campaigns %>% 
-  filter(household_id == 208) %>% 
-  distinct(description) %>%
-  pull()
-
-campaign_descriptions %>% filter(description %in% johns_campaigns)
+campaigns %>% 
+  filter(household_id == "208") %>% 
+  left_join(campaign_descriptions)
 ```
 
 Let us take a closer look at campaign 22. When we look at all the distinct coupon_upc’s from the coupon table where campaign = 22, we see that there were 21 distinct coupons sent out as part of that campaign.
 
 ```{r}
 coupons %>% 
-  filter(campaign == 22) %>%
+  filter(campaign_id == "22") %>%
   distinct(coupon_upc)
 ```
 

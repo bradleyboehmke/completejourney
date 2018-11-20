@@ -8,7 +8,7 @@
 \describe{
 \item{coupon_upc}{Uniquely identifies each coupon (unique to household and campaign)}
 \item{product_id}{Uniquely identifies each product}
-\item{campaign}{Uniquely identifies each campaign}
+\item{campaign_id}{Uniquely identifies each campaign}
 }}
 \source{
 84.51, Customer Journey study, \url{http://www.8451.com/area51/}

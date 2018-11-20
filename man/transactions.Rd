@@ -15,7 +15,7 @@
   \item{retail_disc}{Discount applied due to retailer's loyalty card program}
   \item{coupon_disc}{Discount applied due to manufacturer coupon}
   \item{coupon_match_disc}{Discount applied due to retailer's match of manufacturer coupon}
-  \item{week_number}{Week of the transaction; Ranges 1-53}
+  \item{week}{Week of the transaction; Ranges 1-53}
   \item{transaction_timestamp}{Date and time of when the transaction occurred}
 }}
 \source{

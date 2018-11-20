@@ -11,7 +11,7 @@ transactions <- read_csv("../../Data sets/Complete_Journey_UV_Version/transactio
   # convert it to a real date variable
   mutate(day = as.Date('2017-01-01') + (day - 285)) %>% 
   # re-index the week
-  mutate(week_number = week_no - 40) %>% 
+  mutate(week = week_no - 40) %>% 
   # remove one straggling transaction on Christmas Day we will assume they were closed
   filter(day != '2017-12-25') %>%
   # create the transaction timestamp, add a random seconds component
@@ -44,7 +44,7 @@ transactions <- read_csv("../../Data sets/Complete_Journey_UV_Version/transactio
   arrange(transaction_timestamp) %>%
   # reorder the variables
   select(household_id, store_id, basket_id, product_id, quantity, sales_value,
-         retail_disc, coupon_disc, coupon_match_disc, week_number, 
+         retail_disc, coupon_disc, coupon_match_disc, week, 
          transaction_timestamp)
 
 # save final data set
@@ -96,7 +96,9 @@ devtools::use_data(demographics, overwrite = TRUE)
 products <- read_csv("../../Data sets/Complete_Journey_UV_Version/product.csv") %>%
   rename(
     manufacturer_id = manufacturer,
-    product_size = curr_size_of_product
+    package_size = curr_size_of_product,
+    product_category = commodity_desc,
+    product_type = sub_commodity_desc
     ) %>%
   mutate(
     brand = factor(brand, levels = c("National", "Private")),
@@ -112,47 +114,51 @@ products <- read_csv("../../Data sets/Complete_Journey_UV_Version/product.csv") 
     department = gsub("COUP/STR & MFG", "COUPON", department),
     department = gsub("HBC", "DRUG GM", department),
   # fix as many product size descriptions as possible
-    product_size = gsub("CANS", "CAN", product_size),
-    product_size = gsub("COUNT", "CT", product_size),
-    product_size = gsub("DOZEN", "DZ", product_size),
-    product_size = gsub("FEET", "FT", product_size),
-    product_size = gsub("FLOZ", "FL OZ", product_size),
-    product_size = gsub("GALLON|GL", "GAL", product_size),
-    product_size = gsub("GRAM", "G", product_size),
-    product_size = gsub("INCH", "IN", product_size),
-    product_size = gsub("LIT$|LITRE|LITERS|LITER|LTR", "L", product_size),
-    product_size = gsub("OUNCE|OZ\\.", "OZ", product_size),
-    product_size = gsub("PACK|PKT", "PK", product_size),
-    product_size = gsub("PIECE", "PC", product_size),
-    product_size = gsub("PINT", "PT", product_size),
-    product_size = gsub("POUND|POUNDS|LBS|LB\\.", "LB", product_size),
-    product_size = gsub("QUART", "QT", product_size),
-    product_size = gsub("SQFT", "SQ FT", product_size),
-    product_size = gsub("^(\\*|\\+|@|:|\\)|-)", "", product_size),
-    product_size = gsub("([[:digit:]])([[:alpha:]])", "\\1 \\2", product_size),
-    product_size = trimws(product_size)) %>%
+    package_size = gsub("CANS", "CAN", package_size),
+    package_size = gsub("COUNT", "CT", package_size),
+    package_size = gsub("DOZEN", "DZ", package_size),
+    package_size = gsub("FEET", "FT", package_size),
+    package_size = gsub("FLOZ", "FL OZ", package_size),
+    package_size = gsub("GALLON|GL", "GAL", package_size),
+    package_size = gsub("GRAM", "G", package_size),
+    package_size = gsub("INCH", "IN", package_size),
+    package_size = gsub("LIT$|LITRE|LITERS|LITER|LTR", "L", package_size),
+    package_size = gsub("OUNCE|OZ\\.", "OZ", package_size),
+    package_size = gsub("PACK|PKT", "PK", package_size),
+    package_size = gsub("PIECE", "PC", package_size),
+    package_size = gsub("PINT", "PT", package_size),
+    package_size = gsub("POUND|POUNDS|LBS|LB\\.", "LB", package_size),
+    package_size = gsub("QUART", "QT", package_size),
+    package_size = gsub("SQFT", "SQ FT", package_size),
+    package_size = gsub("^(\\*|\\+|@|:|\\)|-)", "", package_size),
+    package_size = gsub("([[:digit:]])([[:alpha:]])", "\\1 \\2", package_size),
+    package_size = trimws(package_size)) %>%
   # convert the id variables to characters
   mutate_at(vars(ends_with("_id")), as.character) %>% 
-  select(product_id, manufacturer_id, department, brand, commodity_desc, sub_commodity_desc, product_size)
+  select(product_id, manufacturer_id, department, brand, product_category, product_type, package_size)
 
 # save final data set
 devtools::use_data(products, overwrite = TRUE)
 
-# product_placements -----------------------------------------------------------
+# promotions -----------------------------------------------------------------
 
-product_placements <- read_csv("../../Data sets/Complete_Journey_UV_Version/causal_data.csv") %>%
+promotions <- read_csv("../../Data sets/Complete_Journey_UV_Version/causal_data.csv") %>%
   # convert the id variables to characters
   mutate_at(vars(ends_with("_id")), as.character) %>% 
   # re-index the week
-  mutate(week_number = week_no - 40) %>% 
+  mutate(
+    display = as.factor(display),
+    mailer = as.factor(mailer),
+    week = week_no - 40
+    ) %>% 
   # only select data from 2017
-  semi_join(., transactions, by = 'week_number') %>%
+  semi_join(., transactions, by = 'week') %>%
   # sort by week first, since that is helpful to understand
-  arrange(week_number, product_id, store_id) %>%
-  select(product_id, store_id, display, mailer, week_number) 
+  arrange(week, product_id, store_id) %>%
+  select(product_id, store_id, display_location = display, mailer_location = mailer, week) 
 
 # save final data set
-devtools::use_data(product_placements, overwrite = TRUE)
+devtools::use_data(promotions, overwrite = TRUE)
 
 # campaigns --------------------------------------------------------------------
 
@@ -179,6 +185,7 @@ campaign_descriptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/c
     end_date = end_day
     ) %>%
   mutate(
+    campaign_id = as.character(campaign_id),
     description = gsub('(Type)(A|B|C)', '\\1 \\2', description),
     description = factor(description, levels = paste('Type', LETTERS[1:3]), ordered = TRUE),
     start_date = as.Date('2017-01-01') + (start_date - 285),
@@ -187,7 +194,7 @@ campaign_descriptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/c
   filter(year(start_date) == 2017 | year(end_date) == 2017) %>%
   # sort by date since that helps understand the timing of each campaign
   arrange(start_date) %>% 
-  select(campaign_id, description, start_date, end_date)
+  select(campaign_id, campaign_type = description, start_date, end_date)
   
 # save final data set
 devtools::use_data(campaign_descriptions, overwrite = TRUE)  

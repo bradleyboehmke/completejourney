@@ -10,8 +10,8 @@
 #' \describe{
 #' \item{household_id}{Uniquely identifies each household}
 #' \item{age}{Estimated age range}
-#' \item{marital_status}{Marital status (Married, Single, Unknown)}
 #' \item{income}{Household income range}
+#' \item{marital_status}{Marital status (Married, Single, Unknown)}
 #' \item{home_ownership}{Homeowner status (Homeowner, Renter, Unknown)}
 #' \item{household_size}{Size of household up to 5+}
 #' \item{household_comp}{Household composition description}

@@ -8,10 +8,10 @@
 #' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 30 rows and 4 variables
 #' \describe{
-#' \item{campaign}{Uniquely identifies each campaign; Ranges 1-30}
-#' \item{description}{Type of campaign (Type A, Type B, Type C)}
-#' \item{start_day}{Start date of campaign}
-#' \item{end_day}{End date of campaign}
+#' \item{campaign_id}{Uniquely identifies each campaign; Ranges 1-30}
+#' \item{campaign_type}{Type of campaign (Type A, Type B, Type C)}
+#' \item{start_date}{Start date of campaign}
+#' \item{end_date}{End date of campaign}
 #' }
 #' @examples
 #' \dontrun{

@@ -27,7 +27,7 @@ datasets:
   - `coupons`: coupon metadata (UPC code, campaign, etc.)
   - `coupon_redemptions`: coupon redemptions (household, day, UPC code,
     campaign)
-  - `product_placements`: product placement in mailers and in stores
+  - `promotions`: product placement in mailers and in stores
     corresponding to advertising campaigns
 
 ## Installation

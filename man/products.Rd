@@ -10,9 +10,9 @@
 \item{manufacturer_id}{Uniquely identifies each manufacturer}
 \item{department}{Groups similar products together}
 \item{brand}{Indicates Private or National label brand}
-\item{commodity_desc}{Groups similar products together at lower level}
-\item{sub_commodity_desc}{Groups similar products together at lowest level}
-\item{product_size}{Indicates package size (not available for all products)}
+\item{product_category}{Groups similar products together at lower level}
+\item{product_type}{Groups similar products together at lowest level}
+\item{package_size}{Indicates package size (not available for all products)}
 }}
 \source{
 84.51, Customer Journey study, \url{http://www.8451.com/area51/}

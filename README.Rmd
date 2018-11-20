@@ -29,7 +29,7 @@ The data represents retail shopping transactions over two years from a group of 
 * `campaign_descriptions`: campaign metadata (length of time active)
 * `coupons`: coupon metadata (UPC code, campaign, etc.)
 * `coupon_redemptions`: coupon redemptions (household, day, UPC code, campaign)
-* `product_placements`: product placement in mailers and in stores corresponding to advertising campaigns
+* `promotions`: product placement in mailers and in stores corresponding to advertising campaigns
 
 ## Installation
 
