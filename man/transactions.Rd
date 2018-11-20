@@ -4,7 +4,7 @@
 \name{transactions}
 \alias{transactions}
 \title{Complete Journey transactions.}
-\format{A data frame with 2,595,732 rows and 12 variables
+\format{A data frame with 1,469,307 rows and 11 variables
 \describe{
   \item{household_id}{Uniquely identifies each household}
   \item{store_id}{Uniquely identifies each store}
@@ -16,8 +16,7 @@
   \item{coupon_disc}{Discount applied due to manufacturer coupon}
   \item{coupon_match_disc}{Discount applied due to retailer's match of manufacturer coupon}
   \item{week_no}{Week of the transaction; Ranges 1-102}
-  \item{day}{Day when transaction occurred}
-  \item{trans_time}{Time of day when the transaction occurred}
+  \item{trans_timestamp}{Date and time of when the transaction occurred}
 }}
 \source{
 84.51, Customer Journey study, \url{http://www.8451.com/area51/}

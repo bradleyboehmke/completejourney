@@ -7,13 +7,13 @@
 \format{A data frame with 801 rows and 8 variables
 \describe{
 \item{household_id}{Uniquely identifies each household}
-\item{age_desc}{Estimated age range}
-\item{marital_status_code}{Marital status (A - Married, B - Single, U - Unknown)}
-\item{income_desc}{Household income}
-\item{homeowner_desc}{Homeowner status (Homeowner, Renter, Unknown)}
-\item{hh_comp_desc}{Household composition description}
-\item{household_size_desc}{Size of household up to 5+}
-\item{kid_category_desc}{Number of children present up to 3+}
+\item{age}{Estimated age range}
+\item{marital_status}{Marital status (Married, Single, Unknown)}
+\item{income}{Household income range}
+\item{home_ownership}{Homeowner status (Homeowner, Renter, Unknown)}
+\item{household_size}{Size of household up to 5+}
+\item{household_comp}{Household composition description}
+\item{kids_count}{Number of children present up to 3+}
 }}
 \source{
 84.51, Customer Journey study, \url{http://www.8451.com/area51/}

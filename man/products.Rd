@@ -7,12 +7,12 @@
 \format{A data frame with 92,353 rows and 7 variables
 \describe{
 \item{product_id}{Uniquely identifies each product}
-\item{manufacturer}{Uniquely identifies each manufacturer}
+\item{manufacturer_id}{Uniquely identifies each manufacturer}
 \item{department}{Groups similar products together}
 \item{brand}{Indicates Private or National label brand}
 \item{commodity_desc}{Groups similar products together at lower level}
 \item{sub_commodity_desc}{Groups similar products together at lowest level}
-\item{curr_size_of_product}{Indicates package size (not available for all products)}
+\item{product_size}{Indicates package size (not available for all products)}
 }}
 \source{
 84.51, Customer Journey study, \url{http://www.8451.com/area51/}

@@ -88,5 +88,59 @@ demographics <- read_csv("../../Data sets/Complete_Journey_UV_Version/hh_demogra
     household_comp, kids_count
     )
 
+# save final data set
 devtools::use_data(demographics)
+
+# products ---------------------------------------------------------------------
+
+products <- read_csv("../../Data sets/Complete_Journey_UV_Version/product.csv") %>%
+  rename(
+    manufacturer_id = manufacturer,
+    product_size = curr_size_of_product
+    ) %>%
+  mutate(
+    brand = factor(brand, levels = c("National", "Private")),
+  # standardize/collapse some departments
+    department = gsub("MISC\\. TRANS\\.|MISC SALES TRAN", "MISCELLANEOUS", department),
+    department = gsub("VIDEO RENTAL|VIDEO|PHOTO", "PHOTO & VIDEO", department),
+    department = gsub("RX|PHARMACY SUPPLY", "DRUG GM", department),
+    department = gsub("DAIRY DELI|DELI/SNACK BAR", "DELI", department),
+    department = gsub("PORK|MEAT-WHSE", "MEAT", department),
+    department = gsub("GRO BAKERY", "GROCERY", department),
+    department = gsub("KIOSK-GAS", "FUEL", department),
+    department = gsub("TRAVEL & LEISUR", "TRAVEL & LEISURE", department),
+    department = gsub("COUP/STR & MFG", "COUPON", department),
+    department = gsub("HBC", "DRUG GM", department),
+  # fix as many product size descriptions as possible
+    product_size = gsub("CANS", "CAN", product_size),
+    product_size = gsub("COUNT", "CT", product_size),
+    product_size = gsub("DOZEN", "DZ", product_size),
+    product_size = gsub("FEET", "FT", product_size),
+    product_size = gsub("FLOZ", "FL OZ", product_size),
+    product_size = gsub("GALLON|GL", "GAL", product_size),
+    product_size = gsub("GRAM", "G", product_size),
+    product_size = gsub("INCH", "IN", product_size),
+    product_size = gsub("LIT$|LITRE|LITERS|LITER|LTR", "L", product_size),
+    product_size = gsub("OUNCE|OZ\\.", "OZ", product_size),
+    product_size = gsub("PACK|PKT", "PK", product_size),
+    product_size = gsub("PIECE", "PC", product_size),
+    product_size = gsub("PINT", "PT", product_size),
+    product_size = gsub("POUND|POUNDS|LBS|LB\\.", "LB", product_size),
+    product_size = gsub("QUART", "QT", product_size),
+    product_size = gsub("SQFT", "SQ FT", product_size),
+    product_size = gsub("^(\\*|\\+|@|:|\\)|-)", "", product_size),
+    product_size = gsub("([[:digit:]])([[:alpha:]])", "\\1 \\2", product_size),
+    product_size = trimws(product_size)) %>%
+  # convert the id variables to characters
+  mutate_at(vars(ends_with("_id")), as.character) %>% 
+  select(product_id, manufacturer_id, department, brand, commodity_desc, sub_commodity_desc, product_size)
+
+# save final data set
+devtools::use_data(products)
+
+
+
+
+
+
 
