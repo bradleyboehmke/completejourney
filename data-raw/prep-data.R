@@ -154,7 +154,28 @@ product_placements <- read_csv("../../Data sets/Complete_Journey_UV_Version/caus
 # save final data set
 devtools::use_data(product_placements, overwrite = TRUE)
 
+# campaigns --------------------------------------------------------------------
 
+campaigns <- read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_table.csv") %>%
+  rename(
+    campaign_id = campaign,
+    household_id = household_key
+    ) %>%
+  # convert the id variables to characters
+  mutate_at(vars(ends_with("_id")), as.character) %>%
+  # arrange by campaign so we can see each together
+  arrange(campaign_id, household_id) %>%
+  select(campaign_id, household_id) 
 
+# save final data set
+devtools::use_data(campaigns, overwrite = TRUE)
 
+# campaign_descriptions --------------------------------------------------------
 
+read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_desc.csv") %>%
+  rename(
+    campaign_id = campaign, 
+    start_date = start_day, 
+    end_date = end_day
+    ) %>%
+  
