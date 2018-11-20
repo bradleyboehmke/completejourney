@@ -172,10 +172,70 @@ devtools::use_data(campaigns, overwrite = TRUE)
 
 # campaign_descriptions --------------------------------------------------------
 
-read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_desc.csv") %>%
+campaign_descriptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_desc.csv") %>%
   rename(
     campaign_id = campaign, 
     start_date = start_day, 
     end_date = end_day
     ) %>%
+  mutate(
+    description = gsub('(Type)(A|B|C)', '\\1 \\2', description),
+    description = factor(description, levels = paste('Type', LETTERS[1:3]), ordered = TRUE),
+    start_date = as.Date('2017-01-01') + (start_date - 285),
+    end_date = as.Date('2017-01-01') + (end_date - 285)
+    ) %>%
+  filter(year(start_date) == 2017 | year(end_date) == 2017) %>%
+  # sort by date since that helps understand the timing of each campaign
+  arrange(start_date) %>% 
+  select(campaign_id, description, start_date, end_date)
   
+# save final data set
+devtools::use_data(campaign_descriptions, overwrite = TRUE)  
+
+
+# coupons ----------------------------------------------------------------------
+
+
+
+# coupon_redemptions -----------------------------------------------------------
+
+
+
+# summaries --------------------------------------------------------------------
+
+daily_sales <- transactions %>% 
+  mutate(date = as.Date(transaction_timestamp, tz="America/New_York")) %>%
+  group_by(date) %>% 
+  summarize(total_sales_value = sum(sales_value, na.rm = TRUE)) 
+
+daily_sales %>% View()
+
+daily_sales %>% 
+  ggplot() +
+  geom_line(mapping = aes(x = date, y = total_sales_value))
+
+daily_sales %>% 
+  mutate(dow = strftime(date, '%A')) %>% 
+  mutate(dow = factor(dow, levels=c("Monday", "Tuesday", "Wednesday", 
+                                    "Thursday", "Friday", 
+                                    "Saturday", "Sunday"), ordered=TRUE)) %>%
+  group_by(dow) %>% 
+  summarize(avg_sales = mean(total_sales_value)) %>% 
+  ggplot() + 
+  geom_bar(aes(x=dow, y=avg_sales), stat = 'identity')
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
