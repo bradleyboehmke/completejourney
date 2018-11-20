@@ -8,8 +8,8 @@
 \describe{
   \item{household_id}{Uniquely identifies each household}
   \item{coupon_upc}{Uniquely identifies each coupon (unique to household and campaign)}
-  \item{campaign}{Uniquely identifies each campaign}
-  \item{day}{Day when transaction occurred}
+  \item{campaign_id}{Uniquely identifies each campaign}
+  \item{redemption_date}{Day when transaction occurred}
 }}
 \source{
 84.51, Customer Journey study, \url{http://www.8451.com/area51/}

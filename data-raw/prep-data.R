@@ -195,11 +195,31 @@ devtools::use_data(campaign_descriptions, overwrite = TRUE)
 
 # coupons ----------------------------------------------------------------------
 
+coupons <- read_csv("../../Data sets/Complete_Journey_UV_Version/coupon.csv") %>%
+  rename(campaign_id = campaign) %>%
+  mutate(coupon_upc = as.character(coupon_upc)) %>%
+  # convert the id variables to characters
+  mutate_at(vars(ends_with("_id")), as.character) %>% 
+  arrange(coupon_upc, product_id) %>%
+  select(coupon_upc, product_id, campaign_id)
 
+devtools::use_data(coupons, overwrite = TRUE) 
 
 # coupon_redemptions -----------------------------------------------------------
 
+coupon_redemptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/coupon_redempt.csv") %>%
+  rename(
+    household_id = household_key,
+    campaign_id = campaign
+    ) %>%
+  # convert the id variables to characters
+  mutate_at(vars(ends_with("_id")), as.character) %>% 
+  mutate(redemption_date = as.Date('2017-01-01') + (day - 285)) %>%
+  filter(year(redemption_date) == 2017) %>%
+  arrange(redemption_date) %>%
+  select(household_id, coupon_upc, campaign_id, redemption_date)  
 
+devtools::use_data(coupon_redemptions, overwrite = TRUE) 
 
 # summaries --------------------------------------------------------------------
 
