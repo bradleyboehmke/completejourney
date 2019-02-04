@@ -10,8 +10,8 @@ Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)]
 ## Overview
 
 An R data package of the Complete Journey Study provided by
-[84.51](http://www.8451.com). The data represents retail shopping
-transactions over two years from a group of 2,500 households who are
+[84.51](http://www.8451.com). The data represents grocery store shopping
+transactions over one year from a group of 2,469 households who are
 frequent shoppers at a retailer. It contains all of each household’s
 purchases, not just those from a limited number of categories. For
 certain households, demographic information as well as direct marketing

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Product metadata. — products • completejourney</title>
+<title>Promotions data. — promotions • completejourney</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,11 @@
 
 
 
-<meta property="og:title" content="Product metadata. — products" />
+<meta property="og:title" content="Promotions data. — promotions" />
 
-<meta property="og:description" content="Product metadata for all products purchased by households participating in
-the Customer Journey study." />
+<meta property="og:description" content="Promotions data of the Complete Journey study signifying whether a given 
+product was featured in the weekly mailer or was part of an in-store display 
+(other than regular product placement)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,46 +119,79 @@ the Customer Journey study." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Product metadata.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/products.R'><code>R/products.R</code></a></small>
-    <div class="hidden name"><code>products.Rd</code></div>
+    <h1>Promotions data.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/promotions.R'><code>R/promotions.R</code></a></small>
+    <div class="hidden name"><code>promotions.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Product metadata for all products purchased by households participating in
-the Customer Journey study.</p>
+    <p>Promotions data of the Complete Journey study signifying whether a given 
+product was featured in the weekly mailer or was part of an in-store display 
+(other than regular product placement).</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>products</span></pre>
+    <pre class="usage"><span class='no'>promotions</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 92,331 rows and 7 variables</p><dl class='dl-horizontal'>
-<dt>product_id</dt><dd><p>Uniquely identifies each product</p></dd>
-<dt>manufacturer_id</dt><dd><p>Uniquely identifies each manufacturer</p></dd>
-<dt>department</dt><dd><p>Groups similar products together</p></dd>
-<dt>brand</dt><dd><p>Indicates Private or National label brand</p></dd>
-<dt>product_category</dt><dd><p>Groups similar products together at lower level</p></dd>
-<dt>product_type</dt><dd><p>Groups similar products together at lowest level</p></dd>
-<dt>package_size</dt><dd><p>Indicates package size (not available for all products)</p></dd>
+    <p>A data frame with 20,940,529 rows and 5 variables</p><dl class='dl-horizontal'>
+  <dt>product_id</dt><dd><p>Uniquely identifies each product</p></dd>
+  <dt>store_id</dt><dd><p>Uniquely identifies each store</p></dd>
+  <dt>display_location</dt><dd><p>Display location  (see details for range of values)</p></dd>
+  <dt>mailer_location</dt><dd><p>Mailer location (see details for range of values)</p></dd>
+  <dt>week</dt><dd><p>Week of the transaction; Ranges 1-53</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p>84.51, Customer Journey study, <a href='http://www.8451.com/area51/'>http://www.8451.com/area51/</a></p>
     
+    <h2 class="hasAnchor" id="display-location-codes"><a class="anchor" href="#display-location-codes"></a>Display Location Codes</h2>
+
+    
+    <ul>
+<li><p>0 - Not on Display</p></li>
+<li><p>1 - Store Front</p></li>
+<li><p>2 - Store Rear</p></li>
+<li><p>3 - Front End Cap</p></li>
+<li><p>4 - Mid-Aisle End Cap</p></li>
+<li><p>5 - Rear End Cap</p></li>
+<li><p>6 - Side-Aisle End Cap</p></li>
+<li><p>7 - In-Aisle</p></li>
+<li><p>9 - Secondary Location Display</p></li>
+<li><p>A - In-Shelf</p></li>
+</ul>
+    
+    <h2 class="hasAnchor" id="mailer-location-codes"><a class="anchor" href="#mailer-location-codes"></a>Mailer Location Codes</h2>
+
+    
+    <ul>
+<li><p>0 - Not on ad</p></li>
+<li><p>A - Interior page feature</p></li>
+<li><p>C - Interior page line item</p></li>
+<li><p>D - Front page feature</p></li>
+<li><p>F - Back page feature</p></li>
+<li><p>H - Wrap from feature</p></li>
+<li><p>J - Wrap interior coupon</p></li>
+<li><p>L - Wrap back feature</p></li>
+<li><p>P - Interior page coupon</p></li>
+<li><p>X - Free on interior page</p></li>
+<li><p>Z - Free on front page, back page or wrap</p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
 <span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"dplyr"</span>)) {
-<span class='no'>products</span>
+<span class='no'>promotions</span>
 
-<span class='co'># Transaction line items that don't have product metadata</span>
+<span class='co'># Join promotions to transactions to analyze</span>
+<span class='co'># product promotion/location</span>
 <span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)
-
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>promotions</span>,
+            <span class='fu'>c</span>(<span class='st'>"product_id"</span>, <span class='st'>"store_id"</span>, <span class='st'>"week"</span>))
 }
 <span class='co'># }</span></pre>
   </div>
@@ -168,6 +202,10 @@ the Customer Journey study.</p>
       <li><a href="#format">Format</a></li>
 
       <li><a href="#source">Source</a></li>
+
+      <li><a href="#display-location-codes">Display Location Codes</a></li>
+
+      <li><a href="#mailer-location-codes">Mailer Location Codes</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

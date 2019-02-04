@@ -4,7 +4,7 @@
 \name{campaigns}
 \alias{campaigns}
 \title{Campaigns to household data.}
-\format{A data frame with 7,208 rows and 3 variables
+\format{A data frame with 6,589 rows and 3 variables
 \describe{
 \item{campaign_id}{Uniquely identifies each campaign; Ranges 1-30}
 \item{household_id}{Uniquely identifies each household}

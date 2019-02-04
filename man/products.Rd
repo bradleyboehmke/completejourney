@@ -4,7 +4,7 @@
 \name{products}
 \alias{products}
 \title{Product metadata.}
-\format{A data frame with 92,353 rows and 7 variables
+\format{A data frame with 92,331 rows and 7 variables
 \describe{
 \item{product_id}{Uniquely identifies each product}
 \item{manufacturer_id}{Uniquely identifies each manufacturer}

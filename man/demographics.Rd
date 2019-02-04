@@ -9,8 +9,8 @@
 \item{household_id}{Uniquely identifies each household}
 \item{age}{Estimated age range}
 \item{income}{Household income range}
-\item{marital_status}{Marital status (Married, Single, Unknown)}
 \item{home_ownership}{Homeowner status (Homeowner, Renter, Unknown)}
+\item{marital_status}{Marital status (Married, Single, Unknown)}
 \item{household_size}{Size of household up to 5+}
 \item{household_comp}{Household composition description}
 \item{kids_count}{Number of children present up to 3+}

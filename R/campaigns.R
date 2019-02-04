@@ -4,7 +4,7 @@
 #' Each household received a different set of marketing campaigns.
 #'
 #' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
-#' @format A data frame with 7,208 rows and 3 variables
+#' @format A data frame with 6,589 rows and 3 variables
 #' \describe{
 #' \item{campaign_id}{Uniquely identifies each campaign; Ranges 1-30}
 #' \item{household_id}{Uniquely identifies each household}

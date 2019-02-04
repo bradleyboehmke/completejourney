@@ -6,7 +6,7 @@
 #' dataset.
 #'
 #' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
-#' @format A data frame with 30 rows and 4 variables
+#' @format A data frame with 27 rows and 4 variables
 #' \describe{
 #' \item{campaign_id}{Uniquely identifies each campaign; Ranges 1-30}
 #' \item{campaign_type}{Type of campaign (Type A, Type B, Type C)}
