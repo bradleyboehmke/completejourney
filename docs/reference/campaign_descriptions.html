@@ -64,7 +64,7 @@ dataset." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">completejourney</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9000</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1</span>
       </span>
     </div>
 
@@ -138,11 +138,11 @@ dataset.</p>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 30 rows and 4 variables</p><dl class='dl-horizontal'>
-<dt>description</dt><dd><p>Type of campaign (TypeA, TypeB, TypeC)</p></dd>
-<dt>campaign</dt><dd><p>Uniquely identifies each campaign; Ranges 1-30</p></dd>
-<dt>start_day</dt><dd><p>Start date of campaign</p></dd>
-<dt>end_day</dt><dd><p>End date of campaign</p></dd>
+    <p>A data frame with 27 rows and 4 variables</p><dl class='dl-horizontal'>
+<dt>campaign_id</dt><dd><p>Uniquely identifies each campaign; Ranges 1-30</p></dd>
+<dt>campaign_type</dt><dd><p>Type of campaign (Type A, Type B, Type C)</p></dd>
+<dt>start_date</dt><dd><p>Start date of campaign</p></dd>
+<dt>end_date</dt><dd><p>End date of campaign</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -157,7 +157,7 @@ dataset.</p>
 
 <span class='co'># Join product campaign metadata to campaign_table dataset</span>
 <span class='no'>campaigns</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='http://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>campaign_descriptions</span>, <span class='st'>"campaign"</span>)
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>campaign_descriptions</span>, <span class='st'>"campaign_id"</span>)
 }
 <span class='co'># }</span></pre>
   </div>
@@ -177,7 +177,7 @@ dataset.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Brad Boehmke, Steven Mortimer.</p>
+  <p>Developed by Brad Boehmke, Steven M. Mortimer.</p>
 </div>
 
 <div class="pkgdown">

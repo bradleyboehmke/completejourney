@@ -4,7 +4,7 @@
 #' the Customer Journey study.
 #'
 #' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
-#' @format A data frame with 92,353 rows and 7 variables
+#' @format A data frame with 92,331 rows and 7 variables
 #' \describe{
 #' \item{product_id}{Uniquely identifies each product}
 #' \item{manufacturer_id}{Uniquely identifies each manufacturer}

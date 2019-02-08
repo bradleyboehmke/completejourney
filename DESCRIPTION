@@ -1,16 +1,16 @@
 Package: completejourney
-Title: Retail shopping data on 2500 households over two years
-Version: 0.0.0.9000
+Title: Retail shopping data on 2,469 households over one year
+Version: 0.0.1
 Authors@R: c(
   person("Brad", "Boehmke",
          email = "bradley.boehmke@8451.com",
          role = c("aut", "cre"),
          comment = c(ORCID = "0000-0002-3611-8516")),
-  person("Steven", "Mortimer",
-         email = "MortimerS19@darden.virginia.edu",
+  person(c("Steven", "M."), "Mortimer",
+         email = "reportmort@gmail.com",
          role = "aut")
   )
-Description: Retail shopping transactions for 2500 households over two years.
+Description: Retail shopping transactions for 2,469 households over one year.
     Also includes useful 'metadata' on products, coupons, campaigns, and promotions.
 License: CC0
 LazyData: true
@@ -20,7 +20,7 @@ Imports:
     tibble
 Suggests:
     dplyr,
-    bit64,
+    lubridate,
     knitr,
     rmarkdown
 URL: https://github.com/bradleyboehmke/completejourney

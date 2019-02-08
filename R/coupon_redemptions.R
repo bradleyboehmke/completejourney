@@ -4,12 +4,12 @@
 #' Journey study.
 #'
 #' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
-#' @format A data frame with 2,318 rows and 4 variables
+#' @format A data frame with 2,102 rows and 4 variables
 #' \describe{
 #'   \item{household_id}{Uniquely identifies each household}
 #'   \item{coupon_upc}{Uniquely identifies each coupon (unique to household and campaign)}
 #'   \item{campaign_id}{Uniquely identifies each campaign}
-#'   \item{redemption_date}{Day when transaction occurred}
+#'   \item{redemption_date}{Date when the coupon was redeemed}
 #' }
 #' @examples
 #' \dontrun{

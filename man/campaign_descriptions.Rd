@@ -4,7 +4,7 @@
 \name{campaign_descriptions}
 \alias{campaign_descriptions}
 \title{Campaign metadata.}
-\format{A data frame with 30 rows and 4 variables
+\format{A data frame with 27 rows and 4 variables
 \describe{
 \item{campaign_id}{Uniquely identifies each campaign; Ranges 1-30}
 \item{campaign_type}{Type of campaign (Type A, Type B, Type C)}

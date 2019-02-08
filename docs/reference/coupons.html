@@ -62,7 +62,7 @@ participating in the Customer Journey study." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">completejourney</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9000</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1</span>
       </span>
     </div>
 
@@ -134,10 +134,10 @@ participating in the Customer Journey study.</p>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 124,548 rows and 3 variables</p><dl class='dl-horizontal'>
+    <p>A data frame with 116,204 rows and 3 variables</p><dl class='dl-horizontal'>
 <dt>coupon_upc</dt><dd><p>Uniquely identifies each coupon (unique to household and campaign)</p></dd>
 <dt>product_id</dt><dd><p>Uniquely identifies each product</p></dd>
-<dt>campaign</dt><dd><p>Uniquely identifies each campaign</p></dd>
+<dt>campaign_id</dt><dd><p>Uniquely identifies each campaign</p></dd>
 </dl>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -152,7 +152,7 @@ participating in the Customer Journey study.</p>
 
 <span class='co'># Join product metadata to coupon dataset</span>
 <span class='no'>coupons</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='http://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)
 }
 <span class='co'># }</span></pre>
   </div>
@@ -172,7 +172,7 @@ participating in the Customer Journey study.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Brad Boehmke, Steven Mortimer.</p>
+  <p>Developed by Brad Boehmke, Steven M. Mortimer.</p>
 </div>
 
 <div class="pkgdown">

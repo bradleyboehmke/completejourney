@@ -11,7 +11,7 @@ transactions <- read_csv("../../Data sets/Complete_Journey_UV_Version/transactio
   # convert it to a real date variable
   mutate(day = as.Date('2017-01-01') + (day - 285)) %>% 
   # re-index the week
-  mutate(week = week_no - 40) %>% 
+  mutate(week = as.integer(week_no - 40)) %>% 
   # remove one straggling transaction on Christmas Day we will assume they were closed
   filter(day != '2017-12-25') %>%
   # create the transaction timestamp, add a random seconds component
@@ -44,8 +44,7 @@ transactions <- read_csv("../../Data sets/Complete_Journey_UV_Version/transactio
   arrange(transaction_timestamp) %>%
   # reorder the variables
   select(household_id, store_id, basket_id, product_id, quantity, sales_value,
-         retail_disc, coupon_disc, coupon_match_disc, week, 
-         transaction_timestamp)
+         retail_disc, coupon_disc, coupon_match_disc, week, transaction_timestamp)
 
 # save final data set
 devtools::use_data(transactions, overwrite = TRUE)
@@ -54,7 +53,7 @@ devtools::use_data(transactions, overwrite = TRUE)
 
 demographics <- read_csv("../../Data sets/Complete_Journey_UV_Version/hh_demographic.csv") %>% 
   rename(
-    household_id = household_key,
+    household_id = household_key, 
     age = age_desc,
     income = income_desc,
     home_ownership = homeowner_desc,
@@ -63,30 +62,80 @@ demographics <- read_csv("../../Data sets/Complete_Journey_UV_Version/hh_demogra
     household_comp = hh_comp_desc,
     kids_count = kid_category_desc
     ) %>% 
-  mutate(
-    age = factor(age, levels = c("19-24", "25-34", "35-44", "45-54", "55-64", "65+"), ordered = TRUE),
-    marital_status = recode(marital_status, `A` = "Married", `B` = "Single", `U` = "Unknown"),
-    marital_status = factor(marital_status, levels = c("Married", "Single", "Unknown"), ordered = TRUE),
-    income = factor(income, levels = c("Under 15K", "15-24K", "25-34K", "35-49K", 
-                                       "50-74K", "75-99K", "100-124K", "125-149K", 
-                                       "150-174K", "175-199K", "200-249K", 
-                                       "250K+"), ordered = TRUE),
-    home_ownership = ifelse(home_ownership == "Probable Owner", "Probable Homeowner", home_ownership),
-    home_ownership = factor(home_ownership, levels = c("Renter", "Probable Renter", 
-                                                       "Homeowner", "Probable Homeowner", 
-                                                       "Unknown"), ordered = TRUE),
-    household_comp = factor(household_comp, levels = c("Single Female", "Single Male", 
-                                                       "2 Adults No Kids", "1 Adult Kids",
-                                                       "2 Adults Kids", "Unknown"), ordered = TRUE),
-    household_size = factor(household_size, levels = c("1", "2", "3", "4", "5+"), ordered = TRUE),  
-    kids_count = factor(kids_count, levels = c("1", "2", "3+", "None/Unknown"), ordered = TRUE)
-    ) %>%   
-  arrange(as.numeric(household_id)) %>%
   mutate_at(vars(ends_with("_id")), as.character) %>%
-  select(
-    household_id, age, income, marital_status, home_ownership, household_size,
-    household_comp, kids_count
-    )
+  mutate(
+    marital_status = recode(marital_status, `A` = 'Married', `B` = "Unmarried", `U` = "Unknown"), 
+    home_ownership = ifelse(home_ownership == "Probable Owner", "Probable Homeowner", home_ownership), 
+    household_size = factor(household_size, levels = c("1", "2", "3", "4", "5+"), ordered = TRUE)
+    ) %>%  
+  mutate(household_comp = ifelse((household_comp == "Single Male" | 
+                                    household_comp == "Single Female") & 
+                                   household_size == '1', "1 Adult No Kids", 
+                                 household_comp)) %>%
+  mutate(household_comp = ifelse((household_comp == "Single Male" | 
+                                    household_comp == "Single Female") & 
+                                   as.integer(household_size) > 1, 
+                                 "1 Adult Kids", 
+                                 household_comp)) %>%
+  mutate(kids_count = ifelse(household_comp == "1 Adult No Kids" | 
+                               household_comp == "2 Adults No Kids", 
+                             '0', kids_count)) %>%
+  mutate(household_comp = ifelse(household_comp == "Unknown" & kids_count ==
+                                   "Unknown" & household_size == '1', 
+                                 "1 Adult No Kids", household_comp)) %>%
+  mutate(household_comp = ifelse(household_comp == "Unknown" & household_size ==
+                                   '3' & kids_count == '1', "2 Adults Kids",
+                                 household_comp)) %>%
+  mutate(household_comp = ifelse(household_comp == "Unknown" & household_size ==
+                                   '5+' & kids_count == '3+', "2 Adults Kids",
+                                 household_comp)) %>%
+  mutate(household_comp = ifelse(household_comp == "Unknown" & household_size ==
+                                   '2' & kids_count == '1', "1 Adult Kids",
+                                 household_comp)) %>%
+  mutate(household_comp = ifelse(household_size == '1', "1 Adult No Kids",
+                                 household_comp)) %>%
+  mutate(household_comp = ifelse(household_comp == "Unknown" & marital_status ==
+                                   "Married" & household_size == "2",
+                                 "2 Adults No Kids", household_comp)) %>%
+  mutate(kids_count = ifelse(kids_count == "Unknown" & household_comp ==
+                               "1 Adult Kids" & household_size == '2', '1',
+                             kids_count)) %>%
+  mutate(kids_count = ifelse(kids_count == "Unknown" & marital_status ==
+                               "Married" & household_size == "2", '0', 
+                             kids_count)) %>%
+  mutate(kids_count = ifelse(household_size == '2' & household_comp == 
+                               '1 Adult Kids', '1', kids_count)) %>%
+  mutate(kids_count = ifelse(household_comp == "2 Adults No Kids", '0', 
+                             kids_count)) %>%
+  mutate(kids_count = ifelse(household_size == '1', '0', kids_count)) %>%
+  mutate(marital_status = ifelse(marital_status == "Unknown" & 
+                                   (household_comp == "1 Adult Kids" | 
+                                      household_comp == "1 Adult No Kids"), 
+                                 "Unmarried", marital_status)) %>%
+  mutate(household_comp = factor(household_comp, 
+                                 levels = c("1 Adult Kids", "1 Adult No Kids",
+                                            "2 Adults Kids", "2 Adults No Kids",
+                                            "Unknown"), 
+                                 ordered = TRUE)) %>%
+  mutate(
+    kids_count = factor(kids_count, levels = c("0", "1", "2", "3+", "Unknown"), ordered = TRUE), 
+    age = factor(age, levels = c("19-24", "25-34", "35-44", "45-54", "55-64", "65+"), ordered = TRUE), 
+    home_ownership = factor(home_ownership, 
+                            levels = c("Renter", "Probable Renter", 
+                                       "Homeowner", "Probable Homeowner", "Unknown"), 
+                            ordered = TRUE), 
+    household_size = factor(household_size, levels = c("1", "2", "3", "4", "5+"), ordered = TRUE), 
+    marital_status = factor(marital_status, levels = c("Married", "Unmarried", "Unknown"), ordered = TRUE), 
+    income = factor(income, 
+                    levels = c("Under 15K", "15-24K", "25-34K", "35-49K", 
+                               "50-74K", "75-99K", "100-124K", "125-149K", 
+                               "150-174K", "175-199K", "200-249K", "250K+"), 
+                    ordered = TRUE)
+    ) %>%
+  na_if("Unknown") %>%
+  arrange(household_id) %>%
+  select(household_id, age, income, home_ownership, marital_status, 
+         household_size, household_comp, kids_count)
 
 # save final data set
 devtools::use_data(demographics, overwrite = TRUE)
@@ -100,6 +149,8 @@ products <- read_csv("../../Data sets/Complete_Journey_UV_Version/product.csv") 
     product_category = commodity_desc,
     product_type = sub_commodity_desc
     ) %>%
+  # convert the id variables to characters
+  mutate_at(vars(ends_with("_id")), as.character) %>% 
   mutate(
     brand = factor(brand, levels = c("National", "Private")),
   # standardize/collapse some departments
@@ -133,8 +184,21 @@ products <- read_csv("../../Data sets/Complete_Journey_UV_Version/product.csv") 
     package_size = gsub("^(\\*|\\+|@|:|\\)|-)", "", package_size),
     package_size = gsub("([[:digit:]])([[:alpha:]])", "\\1 \\2", package_size),
     package_size = trimws(package_size)) %>%
-  # convert the id variables to characters
-  mutate_at(vars(ends_with("_id")), as.character) %>% 
+  mutate(
+    product_type = gsub("\\*ATTERIES", "BATTERIES", product_type),
+    product_type = gsub("\\*ATH", "BATH", product_type),
+    product_type = gsub("^\\*", "", product_type)
+    ) %>%
+  # remove these strange cases
+  filter(product_category != "(CORP USE ONLY)", 
+         product_category != "MISCELLANEOUS(CORP USE ONLY)",
+         product_type != "CORPORATE DELETES (DO NOT USE") %>%
+  # how can we deal with cases where product_category == "UNKNOWN", 
+  # but product_type != "UNKNOWN", and values of NA? (ignore for now)
+  na_if("UNKNOWN") %>%
+  na_if("NO COMMODITY DESCRIPTION") %>%
+  na_if("NO SUBCOMMODITY DESCRIPTION") %>% 
+  na_if("NO-NONSENSE") %>%
   select(product_id, manufacturer_id, department, brand, product_category, product_type, package_size)
 
 # save final data set
@@ -149,7 +213,7 @@ promotions <- read_csv("../../Data sets/Complete_Journey_UV_Version/causal_data.
   mutate(
     display = as.factor(display),
     mailer = as.factor(mailer),
-    week = week_no - 40
+    week = as.integer(week_no - 40)
     ) %>% 
   # only select data from 2017
   semi_join(., transactions, by = 'week') %>%
@@ -160,22 +224,6 @@ promotions <- read_csv("../../Data sets/Complete_Journey_UV_Version/causal_data.
 # save final data set
 devtools::use_data(promotions, overwrite = TRUE)
 
-# campaigns --------------------------------------------------------------------
-
-campaigns <- read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_table.csv") %>%
-  rename(
-    campaign_id = campaign,
-    household_id = household_key
-    ) %>%
-  # convert the id variables to characters
-  mutate_at(vars(ends_with("_id")), as.character) %>%
-  # arrange by campaign so we can see each together
-  arrange(campaign_id, household_id) %>%
-  select(campaign_id, household_id) 
-
-# save final data set
-devtools::use_data(campaigns, overwrite = TRUE)
-
 # campaign_descriptions --------------------------------------------------------
 
 campaign_descriptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_desc.csv") %>%
@@ -184,8 +232,9 @@ campaign_descriptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/c
     start_date = start_day, 
     end_date = end_day
     ) %>%
+  # convert the id variables to characters
+  mutate_at(vars(ends_with("_id")), as.character) %>% 
   mutate(
-    campaign_id = as.character(campaign_id),
     description = gsub('(Type)(A|B|C)', '\\1 \\2', description),
     description = factor(description, levels = paste('Type', LETTERS[1:3]), ordered = TRUE),
     start_date = as.Date('2017-01-01') + (start_date - 285),
@@ -199,6 +248,23 @@ campaign_descriptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/c
 # save final data set
 devtools::use_data(campaign_descriptions, overwrite = TRUE)  
 
+# campaigns --------------------------------------------------------------------
+
+campaigns <- read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_table.csv") %>%
+  rename(
+    campaign_id = campaign,
+    household_id = household_key
+  ) %>%
+  # convert the id variables to characters
+  mutate_at(vars(ends_with("_id")), as.character) %>% 
+  # remove any campaigns that did not occur in 2017 %>% 
+  semi_join(., campaign_descriptions, by='campaign_id') %>%
+  # arrange by campaign so we can see each together
+  arrange(campaign_id, household_id) %>%
+  select(campaign_id, household_id) 
+
+# save final data set
+devtools::use_data(campaigns, overwrite = TRUE)
 
 # coupons ----------------------------------------------------------------------
 
@@ -207,6 +273,8 @@ coupons <- read_csv("../../Data sets/Complete_Journey_UV_Version/coupon.csv") %>
   mutate(coupon_upc = as.character(coupon_upc)) %>%
   # convert the id variables to characters
   mutate_at(vars(ends_with("_id")), as.character) %>% 
+  # remove any campaigns that did not occur in 2017 %>% 
+  semi_join(., campaign_descriptions, by='campaign_id') %>%
   arrange(coupon_upc, product_id) %>%
   select(coupon_upc, product_id, campaign_id)
 
@@ -219,23 +287,27 @@ coupon_redemptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/coup
     household_id = household_key,
     campaign_id = campaign
     ) %>%
-  # convert the id variables to characters
-  mutate_at(vars(ends_with("_id")), as.character) %>% 
-  mutate(redemption_date = as.Date('2017-01-01') + (day - 285)) %>%
+  # convert the id variables to characters and update dates
+  mutate_at(vars(ends_with("_id")), as.character) %>%
+  mutate(
+    coupon_upc = as.character(coupon_upc), 
+    redemption_date = as.Date('2017-01-01') + (day - 285)
+    ) %>%
   filter(year(redemption_date) == 2017) %>%
+  # remove any campaigns that did not occur in 2017 %>% 
+  semi_join(., campaign_descriptions, by='campaign_id') %>%
   arrange(redemption_date) %>%
   select(household_id, coupon_upc, campaign_id, redemption_date)  
 
 devtools::use_data(coupon_redemptions, overwrite = TRUE) 
 
-# summaries --------------------------------------------------------------------
+
+# data check summaries ---------------------------------------------------------
 
 daily_sales <- transactions %>% 
   mutate(date = as.Date(transaction_timestamp, tz="America/New_York")) %>%
   group_by(date) %>% 
   summarize(total_sales_value = sum(sales_value, na.rm = TRUE)) 
-
-daily_sales %>% View()
 
 daily_sales %>% 
   ggplot() +
@@ -250,19 +322,3 @@ daily_sales %>%
   summarize(avg_sales = mean(total_sales_value)) %>% 
   ggplot() + 
   geom_bar(aes(x=dow, y=avg_sales), stat = 'identity')
-
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-

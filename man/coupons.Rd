@@ -4,7 +4,7 @@
 \name{coupons}
 \alias{coupons}
 \title{Coupon metadata.}
-\format{A data frame with 124,548 rows and 3 variables
+\format{A data frame with 116,204 rows and 3 variables
 \describe{
 \item{coupon_upc}{Uniquely identifies each coupon (unique to household and campaign)}
 \item{product_id}{Uniquely identifies each product}

@@ -37,4 +37,4 @@ reference:
       - '`products`'
       - '`coupons`'
       - '`coupon_redemptions`'
-      - '`product_placements`'
+      - '`promotions`'
