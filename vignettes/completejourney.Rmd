@@ -89,13 +89,29 @@ because the manufacturer issuing the coupon will reimburse the retailer for the
 amount of the coupon.
 
 To calculate the actual product prices, use the formulas below:
+
  * Loyalty card price = (sales_value – (retail_disc + coupon_match_disc)) / quantity
  * Non-loyalty card price = (sales_value – (coupon_match_disc)) / quantity
 
 The example below demonstrates how to calculate the actual shelf price of the product:
 
-```{r example-transaction-data, echo=FALSE, out.height="95%", out.width="95%"}
-knitr::include_graphics("example_transaction_data.png")
+```{r example-transaction-data, echo=FALSE}
+library(completejourney)
+library(dplyr)
+library(lubridate)
+
+l1 <- transactions %>% 
+  filter(basket_id == "35730137393", 
+         product_id == "819063") 
+l2 <- transactions %>% 
+  filter(basket_id == "31672240446", 
+         product_id == "819063")
+l3 <- transactions %>% 
+  filter(basket_id == "36027750817", 
+         product_id == "819063")
+
+bind_rows(l1, l2, l3) %>% 
+  select(product_id, quantity, sales_value, retail_disc, coupon_disc, coupon_match_disc)
 ```
 
 * Line 1 – When this product was purchased the `retail_disc` and `coupon_disc` were 
@@ -103,13 +119,13 @@ both zero, meaning the price of the product is the same as the amount received b
 * Line 2 – Two items of this product were purchased, and there was a retail discount 
 applied due to a loyalty card. To determine the regular shelf price of the product 
 (exclusive of loyalty card discount) we take the sum of the amount paid and the 
-discount, then divide it by the quantity. ($\$2 + \$1.34) \div 2 = \$1.67$. The 
-shelf price of the product including loyalty card discount is $\$2 \div 2 = \$1$. 
-Also, the customer paid $2 for both of these products which is the same amount 
+discount, then divide it by the quantity ($\$3.34 + \$0.36) \div 2 = \$1.85$. The 
+shelf price of the product including loyalty card discount is $\$3.34 \div 2 = \$1.67$. 
+In this case, the customer paid $3.34 for both of these products, which is the same amount 
 the retailer received.
 * Line 3 – The actual shelf price of each product here is ($\$2.89 + \$0.45) \div 2 = \$1.67$. 
-Also, the customer paid \$2.34 ($\$2.89 - \$0.55$) for these products, but the 
-retailer will receive $2.89 due to the manufacturer discount.
+In this case, the customer paid \$2.34 ($\$2.89 - \$0.55$) for these products, but 
+the retailer will receive $2.89 due to reimbursement of the manufacturer discount.
 
 ### `campaigns` 
 
@@ -205,10 +221,6 @@ below shows the information we receive, and tells us that he is a homeowner,
 who makes between \$50,000 and \$74,000 a year and is between 45 and 54 years old.
 
 ```{r}
-library(completejourney)
-library(dplyr)
-library(lubridate)
-
 demographics %>% 
   filter(household_id == "208")
 ```
