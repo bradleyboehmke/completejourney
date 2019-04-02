@@ -6,7 +6,7 @@
 \title{Campaigns to household data.}
 \format{A data frame with 6,589 rows and 2 variables
 \describe{
-\item{campaign_id}{Uniquely identifies each campaign; Ranges 1-30}
+\item{campaign_id}{Uniquely identifies each campaign; Ranges 1-27}
 \item{household_id}{Uniquely identifies each household}
 }}
 \source{

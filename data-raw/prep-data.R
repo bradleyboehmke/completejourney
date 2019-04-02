@@ -243,11 +243,9 @@ campaign_descriptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/c
   filter(year(start_date) == 2017 | year(end_date) == 2017) %>%
   # sort by date since that helps understand the timing of each campaign
   arrange(start_date) %>% 
-  select(campaign_id, campaign_type = description, start_date, end_date)
+  select(campaign_id, campaign_type = description, start_date, end_date) %>%
+  arrange(as.numeric(campaign_id))
   
-# save final data set
-devtools::use_data(campaign_descriptions, overwrite = TRUE)  
-
 # campaigns --------------------------------------------------------------------
 
 campaigns <- read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_table.csv") %>%
@@ -263,9 +261,6 @@ campaigns <- read_csv("../../Data sets/Complete_Journey_UV_Version/campaign_tabl
   arrange(campaign_id, household_id) %>%
   select(campaign_id, household_id) 
 
-# save final data set
-devtools::use_data(campaigns, overwrite = TRUE)
-
 # coupons ----------------------------------------------------------------------
 
 coupons <- read_csv("../../Data sets/Complete_Journey_UV_Version/coupon.csv") %>%
@@ -277,8 +272,6 @@ coupons <- read_csv("../../Data sets/Complete_Journey_UV_Version/coupon.csv") %>
   semi_join(., campaign_descriptions, by='campaign_id') %>%
   arrange(coupon_upc, product_id) %>%
   select(coupon_upc, product_id, campaign_id)
-
-devtools::use_data(coupons, overwrite = TRUE) 
 
 # coupon_redemptions -----------------------------------------------------------
 
@@ -297,10 +290,34 @@ coupon_redemptions <- read_csv("../../Data sets/Complete_Journey_UV_Version/coup
   # remove any campaigns that did not occur in 2017 %>% 
   semi_join(., campaign_descriptions, by='campaign_id') %>%
   arrange(redemption_date) %>%
-  select(household_id, coupon_upc, campaign_id, redemption_date)  
+  select(household_id, coupon_upc, campaign_id, redemption_date)
+
+
+# Reformat campaign ID so they are 1-27 -----------------------------------
+
+# create campaign ID matching vector
+old_id <- sort(as.numeric(unique(campaign_descriptions$campaign_id)))
+new_id <- seq_along(old_id)
+names(new_id) <- old_id
+
+# function that changes campaign ID
+switch_id <- function(x) {
+  for (i in seq_along(x)) {
+    index <- which(x[i] == names(new_id))
+    x[i] <- new_id[index]
+  }
+  x
+}
+
+coupon_redemptions$campaign_id <- switch_id(coupon_redemptions$campaign_id)
+campaign_descriptions$campaign_id <- switch_id(campaign_descriptions$campaign_id)
+campaigns$campaign_id <- switch_id(campaigns$campaign_id)
+coupons$campaign_id <- switch_id(coupons$campaign_id)
 
 devtools::use_data(coupon_redemptions, overwrite = TRUE) 
-
+devtools::use_data(campaign_descriptions, overwrite = TRUE)  
+devtools::use_data(campaigns, overwrite = TRUE)
+devtools::use_data(coupons, overwrite = TRUE) 
 
 # data check summaries ---------------------------------------------------------
 

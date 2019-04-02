@@ -12,6 +12,7 @@ contain 'metadata' on the products, coupons, campaigns, and promotions.
   * Remove confusing or inconsistent data in the `demographics` and `products` datasets (#7)
   * Restrict the data to only 2017 to remove some anomalous spending patterns and 
   reduce the overall size of the package (#7)
+  * Re-numbered campaign ID to be 1-27 (#12)
 
 ### Bug Fixes
 

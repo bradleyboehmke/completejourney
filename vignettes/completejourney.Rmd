@@ -133,7 +133,7 @@ Contains identifying information for the marketing campaigns each households par
 
 Variable | Definition
 ------------- | --------------------------------------------
-`campaign_id` | Uniquely identifies each campaign; Ranges 1-30
+`campaign_id` | Uniquely identifies each campaign; Ranges 1-27
 `household_id` | Uniquely identifies each household
 
 ### `campaign_descriptions`
@@ -143,7 +143,7 @@ was active.
 
 Variable | Definition
 ------------- | --------------------------------------------
-`campaign_id` | Uniquely identifies each campaign; Ranges 1-30
+`campaign_id` | Uniquely identifies each campaign; Ranges 1-27
 `campaign_type` | Type of campaign (Type A, Type B, Type C)
 `start_date` | Start date of campaign
 `end_date` | End date of campaign

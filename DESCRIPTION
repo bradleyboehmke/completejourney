@@ -3,7 +3,7 @@ Title: Retail shopping data on 2,469 households over one year
 Version: 0.0.1
 Authors@R: c(
   person("Brad", "Boehmke",
-         email = "bradley.boehmke@8451.com",
+         email = "bradleyboehmke@gmail.com",
          role = c("aut", "cre"),
          comment = c(ORCID = "0000-0002-3611-8516")),
   person(c("Steven", "M."), "Mortimer",
@@ -25,6 +25,6 @@ Suggests:
     rmarkdown
 URL: https://github.com/bradleyboehmke/completejourney
 BugReports: https://github.com/bradleyboehmke/completejourney/issues
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Encoding: UTF-8
 VignetteBuilder: knitr
