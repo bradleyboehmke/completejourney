@@ -1,5 +1,5 @@
 Package: completejourney
-Title: Retail shopping data on 2,469 households over one year
+Title: Retail Shopping Data
 Version: 0.0.1
 Authors@R: c(
   person("Brad", "Boehmke",

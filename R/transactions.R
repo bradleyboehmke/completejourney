@@ -23,7 +23,9 @@
 #'
 #'
 #' @examples
-#'   head(transactions)
+#' \dontrun{
+#'  head(transactions)
+#' }
 "transactions"
 
 #' @importFrom tibble tibble
