@@ -4,7 +4,7 @@
 #' product was featured in the weekly mailer or was part of an in-store display 
 #' (other than regular product placement). 
 #'
-#' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+#' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 20,940,529 rows and 5 variables
 #' \describe{
 #'   \item{product_id}{Uniquely identifies each product}
@@ -43,6 +43,9 @@
 #' @examples
 #' \dontrun{
 #' if (require("dplyr")) {
+#' # if data hasn't been imported yet
+#' import_data(which = "all")
+#' 
 #' promotions
 #'
 #' # Join promotions to transactions to analyze

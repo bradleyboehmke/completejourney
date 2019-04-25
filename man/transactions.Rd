@@ -19,7 +19,7 @@
   \item{transaction_timestamp}{Date and time of when the transaction occurred}
 }}
 \source{
-84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
 \usage{
 transactions
@@ -32,7 +32,10 @@ data set to keep package size manageable.
 }
 \examples{
 \dontrun{
- head(transactions)
+# if data hasn't been imported yet
+import_data(which = "all")
+
+head(transactions)
 }
 }
 \keyword{datasets}

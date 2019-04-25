@@ -10,7 +10,7 @@
 \item{household_id}{Uniquely identifies each household}
 }}
 \source{
-84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
 \usage{
 campaigns
@@ -22,6 +22,9 @@ Each household received a different set of marketing campaigns.
 \examples{
 \dontrun{
 if (require("dplyr")) {
+# if data hasn't been imported yet
+import_data(which = "all")
+
 campaigns
 
 # Join household demographics metadata to campaigns dataset

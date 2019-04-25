@@ -154,21 +154,16 @@ data set to keep package size manageable.</p>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>84.51, Customer Journey study, <a href='http://www.8451.com/area51/'>http://www.8451.com/area51/</a></p>
+    <p>84.51°, Customer Journey study, <a href='http://www.8451.com/area51/'>http://www.8451.com/area51/</a></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>  <span class='fu'>head</span>(<span class='no'>transactions</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 11
-#&gt;   household_id store_id basket_id product_id quantity sales_value retail_disc
-#&gt;   &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
-#&gt; 1 900          330      31198570… 1095275           1        0.5        0    
-#&gt; 2 900          330      31198570… 9878513           1        0.99       0.1  
-#&gt; 3 1228         406      31198655… 1041453           1        1.43       0.15 
-#&gt; 4 906          319      31198705… 1020156           1        1.5        0.290
-#&gt; 5 906          319      31198705… 1053875           2        2.78       0.8  
-#&gt; 6 906          319      31198705… 1060312           1        5.49       0.5  
-#&gt; # … with 4 more variables: coupon_disc &lt;dbl&gt;, coupon_match_disc &lt;dbl&gt;,
-#&gt; #   week &lt;int&gt;, transaction_timestamp &lt;dttm&gt;</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># if data hasn't been imported yet</span>
+<span class='fu'>import_data</span>(<span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"all"</span>)
+
+<span class='fu'>head</span>(<span class='no'>transactions</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

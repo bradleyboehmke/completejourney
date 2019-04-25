@@ -3,7 +3,7 @@
 #' Coupon data identifying the coupons that each household redeemed in the Complete
 #' Journey study.
 #'
-#' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+#' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 2,102 rows and 4 variables
 #' \describe{
 #'   \item{household_id}{Uniquely identifies each household}
@@ -14,6 +14,9 @@
 #' @examples
 #' \dontrun{
 #' if (require("dplyr")) {
+#' # if data hasn't been imported yet
+#' import_data(which = "all")
+#' 
 #' coupon_redemptions
 #'
 #' # Join coupon metadata to coupon_redempt dataset

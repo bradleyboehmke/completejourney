@@ -5,7 +5,7 @@
 #' received as part of a campaign are valid within the dates contained in this
 #' dataset.
 #'
-#' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+#' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 27 rows and 4 variables
 #' \describe{
 #' \item{campaign_id}{Uniquely identifies each campaign; Ranges 1-27}
@@ -16,6 +16,9 @@
 #' @examples
 #' \dontrun{
 #' if (require("dplyr")) {
+#' # if data hasn't been imported yet
+#' import_data(which = "all")
+#' 
 #' campaign_descriptions
 #'
 #' # Join product campaign metadata to campaign_table dataset

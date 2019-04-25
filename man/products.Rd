@@ -15,7 +15,7 @@
 \item{package_size}{Indicates package size (not available for all products)}
 }}
 \source{
-84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
 \usage{
 products
@@ -27,6 +27,9 @@ the Customer Journey study.
 \examples{
 \dontrun{
 if (require("dplyr")) {
+# if data hasn't been imported yet
+import_data(which = "all")
+
 products
 
 # Transaction line items that don't have product metadata

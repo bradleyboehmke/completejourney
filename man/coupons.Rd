@@ -11,7 +11,7 @@
 \item{campaign_id}{Uniquely identifies each campaign}
 }}
 \source{
-84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
 \usage{
 coupons
@@ -23,6 +23,9 @@ participating in the Customer Journey study.
 \examples{
 \dontrun{
 if (require("dplyr")) {
+# if data hasn't been imported yet
+import_data(which = "all")
+
 coupon
 
 # Join product metadata to coupon dataset

@@ -87,7 +87,7 @@
       <h1>The Complete Journey User Guide</h1>
                         <h4 class="author">Brad Boehmke</h4>
             
-            <h4 class="date">2019-04-02</h4>
+            <h4 class="date">2019-04-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/bradleyboehmke/completejourney/blob/master/vignettes/completejourney.Rmd"><code>vignettes/completejourney.Rmd</code></a></small>
       <div class="hidden name"><code>completejourney.Rmd</code></div>
@@ -99,7 +99,7 @@
 <div id="the-complete-journey" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-complete-journey" class="anchor"></a>The Complete Journey</h2>
-<p>This dataset contains household level transactions over one year from a group of 2,469 households who are frequent shoppers at a grocery store. It contains all of each household’s purchases, not just those from a limited number of categories. For certain households, demographic information as well as direct marketing contact history are included.</p>
+<p>completejourney provides access to data sets characterizing household level transactions over one year from a group of 2,469 households who are frequent shoppers at a grocery store. It contains all of each household’s purchases, not just those from a limited number of categories. For certain households, demographic information as well as direct marketing contact history are captured.</p>
 <p>Due to the number of tables and the overall complexity of The Complete Journey, it is suggested that this database be used in more advanced classroom settings. Further, The Complete Journey would be ideal for academic research as it should enable one to study the effects of direct marketing to customers.</p>
 <p>The following are examples of questions that could be submitted to students or considered for academic research:</p>
 <ul>
@@ -109,6 +109,18 @@
 <li>Which demographic factors (e.g. household size, presence of children, income) appear to affect customer spend? Engagement with certain categories?</li>
 <li>Is there evidence to suggest that direct marketing improves overall engagement?</li>
 </ul>
+</div>
+<div id="downloading-the-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#downloading-the-data" class="anchor"></a>Downloading the Data</h2>
+<p>The data sets available through this package are quite sizeable; and too large to be contained within the package. <code><a href="../reference/get_data.html">get_data()</a></code> provides an efficient method for downloading one or more of the data sets from the source GitHub repository.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(completejourney)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="../reference/get_data.html">get_data</a></span>(<span class="dt">which =</span> <span class="st">"all"</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p>Each downloaded data set is saved as a tibble in the users global environment. For specifc details on a given data set see the data sets respective help file (i.e. <code><a href="../reference/transactions.html">?transactions</a></code>).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">ls</span>()</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; [1] "campaign_descriptions" "campaigns"             "coupon_redemptions"   </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; [4] "coupons"               "demographics"          "products"             </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; [7] "promotions"            "transactions"</span></a></code></pre></div>
 </div>
 <div id="dataset-details" class="section level2">
 <h2 class="hasAnchor">
@@ -230,7 +242,7 @@
 <p>The example below demonstrates how to calculate the actual shelf price of the product:</p>
 <pre><code>#&gt; # A tibble: 3 x 6
 #&gt;   product_id quantity sales_value retail_disc coupon_disc coupon_match_disc
-#&gt;   &lt;chr&gt;         &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;
+#&gt;   &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;
 #&gt; 1 819063            1        1.67        0           0                 0   
 #&gt; 2 819063            2        3.34        0.36        0                 0   
 #&gt; 3 819063            2        2.89        0           0.55              0.45</code></pre>
@@ -444,131 +456,129 @@
 <a href="#example-case-study" class="anchor"></a>Example Case Study</h2>
 <p>John Smith is a valued customer at a national grocery retailer for which we have detailed transaction data. Throughout all the tables in the database, he is identified with a <code>household_id</code> of “208”.</p>
 <p>To learn a little about John, we can obtain his demographic information by looking at the record in the <code>demographics</code> table where <code>household_id = "208"</code>. The table below shows the information we receive, and tells us that he is a homeowner, who makes between $50,000 and $74,000 a year and is between 45 and 54 years old.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">demographics <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; # A tibble: 1 x 8</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;   household_id age   income marital_status home_ownership household_size</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;        &lt;ord&gt; &lt;ord&gt;  &lt;ord&gt;          &lt;ord&gt;          &lt;ord&gt;         </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; 1 208          45-54 50-74K Unknown        Homeowner      2             </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; # … with 2 more variables: household_comp &lt;ord&gt;, kids_count &lt;ord&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">demographics <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; # A tibble: 1 x 8</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   household_id age   income home_ownership marital_status household_size</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;        &lt;ord&gt; &lt;ord&gt;  &lt;ord&gt;          &lt;ord&gt;          &lt;ord&gt;         </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; 1 208          45-54 50-74K Homeowner      &lt;NA&gt;           2             </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; # … with 2 more variables: household_comp &lt;ord&gt;, kids_count &lt;ord&gt;</span></a></code></pre></div>
 <p>If we look at John’s records from <code>campaigns</code>, we can see that he received 7 different campaigns.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">campaigns <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; # A tibble: 8 x 2</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;   campaign_id household_id</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; 1 13          208         </span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; 2 17          208         </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; 3 18          208         </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; 4 22          208         </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; 5 26          208         </span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; 6 29          208         </span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; 7 30          208         </span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; 8 8           208</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">campaigns <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; # A tibble: 7 x 2</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;   campaign_id household_id</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;       </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; 1 13          208         </span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; 2 17          208         </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; 3 18          208         </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; 4 22          208         </span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; 5 26          208         </span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; 6 27          208         </span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; 7 8           208</span></a></code></pre></div>
 <p>These campaigns were spread out over the one year period of the study. To understand the time periods and types of these campaigns, you can join with the <code>campaign_descriptions</code> data. In this example, we see the type of campaign along with the start and end dates of the campaign.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">campaigns <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">left_join</span>(., campaign_descriptions, <span class="dt">by=</span><span class="st">"campaign_id"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(start_date)</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; # A tibble: 8 x 5</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;   campaign_id household_id campaign_type start_date end_date  </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;        &lt;ord&gt;         &lt;date&gt;     &lt;date&gt;    </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; 1 29          208          Type B        2016-12-28 2017-02-19</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; 2 30          208          Type A        2017-02-08 2017-03-26</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; 3 8           208          Type A        2017-05-08 2017-06-25</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; 4 13          208          Type A        2017-08-08 2017-09-24</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; 5 17          208          Type B        2017-10-18 2017-11-19</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; 6 18          208          Type A        2017-10-30 2017-12-24</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; 7 22          208          Type B        2017-12-06 2018-01-07</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; 8 26          208          &lt;NA&gt;          NA         NA</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">campaigns <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">left_join</span>(., campaign_descriptions, <span class="dt">by=</span><span class="st">"campaign_id"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(start_date)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; # A tibble: 7 x 5</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;   campaign_id household_id campaign_type start_date end_date  </span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;        &lt;ord&gt;         &lt;date&gt;     &lt;date&gt;    </span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; 1 26          208          Type B        2016-12-28 2017-02-19</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 2 27          208          Type A        2017-02-08 2017-03-26</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; 3 8           208          Type A        2017-05-08 2017-06-25</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; 4 13          208          Type A        2017-08-08 2017-09-24</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; 5 17          208          Type B        2017-10-18 2017-11-19</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; 6 18          208          Type A        2017-10-30 2017-12-24</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 7 22          208          Type B        2017-12-06 2018-01-07</span></a></code></pre></div>
 <p>Let us take a closer look at campaign 18 When we look at all the distinct coupon_upc’s from the coupon table where <code>campaign_id = "18"</code>, we see that there were 209 distinct coupons sent out as part of that campaign.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">coupons <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(campaign_id <span class="op">==</span><span class="st"> "18"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw">distinct</span>(coupon_upc)</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; # A tibble: 209 x 1</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;    coupon_upc </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  1 10000085475</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  2 10000085476</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  3 10000085477</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  4 10000085478</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  5 10000085479</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  6 10000085480</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  7 10000085484</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt;  8 10000089237</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt;  9 10000089238</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; 10 10000089239</span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; # … with 199 more rows</span></a></code></pre></div>
-<p>Let us take an even deeper look at one of the specific coupons offered as part of the campaign. If we print out all records from the coupon table where <code>campaign_id = "18"</code> and <code>coupon_upc = "55410000076"</code>, we see that this coupon could actually be redeemed for a number of products.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">coupons <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(campaign_id <span class="op">==</span><span class="st"> "18"</span>, </a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">         coupon_upc <span class="op">==</span><span class="st"> "55410000076"</span>)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; # A tibble: 50 x 3</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt;    coupon_upc  product_id campaign_id</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;  1 55410000076 1004458    18         </span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;  2 55410000076 1011841    18         </span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;  3 55410000076 1016495    18         </span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;  4 55410000076 10182852   18         </span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;  5 55410000076 1018696    18         </span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  6 55410000076 1058591    18         </span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;  7 55410000076 1065032    18         </span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt;  8 55410000076 1069973    18         </span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;  9 55410000076 107157     18         </span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; 10 55410000076 1110721    18         </span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; # … with 40 more rows</span></a></code></pre></div>
-<p>Although all the products are not displayed above, we find that this coupon is actually valid on 50 distinct products. If we go to the product table and print out all records for the <code>product_id</code>’s above (“1004458”, “1011841”, etc.), we see that this coupon is valid for pickles from a national brand.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">coupons <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(campaign_id <span class="op">==</span><span class="st"> "18"</span>, </a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">         coupon_upc <span class="op">==</span><span class="st"> "55410000076"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw">left_join</span>(., products, <span class="dt">by=</span><span class="st">"product_id"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(product_id, manufacturer_id, department, brand, </a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">         product_category, product_type, package_size)</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; # A tibble: 50 x 7</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;    product_id manufacturer_id department brand product_category</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;           &lt;chr&gt;      &lt;fct&gt; &lt;chr&gt;           </span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;  1 1004458    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt;  2 1011841    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt;  3 1016495    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt;  4 10182852   1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt;  5 1018696    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt;  6 1058591    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co">#&gt;  7 1065032    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#&gt;  8 1069973    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="co">#&gt;  9 107157     1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co">#&gt; 10 1110721    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="co">#&gt; # … with 40 more rows, and 2 more variables: product_type &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="co">#&gt; #   package_size &lt;chr&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(campaign_id <span class="op">==</span><span class="st"> "18"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw">distinct</span>(coupon_upc)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; # A tibble: 209 x 1</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;    coupon_upc </span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt;      </span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;  1 10000085475</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;  2 10000085476</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;  3 10000085477</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;  4 10000085478</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt;  5 10000085479</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt;  6 10000085480</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt;  7 10000085484</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt;  8 10000089237</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt;  9 10000089238</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co">#&gt; 10 10000089239</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#&gt; # … with 199 more rows</span></a></code></pre></div>
+<p>Let us take an even deeper look at one of the specific coupons offered as part of the campaign. If we print out all records from the coupon table where <code>campaign_id = "18"</code> and <code>coupon_upc = "55410000076"</code>, we see that this coupon could actually be redeemed for a number of products.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">coupons <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(campaign_id <span class="op">==</span><span class="st"> "18"</span>, </a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">         coupon_upc <span class="op">==</span><span class="st"> "55410000076"</span>)</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; # A tibble: 50 x 3</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;    coupon_upc  product_id campaign_id</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;      </span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  1 55410000076 1004458    18         </span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt;  2 55410000076 1011841    18         </span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;  3 55410000076 1016495    18         </span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;  4 55410000076 10182852   18         </span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt;  5 55410000076 1018696    18         </span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt;  6 55410000076 1058591    18         </span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;  7 55410000076 1065032    18         </span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt;  8 55410000076 1069973    18         </span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt;  9 55410000076 107157     18         </span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">#&gt; 10 55410000076 1110721    18         </span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">#&gt; # … with 40 more rows</span></a></code></pre></div>
+<p>Although all the products are not displayed above, we find that this coupon is actually valid on 50 distinct products. If we go to the product table and print out all records for the <code>product_id</code>’s above (“1004458”, “1011841”, etc.), we see that this coupon is valid for pickles from a national brand.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">coupons <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(campaign_id <span class="op">==</span><span class="st"> "18"</span>, </a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">         coupon_upc <span class="op">==</span><span class="st"> "55410000076"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">left_join</span>(., products, <span class="dt">by=</span><span class="st">"product_id"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(product_id, manufacturer_id, department, brand, </a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">         product_category, product_type, package_size)</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt; # A tibble: 50 x 7</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt;    product_id manufacturer_id department brand product_category</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;           &lt;chr&gt;      &lt;fct&gt; &lt;chr&gt;           </span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt;  1 1004458    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt;  2 1011841    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt;  3 1016495    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co">#&gt;  4 10182852   1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="co">#&gt;  5 1018696    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="co">#&gt;  6 1058591    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="co">#&gt;  7 1065032    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="co">#&gt;  8 1069973    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="co">#&gt;  9 107157     1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="co">#&gt; 10 1110721    1318            GROCERY    Nati… PICKLE/RELISH/P…</span></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="co">#&gt; # … with 40 more rows, and 2 more variables: product_type &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb9-21" data-line-number="21"><span class="co">#&gt; #   package_size &lt;chr&gt;</span></a></code></pre></div>
 <p>As we’ve seen, John received a number of campaigns over the past year that contained many coupons. Chances are, he did not redeem every coupon he received. So, let us take a look to see what coupons he did redeem. To do this, we need to view all records from the <code>coupon_redemptions</code> table where <code>household_id = "208"</code>. This shows us that he redeemed five coupons from two of the campaigns (“8” and “18”).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">coupon_redemptions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; # A tibble: 5 x 4</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;   household_id  coupon_upc campaign_id redemption_date</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;       &lt;date&gt;         </span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; 1 208          55100090033 8           2017-05-23     </span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; 2 208          51800015050 18          2017-11-09     </span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; 3 208          51920021576 18          2017-11-09     </span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt; 4 208          55410000076 18          2017-11-13     </span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt; 5 208          10000085475 18          2017-11-18</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">coupon_redemptions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">#&gt; # A tibble: 5 x 4</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co">#&gt;   household_id coupon_upc  campaign_id redemption_date</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;date&gt;         </span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">#&gt; 1 208          55100090033 8           2017-05-23     </span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co">#&gt; 2 208          51800015050 18          2017-11-09     </span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">#&gt; 3 208          51920021576 18          2017-11-09     </span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co">#&gt; 4 208          55410000076 18          2017-11-13     </span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co">#&gt; 5 208          10000085475 18          2017-11-18</span></a></code></pre></div>
 <p>John’s coupon redemptions are only part of the overall picture of his purchasing behavior. If we look at the records from the transaction_data table where <code>household_id = "208"</code>, we can view everything that John purchased.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt; # A tibble: 756 x 11</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt;    household_id store_id basket_id product_id quantity sales_value</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;int&gt;       &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#&gt;  1 208          327      31268866… 845379            1        7.64</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt;  2 208          327      31268866… 854133            1        4.69</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt;  3 208          327      31268866… 862349            1        1   </span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt;  4 208          327      31268866… 879504            1        2   </span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt;  5 208          327      31268866… 990519            1        1.69</span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt;  6 208          327      31268866… 1068830           1        1.09</span></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt;  7 208          327      31268866… 1097635           1        2.96</span></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co">#&gt;  8 208          324      31344175… 883932            1        2   </span></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="co">#&gt;  9 208          324      31344175… 885290            1        1.99</span></a>
-<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="co">#&gt; 10 208          324      31344175… 915502            2        4   </span></a>
-<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="co">#&gt; # … with 746 more rows, and 5 more variables: retail_disc &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="co">#&gt; #   coupon_disc &lt;dbl&gt;, coupon_match_disc &lt;dbl&gt;, week &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="co">#&gt; #   transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>)</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt; # A tibble: 756 x 11</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt;    household_id store_id basket_id product_id quantity sales_value</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt;  1 208          327      31268866… 845379            1        7.64</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt;  2 208          327      31268866… 854133            1        4.69</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt;  3 208          327      31268866… 862349            1        1   </span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt;  4 208          327      31268866… 879504            1        2   </span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">#&gt;  5 208          327      31268866… 990519            1        1.69</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">#&gt;  6 208          327      31268866… 1068830           1        1.09</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="co">#&gt;  7 208          327      31268866… 1097635           1        2.96</span></a>
+<a class="sourceLine" id="cb11-13" data-line-number="13"><span class="co">#&gt;  8 208          324      31344175… 883932            1        2   </span></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="co">#&gt;  9 208          324      31344175… 885290            1        1.99</span></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="co">#&gt; 10 208          324      31344175… 915502            2        4   </span></a>
+<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="co">#&gt; # … with 746 more rows, and 5 more variables: retail_disc &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb11-17" data-line-number="17"><span class="co">#&gt; #   coupon_disc &lt;dbl&gt;, coupon_match_disc &lt;dbl&gt;, week &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb11-18" data-line-number="18"><span class="co">#&gt; #   transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
 <p>This gets a bit complicated, but we can combine the transaction data with the other tables to understand John’s behavior when he was redeeming a coupon (and when he wasn’t redeeming a coupon).</p>
 <ul>
 <li>John received offers as part of campaign 18, which occurred between 10/30/2017 and 12/24/2017</li>
@@ -577,27 +587,27 @@
 </li>
 <li>From the table below, we can see where John purchased this item and received a $1 discount from using the coupon.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>, </a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">         product_id <span class="op">==</span><span class="st"> "896292"</span>,</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">         <span class="kw">as_date</span>(transaction_timestamp) <span class="op">==</span><span class="st"> "2017-11-13"</span>)</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co">#&gt; # A tibble: 1 x 11</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">#&gt;   household_id store_id basket_id product_id quantity sales_value</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;int&gt;       &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">#&gt; 1 208          327      40715247… 896292            2           4</span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co">#&gt; # … with 5 more variables: retail_disc &lt;dbl&gt;, coupon_disc &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co">#&gt; #   coupon_match_disc &lt;dbl&gt;, week &lt;dbl&gt;, transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(household_id <span class="op">==</span><span class="st"> "208"</span>, </a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">         product_id <span class="op">==</span><span class="st"> "896292"</span>,</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">         <span class="kw">as_date</span>(transaction_timestamp) <span class="op">==</span><span class="st"> "2017-11-13"</span>)</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#&gt; # A tibble: 1 x 11</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">#&gt;   household_id store_id basket_id product_id quantity sales_value</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#&gt; 1 208          327      40715247… 896292            2           4</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; # … with 5 more variables: retail_disc &lt;dbl&gt;, coupon_disc &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="co">#&gt; #   coupon_match_disc &lt;dbl&gt;, week &lt;int&gt;, transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
 <p>Knowing when John redeemed a coupon can help us learn a lot about him, and how the receipt of certain campaigns affected his behavior. Does the receipt of campaigns cause him to purchase more items than he did previously? Is John more likely to redeem coupons for products he already purchases, or does it entice him to try products he has never purchased before?</p>
 <p>There is one bit of information we have not talked about yet – what is happening in the rest of the store? Is it possible that John purchased the item above because of other events occurring in the store in addition to his coupon?</p>
 <p>We obviously do not know a customer’s reason for purchasing an item, but we do know whether an item was featured during the time of the purchase. If we view all records from the <code>promotions</code> table where <code>product_id = "896292"</code>, we see the weeks and stores where this product was featured in the weekly mailer and whether it was featured as part of an in-store display. If we look at the first line, we can tell that in store 327 and week 47, the product was on the shelf (i.e. <code>display_location="A"</code>) so it was not part of a special display. We can assume this was not an impulse buy because of a display or advertisement. He most likely went to the store with the coupon intent upon purchasing the item.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">promotions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(product_id <span class="op">==</span><span class="st"> "896292"</span>, </a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">         store_id <span class="op">==</span><span class="st"> "327"</span>)</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt; # A tibble: 2 x 5</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt;   product_id store_id display_location mailer_location  week</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;    &lt;fct&gt;            &lt;fct&gt;           &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; 1 896292     327      A                0                  47</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; 2 896292     327      A                0                  49</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">promotions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(product_id <span class="op">==</span><span class="st"> "896292"</span>, </a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">         store_id <span class="op">==</span><span class="st"> "327"</span>)</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co">#&gt; # A tibble: 2 x 5</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co">#&gt;   product_id store_id display_location mailer_location  week</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;    &lt;fct&gt;            &lt;fct&gt;           &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co">#&gt; 1 896292     327      A                0                  47</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co">#&gt; 2 896292     327      A                0                  49</span></a></code></pre></div>
 <p>We hope that this quick look at John Smith’s behavior provides clarity around The Complete Journey database, and inspires your own investigation into the purchasing behavior of these customers.</p>
 </div>
   </div>
@@ -608,6 +618,7 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#the-complete-journey">The Complete Journey</a></li>
+      <li><a href="#downloading-the-data">Downloading the Data</a></li>
       <li><a href="#dataset-details">Dataset Details</a></li>
       <li><a href="#example-case-study">Example Case Study</a></li>
       </ul>

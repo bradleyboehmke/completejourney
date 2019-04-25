@@ -5,7 +5,7 @@
 #' be found on a store receipt. This is only a subsample of the complete
 #' data set to keep package size manageable.
 #'
-#' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+#' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 1,469,307 rows and 11 variables
 #' \describe{
 #'   \item{household_id}{Uniquely identifies each household}
@@ -24,7 +24,10 @@
 #'
 #' @examples
 #' \dontrun{
-#'  head(transactions)
+#' # if data hasn't been imported yet
+#' import_data(which = "all")
+#' 
+#' head(transactions)
 #' }
 "transactions"
 

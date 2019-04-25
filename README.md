@@ -9,14 +9,14 @@ Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)]
 
 ## Overview
 
-An R data package of the Complete Journey Study provided by
-[84.51](http://www.8451.com). The data represents grocery store shopping
-transactions over one year from a group of 2,469 households who are
-frequent shoppers at a retailer. It contains all of each household’s
-purchases, not just those from a limited number of categories. For
-certain households, demographic information as well as direct marketing
-contact history are included. The package comes with the following
-datasets:
+An R data package that provides access to data in the Complete Journey
+Study provided by [84.51](http://www.8451.com). The data represents
+grocery store shopping transactions over one year from a group of 2,469
+households who are frequent shoppers at a retailer. It contains all of
+each household’s purchases, not just those from a limited number of
+categories. For certain households, demographic information as well as
+direct marketing contact history are included. The data sets provided by
+`completejourney::get_data()` include:
 
   - `transactions`: products purchased by households
   - `products`: product metadata (brand, description, etc.)
@@ -35,9 +35,15 @@ datasets:
 You can install `completejourney` from GitHub with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("bradleyboehmke/completejourney")
+# install.packages("remotes")
+remotes::install_github("bradleyboehmke/completejourney")
 ```
+
+## Learn more
+
+Learn more about the completejourney data, and the type of insights you
+can look for, at
+[https://bradleyboehmke.github.io/completejourney](https://bradleyboehmke.github.io/completejourney/).
 
 ## Source
 

@@ -1,6 +1,6 @@
 ## completejourney 0.0.1
 
-This package contains 8 datasets that cover retail shopping transactions for 2,469 
+This package provides access to 8 datasets that cover retail shopping transactions for 2,469 
 households over one year. In addition to the transaction details, the datasets 
 contain 'metadata' on the products, coupons, campaigns, and promotions.
 
@@ -13,6 +13,8 @@ contain 'metadata' on the products, coupons, campaigns, and promotions.
   * Restrict the data to only 2017 to remove some anomalous spending patterns and 
   reduce the overall size of the package (#7)
   * Re-numbered campaign ID to be 1-27 (#12)
+  * Created importing capabilities so that data sets do not need to be included
+    in package (due to size).
 
 ### Bug Fixes
 

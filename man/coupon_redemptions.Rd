@@ -12,7 +12,7 @@
   \item{redemption_date}{Date when the coupon was redeemed}
 }}
 \source{
-84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
 \usage{
 coupon_redemptions
@@ -24,6 +24,9 @@ Journey study.
 \examples{
 \dontrun{
 if (require("dplyr")) {
+# if data hasn't been imported yet
+import_data(which = "all")
+
 coupon_redemptions
 
 # Join coupon metadata to coupon_redempt dataset

@@ -20,11 +20,11 @@ knitr::opts_chunk$set(
 
 ## The Complete Journey
 
-This dataset contains household level transactions over one year from a group of 
-2,469 households who are frequent shoppers at a grocery store. It contains all of 
-each household’s purchases, not just those from a limited number of categories. For 
-certain households, demographic information as well as direct marketing contact 
-history are included.
+completejourney provides access to data sets characterizing household level 
+transactions over one year from a group of 2,469 households who are frequent 
+shoppers at a grocery store. It contains all of each household’s purchases, not 
+just those from a limited number of categories. For certain households, demographic 
+information as well as direct marketing contact history are captured.
 
 Due to the number of tables and the overall complexity of The Complete Journey, 
 it is suggested that this database be used in more advanced classroom settings. 
@@ -40,6 +40,22 @@ considered for academic research:
 * Which demographic factors (e.g. household size, presence of children, income) 
 appear to affect customer spend? Engagement with certain categories?
 * Is there evidence to suggest that direct marketing improves overall engagement?
+
+## Downloading the Data
+
+The data sets available through this package are quite sizeable; and too large to be contained within the package. `get_data()` provides an efficient method for downloading one or more of the data sets from the source GitHub repository. 
+
+```{r load-pkg}
+library(completejourney)
+get_data(which = "all", verbose = FALSE)
+```
+
+Each downloaded data set is saved as a tibble in the users global environment. For specifc details on a given data set see the data sets respective help file (i.e. `?transactions`).
+
+```{r}
+ls()
+```
+
 
 ## Dataset Details
 
@@ -96,7 +112,6 @@ To calculate the actual product prices, use the formulas below:
 The example below demonstrates how to calculate the actual shelf price of the product:
 
 ```{r example-transaction-data, echo=FALSE}
-library(completejourney)
 library(dplyr)
 library(lubridate)
 

@@ -7,5 +7,6 @@
 ^cran-comments\.md$
 ^_pkgdown\.yml$
 ^docs$
+^data$
 ^data-raw$
 ^prep-data\.R$

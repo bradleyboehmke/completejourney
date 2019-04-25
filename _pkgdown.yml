@@ -38,3 +38,7 @@ reference:
       - '`coupons`'
       - '`coupon_redemptions`'
       - '`promotions`'
+  - title: Data importing
+    desc: Download available data sets
+    contents:
+      - '`get_data`'

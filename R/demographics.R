@@ -5,7 +5,7 @@
 #' Due to nature of the data, the demographic information is not available for all
 #' households.
 #'
-#' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+#' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 801 rows and 8 variables
 #' \describe{
 #' \item{household_id}{Uniquely identifies each household}
@@ -20,6 +20,9 @@
 #' @examples
 #' \dontrun{
 #' if (require("dplyr")) {
+#' # if data hasn't been imported yet
+#' import_data(which = "all")
+#' 
 #' demographics
 #'
 #' # Transaction line items that don't have household metadata

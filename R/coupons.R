@@ -3,7 +3,7 @@
 #' Coupon metadata for all coupons used in campaigns advertised to households
 #' participating in the Customer Journey study.
 #'
-#' @source 84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+#' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 116,204 rows and 3 variables
 #' \describe{
 #' \item{coupon_upc}{Uniquely identifies each coupon (unique to household and campaign)}
@@ -13,6 +13,9 @@
 #' @examples
 #' \dontrun{
 #' if (require("dplyr")) {
+#' # if data hasn't been imported yet
+#' import_data(which = "all")
+#' 
 #' coupon
 #'
 #' # Join product metadata to coupon dataset

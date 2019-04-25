@@ -16,7 +16,7 @@
 \item{kids_count}{Number of children present up to 3+}
 }}
 \source{
-84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
 \usage{
 demographics
@@ -29,6 +29,9 @@ households.
 \examples{
 \dontrun{
 if (require("dplyr")) {
+# if data hasn't been imported yet
+import_data(which = "all")
+
 demographics
 
 # Transaction line items that don't have household metadata

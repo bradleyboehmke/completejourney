@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Product metadata. — products • completejourney</title>
+<title>Download Complete Journey Data — get_data • completejourney</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,12 @@
 
 
 
-<meta property="og:title" content="Product metadata. — products" />
+<meta property="og:title" content="Download Complete Journey Data — get_data" />
 
-<meta property="og:description" content="Product metadata for all products purchased by households participating in
-the Customer Journey study." />
+<meta property="og:description" content="The data sets available through this package are quite sizeable; and too 
+large to be contained within the package. get_data() provides an
+efficient method for downloading one or more of the data sets from the
+source GitHub repository." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,59 +120,79 @@ the Customer Journey study." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Product metadata.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/products.R'><code>R/products.R</code></a></small>
-    <div class="hidden name"><code>products.Rd</code></div>
+    <h1>Download Complete Journey Data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/get_data.R'><code>R/get_data.R</code></a></small>
+    <div class="hidden name"><code>get_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Product metadata for all products purchased by households participating in
-the Customer Journey study.</p>
+    <p>The data sets available through this package are quite sizeable; and too 
+large to be contained within the package. <code>get_data()</code> provides an
+efficient method for downloading one or more of the data sets from the
+source GitHub repository.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>products</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A data frame with 92,331 rows and 7 variables</p><dl class='dl-horizontal'>
-<dt>product_id</dt><dd><p>Uniquely identifies each product</p></dd>
-<dt>manufacturer_id</dt><dd><p>Uniquely identifies each manufacturer</p></dd>
-<dt>department</dt><dd><p>Groups similar products together</p></dd>
-<dt>brand</dt><dd><p>Indicates Private or National label brand</p></dd>
-<dt>product_category</dt><dd><p>Groups similar products together at lower level</p></dd>
-<dt>product_type</dt><dd><p>Groups similar products together at lowest level</p></dd>
-<dt>package_size</dt><dd><p>Indicates package size (not available for all products)</p></dd>
-</dl>
+    <pre class="usage"><span class='fu'>get_data</span>(<span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>which</th>
+      <td><p>Character string of one or more data sets to be downloaded.
+Can be one of the following; default is <code>"all"</code>:</p><ul>
+<li><p>"all"</p></li>
+<li><p>"compaigns"</p></li>
+<li><p>"campaign_descriptions"</p></li>
+<li><p>"coupons"</p></li>
+<li><p>"coupon_redemptions"</p></li>
+<li><p>"demographics"</p></li>
+<li><p>"products"</p></li>
+<li><p>"promotions"</p></li>
+<li><p>"transactions"</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Logical indicator whether or not to download silently.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>84.51°, Customer Journey study, <a href='http://www.8451.com/area51/'>http://www.8451.com/area51/</a></p>
+    <p>Downloading from <a href='https://github.com/bradleyboehmke/completejourney/tree/master/data'>https://github.com/bradleyboehmke/completejourney/tree/master/data</a>.
+  Data originated from 84.51°, Customer Journey study, <a href='http://www.8451.com/area51/'>http://www.8451.com/area51/</a> 
+  and were processes for analysis.</p>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Each downloaded data set is saved as a tibble in the users global 
+  environment. For specifc details on a given data set see the data sets 
+  respective help file (i.e. <code><a href='transactions.html'>?transactions</a></code>).</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='kw'>if</span> (<span class='fu'>require</span>(<span class='st'>"dplyr"</span>)) {
-<span class='co'># if data hasn't been imported yet</span>
-<span class='fu'>import_data</span>(<span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"all"</span>)
+<span class='co'># download all data sets</span>
+<span class='fu'>get_data</span>(<span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"all"</span>)
 
-<span class='no'>products</span>
+<span class='co'># download transactions data</span>
+<span class='fu'>get_data</span>(<span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"transactions"</span>)
 
-<span class='co'># Transaction line items that don't have product metadata</span>
-<span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)
-
-}
+<span class='co'># download multiple data sets</span>
+<span class='fu'>get_data</span>(<span class='kw'>which</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"transactions"</span>, <span class='st'>"promotions"</span>))
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-
       <li><a href="#source">Source</a></li>
+
+      <li><a href="#value">Value</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

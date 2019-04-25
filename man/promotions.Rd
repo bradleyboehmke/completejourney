@@ -13,7 +13,7 @@
   \item{week}{Week of the transaction; Ranges 1-53}
 }}
 \source{
-84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
 \usage{
 promotions
@@ -59,6 +59,9 @@ product was featured in the weekly mailer or was part of an in-store display
 \examples{
 \dontrun{
 if (require("dplyr")) {
+# if data hasn't been imported yet
+import_data(which = "all")
+
 promotions
 
 # Join promotions to transactions to analyze

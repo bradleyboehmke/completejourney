@@ -12,7 +12,7 @@
 \item{end_date}{End date of campaign}
 }}
 \source{
-84.51, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
 \usage{
 campaign_descriptions
@@ -26,6 +26,9 @@ dataset.
 \examples{
 \dontrun{
 if (require("dplyr")) {
+# if data hasn't been imported yet
+import_data(which = "all")
+
 campaign_descriptions
 
 # Join product campaign metadata to campaign_table dataset
