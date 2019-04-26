@@ -39,6 +39,29 @@ You can install `completejourney` from GitHub with:
 remotes::install_github("bradleyboehmke/completejourney")
 ```
 
+## Downloading the Data
+
+The data sets available through this package are quite sizeable; and too
+large to be contained within the package. `get_data()` provides an
+efficient method for downloading one or more of the data sets from the
+source GitHub repository.
+
+``` r
+library(completejourney)
+get_data(which = "all", verbose = FALSE)
+```
+
+Each downloaded data set is saved as a tibble in the users global
+environment. For specifc details on a given data set see the data sets
+respective help file (i.e. `?transactions`).
+
+``` r
+ls()
+#> [1] "campaign_descriptions" "campaigns"             "coupon_redemptions"   
+#> [4] "coupons"               "demographics"          "products"             
+#> [7] "promotions"            "transactions"
+```
+
 ## Learn more
 
 Learn more about the completejourney data, and the type of insights you

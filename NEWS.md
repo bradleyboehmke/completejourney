@@ -1,4 +1,4 @@
-## completejourney 0.0.1
+## completejourney 1.0.0
 
 This package provides access to 8 datasets that cover retail shopping transactions for 2,469 
 households over one year. In addition to the transaction details, the datasets 

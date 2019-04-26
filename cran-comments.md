@@ -5,11 +5,7 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-Checking installed package size: installed size is 38.6Mb, sub-directories of 1Mb or more: data 37.6Mb
-
-* This is a new release.
-* This is a data package that will be rarely updated.
+0 errors | 0 warnings | 0 note
 
 ## Reverse dependencies
 

@@ -1,6 +1,6 @@
 Package: completejourney
 Title: Retail Shopping Data
-Version: 0.0.1
+Version: 1.0.0
 Authors@R: c(
   person("Brad", "Boehmke",
          email = "bradleyboehmke@gmail.com",
