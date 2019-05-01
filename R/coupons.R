@@ -11,17 +11,16 @@
 #' \item{campaign_id}{Uniquely identifies each campaign}
 #' }
 #' @examples
-#' \dontrun{
-#' if (require("dplyr")) {
+#' \donttest{
 #' # if data hasn't been imported yet
 #' import_data(which = "all")
 #' 
 #' coupon
 #'
 #' # Join product metadata to coupon dataset
+#' require("dplyr")
 #' coupons %>%
 #'   left_join(products, "product_id")
-#' }
 #' }
 "coupons"
 

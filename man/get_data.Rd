@@ -40,7 +40,7 @@ efficient method for downloading one or more of the data sets from the
 source GitHub repository.
 }
 \examples{
-\dontrun{
+\donttest{
 # download all data sets
 get_data(which = "all")
 

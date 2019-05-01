@@ -14,17 +14,16 @@
 #' \item{end_date}{End date of campaign}
 #' }
 #' @examples
-#' \dontrun{
-#' if (require("dplyr")) {
+#' \donttest{
 #' # if data hasn't been imported yet
 #' import_data(which = "all")
 #' 
 #' campaign_descriptions
 #'
 #' # Join product campaign metadata to campaign_table dataset
+#' require("dplyr")
 #' campaigns %>%
 #'   left_join(campaign_descriptions, "campaign_id")
-#' }
 #' }
 "campaign_descriptions"
 

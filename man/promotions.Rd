@@ -57,8 +57,7 @@ product was featured in the weekly mailer or was part of an in-store display
 }
 
 \examples{
-\dontrun{
-if (require("dplyr")) {
+\donttest{
 # if data hasn't been imported yet
 import_data(which = "all")
 
@@ -66,10 +65,10 @@ promotions
 
 # Join promotions to transactions to analyze
 # product promotion/location
+require("dplyr")
 transactions \%>\%
   left_join(promotions,
             c("product_id", "store_id", "week"))
-}
 }
 }
 \keyword{datasets}

@@ -22,17 +22,16 @@ Coupon data identifying the coupons that each household redeemed in the Complete
 Journey study.
 }
 \examples{
-\dontrun{
-if (require("dplyr")) {
+\donttest{
 # if data hasn't been imported yet
 import_data(which = "all")
 
 coupon_redemptions
 
 # Join coupon metadata to coupon_redempt dataset
+require("dplyr")
 coupon_redemptions \%>\%
   left_join(coupons, "coupon_upc")
-}
 }
 }
 \keyword{datasets}

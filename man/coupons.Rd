@@ -21,17 +21,16 @@ Coupon metadata for all coupons used in campaigns advertised to households
 participating in the Customer Journey study.
 }
 \examples{
-\dontrun{
-if (require("dplyr")) {
+\donttest{
 # if data hasn't been imported yet
 import_data(which = "all")
 
 coupon
 
 # Join product metadata to coupon dataset
+require("dplyr")
 coupons \%>\%
   left_join(products, "product_id")
-}
 }
 }
 \keyword{datasets}

@@ -10,17 +10,16 @@
 #' \item{household_id}{Uniquely identifies each household}
 #' }
 #' @examples
-#' \dontrun{
-#' if (require("dplyr")) {
+#' \donttest{
 #' # if data hasn't been imported yet
 #' import_data(which = "all")
 #' 
 #' campaigns
 #'
 #' # Join household demographics metadata to campaigns dataset
+#' require("dplyr")
 #' campaigns %>%
 #'   left_join(demographics, "household_id")
-#' }
 #' }
 "campaigns"
 

@@ -27,17 +27,16 @@ Due to nature of the data, the demographic information is not available for all
 households.
 }
 \examples{
-\dontrun{
-if (require("dplyr")) {
+\donttest{
 # if data hasn't been imported yet
 import_data(which = "all")
 
 demographics
 
 # Transaction line items that don't have household metadata
+require("dplyr")
 transactions \%>\%
   anti_join(demographics, "household_id")
-}
 }
 
 }

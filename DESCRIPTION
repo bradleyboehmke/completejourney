@@ -11,7 +11,9 @@ Authors@R: c(
          role = "aut")
   )
 Description: Retail shopping transactions for 2,469 households over one year.
-    Also includes useful 'metadata' on products, coupons, campaigns, and promotions.
+    Originates from the 84.51° Complete Journey 2.0 source files 
+    <https://www.8451.com/area51> which also includes useful 'metadata' on 
+    products, coupons, campaigns, and promotions.
 License: CC0
 LazyData: true
 Depends:

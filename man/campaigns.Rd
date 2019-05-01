@@ -20,17 +20,16 @@ Data on the campaigns received by each household in the Complete Journey study.
 Each household received a different set of marketing campaigns.
 }
 \examples{
-\dontrun{
-if (require("dplyr")) {
+\donttest{
 # if data hasn't been imported yet
 import_data(which = "all")
 
 campaigns
 
 # Join household demographics metadata to campaigns dataset
+require("dplyr")
 campaigns \%>\%
   left_join(demographics, "household_id")
-}
 }
 }
 \keyword{datasets}

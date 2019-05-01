@@ -25,18 +25,16 @@ Product metadata for all products purchased by households participating in
 the Customer Journey study.
 }
 \examples{
-\dontrun{
-if (require("dplyr")) {
+\donttest{
 # if data hasn't been imported yet
 import_data(which = "all")
 
 products
 
 # Transaction line items that don't have product metadata
+require("dplyr")
 transactions \%>\%
   anti_join(products, "product_id")
-
-}
 }
 }
 \keyword{datasets}

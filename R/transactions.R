@@ -23,7 +23,7 @@
 #'
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # if data hasn't been imported yet
 #' import_data(which = "all")
 #' 

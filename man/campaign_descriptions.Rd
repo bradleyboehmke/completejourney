@@ -24,17 +24,16 @@ received as part of a campaign are valid within the dates contained in this
 dataset.
 }
 \examples{
-\dontrun{
-if (require("dplyr")) {
+\donttest{
 # if data hasn't been imported yet
 import_data(which = "all")
 
 campaign_descriptions
 
 # Join product campaign metadata to campaign_table dataset
+require("dplyr")
 campaigns \%>\%
   left_join(campaign_descriptions, "campaign_id")
-}
 }
 }
 \keyword{datasets}

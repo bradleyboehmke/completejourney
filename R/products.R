@@ -15,18 +15,16 @@
 #' \item{package_size}{Indicates package size (not available for all products)}
 #' }
 #' @examples
-#' \dontrun{
-#' if (require("dplyr")) {
+#' \donttest{
 #' # if data hasn't been imported yet
 #' import_data(which = "all")
 #' 
 #' products
 #'
 #' # Transaction line items that don't have product metadata
+#' require("dplyr")
 #' transactions %>%
 #'   anti_join(products, "product_id")
-#'
-#' }
 #' }
 "products"
 

@@ -29,7 +29,7 @@
 #'   respective help file (i.e. \code{?transactions}).
 #'   
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # download all data sets
 #' get_data(which = "all")
 #' 

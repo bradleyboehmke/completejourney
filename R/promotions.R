@@ -41,8 +41,7 @@
 #'   \item Z - Free on front page, back page or wrap
 #' }
 #' @examples
-#' \dontrun{
-#' if (require("dplyr")) {
+#' \donttest{
 #' # if data hasn't been imported yet
 #' import_data(which = "all")
 #' 
@@ -50,10 +49,10 @@
 #'
 #' # Join promotions to transactions to analyze
 #' # product promotion/location
+#' require("dplyr")
 #' transactions %>%
 #'   left_join(promotions,
 #'             c("product_id", "store_id", "week"))
-#' }
 #' }
 "promotions"
 

@@ -18,17 +18,16 @@
 #' \item{kids_count}{Number of children present up to 3+}
 #' }
 #' @examples
-#' \dontrun{
-#' if (require("dplyr")) {
+#' \donttest{
 #' # if data hasn't been imported yet
 #' import_data(which = "all")
 #' 
 #' demographics
 #'
 #' # Transaction line items that don't have household metadata
+#' require("dplyr")
 #' transactions %>%
 #'   anti_join(demographics, "household_id")
-#' }
 #' }
 #' 
 "demographics"
