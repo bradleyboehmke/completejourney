@@ -33,7 +33,7 @@ data set to keep package size manageable.
 \examples{
 \donttest{
 # if data hasn't been imported yet
-import_data(which = "all")
+get_data(which = "all", verbose = FALSE)
 
 head(transactions)
 }

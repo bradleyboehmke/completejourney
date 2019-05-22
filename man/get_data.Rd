@@ -29,9 +29,9 @@ Can be one of the following; default is \code{"all"}:
 \item{verbose}{Logical indicator whether or not to download silently.}
 }
 \value{
-Each downloaded data set is saved as a tibble in the users global 
-  environment. For specifc details on a given data set see the data sets 
-  respective help file (i.e. \code{?transactions}).
+Each downloaded data set is attached to the user search path and can
+  be called directly (i.e. \code{transactions}). For specifc details on a 
+  given data set see the data sets respective help file (i.e. \code{?transactions}).
 }
 \description{
 The data sets available through this package are quite sizeable; and too 
@@ -42,12 +42,12 @@ source GitHub repository.
 \examples{
 \donttest{
 # download all data sets
-get_data(which = "all")
+get_data(which = "all", verbose = FALSE)
 
 # download transactions data
-get_data(which = "transactions")
+get_data(which = "transactions", verbose = FALSE)
 
 # download multiple data sets
-get_data(which = c("transactions", "promotions"))
+get_data(which = c("transactions", "promotions"), verbose = FALSE)
 }
 }

@@ -59,7 +59,7 @@ product was featured in the weekly mailer or was part of an in-store display
 \examples{
 \donttest{
 # if data hasn't been imported yet
-import_data(which = "all")
+get_data(which = "all", verbose = FALSE)
 
 promotions
 

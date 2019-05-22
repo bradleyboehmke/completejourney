@@ -12,7 +12,7 @@
 #' @examples
 #' \donttest{
 #' # if data hasn't been imported yet
-#' import_data(which = "all")
+#' get_data(which = "all", verbose = FALSE)
 #' 
 #' campaigns
 #'

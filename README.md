@@ -10,7 +10,7 @@ Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)]
 ## Overview
 
 An R data package that provides access to data in the Complete Journey
-Study provided by [84.51](http://www.8451.com). The data represents
+Study provided by [84.51°](http://www.8451.com). The data represents
 grocery store shopping transactions over one year from a group of 2,469
 households who are frequent shoppers at a retailer. It contains all of
 each household’s purchases, not just those from a limited number of
@@ -51,15 +51,28 @@ library(completejourney)
 get_data(which = "all", verbose = FALSE)
 ```
 
-Each downloaded data set is saved as a tibble in the users global
-environment. For specifc details on a given data set see the data sets
-respective help file (i.e. `?transactions`).
+Each downloaded data set is attached to the user search path and can be
+called directly (i.e. `transactions`). For specifc details on a given
+data set see the data sets respective help file (i.e. `?transactions`).
 
 ``` r
-ls()
-#> [1] "campaign_descriptions" "campaigns"             "coupon_redemptions"   
-#> [4] "coupons"               "demographics"          "products"             
-#> [7] "promotions"            "transactions"
+transactions
+#> # A tibble: 1,469,307 x 11
+#>    household_id store_id basket_id product_id quantity sales_value
+#>    <chr>        <chr>    <chr>     <chr>         <dbl>       <dbl>
+#>  1 900          330      31198570… 1095275           1        0.5 
+#>  2 900          330      31198570… 9878513           1        0.99
+#>  3 1228         406      31198655… 1041453           1        1.43
+#>  4 906          319      31198705… 1020156           1        1.5 
+#>  5 906          319      31198705… 1053875           2        2.78
+#>  6 906          319      31198705… 1060312           1        5.49
+#>  7 906          319      31198705… 1075313           1        1.5 
+#>  8 1058         381      31198676… 985893            1        1.88
+#>  9 1058         381      31198676… 988791            1        1.5 
+#> 10 1058         381      31198676… 9297106           1        2.69
+#> # … with 1,469,297 more rows, and 5 more variables: retail_disc <dbl>,
+#> #   coupon_disc <dbl>, coupon_match_disc <dbl>, week <int>,
+#> #   transaction_timestamp <dttm>
 ```
 
 ## Learn more

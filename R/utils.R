@@ -11,8 +11,7 @@ load_url <- function (url, ..., sha1 = NULL) {
   file_sha1 <- digest::digest(file = temp_file, algo = "sha1")
   if (is.null(sha1)) {
     #message("SHA-1 hash of file is ", file_sha1)
-  }
-  else {
+  } else {
     if (nchar(sha1) < 6) {
       stop("Supplied SHA-1 hash is too short (must be at least 6 characters)")
     }
@@ -23,7 +22,8 @@ load_url <- function (url, ..., sha1 = NULL) {
            ")", call. = FALSE)
     }
   }
-  load(temp_file, envir = .GlobalEnv)
+  #load(temp_file, envir = .GlobalEnv)
+  attach(temp_file, warn.conflicts = FALSE)
 }
 
 #' @keywords internal

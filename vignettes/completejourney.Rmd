@@ -50,10 +50,10 @@ library(completejourney)
 get_data(which = "all", verbose = FALSE)
 ```
 
-Each downloaded data set is saved as a tibble in the users global environment. For specifc details on a given data set see the data sets respective help file (i.e. `?transactions`).
+Each downloaded data set is attached to the user search path and can be called directly (i.e. `transactions`). For specifc details on a given data set see the data sets respective help file (i.e. `?transactions`).
 
 ```{r}
-ls()
+transactions
 ```
 
 

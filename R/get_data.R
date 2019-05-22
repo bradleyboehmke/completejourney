@@ -24,20 +24,20 @@
 #'   Data originated from 84.51°, Customer Journey study, \url{http://www.8451.com/area51/} 
 #'   and were processes for analysis.
 #'   
-#' @return Each downloaded data set is saved as a tibble in the users global 
-#'   environment. For specifc details on a given data set see the data sets 
-#'   respective help file (i.e. \code{?transactions}).
+#' @return Each downloaded data set is attached to the user search path and can
+#'   be called directly (i.e. \code{transactions}). For specifc details on a 
+#'   given data set see the data sets respective help file (i.e. \code{?transactions}).
 #'   
 #' @examples
 #' \donttest{
 #' # download all data sets
-#' get_data(which = "all")
+#' get_data(which = "all", verbose = FALSE)
 #' 
 #' # download transactions data
-#' get_data(which = "transactions")
+#' get_data(which = "transactions", verbose = FALSE)
 #' 
 #' # download multiple data sets
-#' get_data(which = c("transactions", "promotions"))
+#' get_data(which = c("transactions", "promotions"), verbose = FALSE)
 #' }
 #' @export
 get_data <- function(which = "all", verbose = TRUE) {

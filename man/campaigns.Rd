@@ -22,7 +22,7 @@ Each household received a different set of marketing campaigns.
 \examples{
 \donttest{
 # if data hasn't been imported yet
-import_data(which = "all")
+get_data(which = "all", verbose = FALSE)
 
 campaigns
 
