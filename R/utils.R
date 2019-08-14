@@ -50,12 +50,14 @@ download_data <- function(which = "all", verbose = TRUE) {
   for (i in seq_along(dataset_names)) {
     if (verbose) pb$tick(tokens = list(what = progress_names[i]))
       
-      df = load_url(sprintf("https://github.com/bradleyboehmke/completejourney/blob/master/data/%s.rda?raw=true", dataset_names[i]))
+      url = sprintf("https://github.com/bradleyboehmke/completejourney/blob/master/data/%s.rds?raw=true", dataset_names[i])
+      df = readRDS(gzcon(url(url)))
       df_list[[dataset_names[i]]] <- df
   }
   msg <- "Download complete. Learn more about these data sets at https://bradleyboehmke.github.io/completejourney"
   if (verbose) message(paste(strwrap(msg), collapse = "\n"))
   
+  if (length(df_list) == 1 ) df_list <- df_list[[1]]
   return(df_list)
 }
 
