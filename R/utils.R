@@ -22,7 +22,7 @@ load_url <- function (url, ..., sha1 = NULL) {
            ")", call. = FALSE)
     }
   }
-  #load(temp_file, envir = .GlobalEnv)
+
   attach(temp_file, warn.conflicts = FALSE)
 }
 
@@ -45,14 +45,31 @@ download_data <- function(which = "all", verbose = TRUE) {
   
   if (verbose) message("Loading completejourney data sets from GitHub")
   
+  df_list = list()
+  
   for (i in seq_along(dataset_names)) {
     if (verbose) pb$tick(tokens = list(what = progress_names[i]))
       
-    load_url(sprintf("https://github.com/bradleyboehmke/completejourney/blob/master/data/%s.rda?raw=true", dataset_names[i]))
+      df = load_url(sprintf("https://github.com/bradleyboehmke/completejourney/blob/master/data/%s.rda?raw=true", dataset_names[i]))
+      df_list[[dataset_names[i]]] <- df
   }
   msg <- "Download complete. Learn more about these data sets at https://bradleyboehmke.github.io/completejourney"
   if (verbose) message(paste(strwrap(msg), collapse = "\n"))
+  
+  return(df_list)
 }
 
 #' @keywords internal
 '%notin%' <- function(x, y) !('%in%'(x, y))
+
+#' Assign values to names
+#'
+#' See \code{\link[zeallot]{\%<-\%}} for more details.
+#'
+#' @name %<-%
+#' @rdname multi-assign
+#' @keywords internal
+#' @export
+#' @import zeallot
+#' @usage x \%<-\% value
+NULL

@@ -47,7 +47,7 @@ transactions <- read_csv("../../Data sets/Complete_Journey_UV_Version/transactio
          retail_disc, coupon_disc, coupon_match_disc, week, transaction_timestamp)
 
 # save final data set
-devtools::use_data(transactions, overwrite = TRUE)
+readr::write_rds(transactions, path = 'data/transactions.rds', compress = 'gz')
 
 # demographics -----------------------------------------------------------------
 
@@ -138,7 +138,7 @@ demographics <- read_csv("../../Data sets/Complete_Journey_UV_Version/hh_demogra
          household_size, household_comp, kids_count)
 
 # save final data set
-devtools::use_data(demographics, overwrite = TRUE)
+readr::write_rds(demographics, path = 'data/demographics.rds', compress = 'gz')
 
 # products ---------------------------------------------------------------------
 
@@ -202,7 +202,7 @@ products <- read_csv("../../Data sets/Complete_Journey_UV_Version/product.csv") 
   select(product_id, manufacturer_id, department, brand, product_category, product_type, package_size)
 
 # save final data set
-devtools::use_data(products, overwrite = TRUE)
+readr::write_rds(products, path = 'data/products.rds', compress = 'gz')
 
 # promotions -----------------------------------------------------------------
 
@@ -222,7 +222,7 @@ promotions <- read_csv("../../Data sets/Complete_Journey_UV_Version/causal_data.
   select(product_id, store_id, display_location = display, mailer_location = mailer, week) 
 
 # save final data set
-devtools::use_data(promotions, overwrite = TRUE)
+readr::write_rds(promotions, path = 'data/promotions.rds', compress = 'gz')
 
 # campaign_descriptions --------------------------------------------------------
 
@@ -318,6 +318,11 @@ devtools::use_data(coupon_redemptions, overwrite = TRUE)
 devtools::use_data(campaign_descriptions, overwrite = TRUE)  
 devtools::use_data(campaigns, overwrite = TRUE)
 devtools::use_data(coupons, overwrite = TRUE) 
+
+readr::write_rds(coupon_redemptions, path = 'data/coupon_redemptions.rds', compress = 'gz')
+readr::write_rds(campaign_descriptions, path = 'data/campaign_descriptions.rds', compress = 'gz')
+readr::write_rds(campaigns, path = 'data/campaigns.rds', compress = 'gz')
+readr::write_rds(coupons, path = 'data/coupons.rds', compress = 'gz')
 
 # data check summaries ---------------------------------------------------------
 
