@@ -53,7 +53,10 @@ The data sets available through this package are quite sizeable; and too large t
 
 ```{r load-pkg}
 library(completejourney)
-get_data(which = "all", verbose = FALSE)
+
+c(campaigns, campaign_descriptions, coupons,
+  coupon_redemptions, demographics, products,
+  promotions, transactions) %<-% get_data(which = "all", verbose = FALSE)
 ```
 
 Each downloaded data set is attached to the user search path and can be called directly (i.e. `transactions`). For specifc details on a given data set see the data sets respective help file (i.e. `?transactions`).
@@ -64,7 +67,7 @@ transactions
 
 ## Learn more
 
-Learn more about the completejourney data, and the type of insights you can look for, at [https://bradleyboehmke.github.io/completejourney](https://bradleyboehmke.github.io/completejourney/).
+Learn more about the completejourney data, and the type of insights you can look for, at [http://bit.ly/completejourney](https://bradleyboehmke.github.io/completejourney/).
 
 ## Source
 

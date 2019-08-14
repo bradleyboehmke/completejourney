@@ -24,20 +24,27 @@
 #'   Data originated from 84.51°, Customer Journey study, \url{http://www.8451.com/area51/} 
 #'   and were processes for analysis.
 #'   
-#' @return Each downloaded data set is attached to the user search path and can
-#'   be called directly (i.e. \code{transactions}). For specifc details on a 
-#'   given data set see the data sets respective help file (i.e. \code{?transactions}).
-#'   
+#' @return Downloading a single data set will result in a tibble whereas 
+#'   downloading multiple data sets will return a list containing each tibble. 
+#'   For specific details on a given data set see the data sets respective help 
+#'   file (i.e. \code{?transactions}).
+#' 
+#' @seealso Use \code{\link[zeallot]{\%<-\%}} for unpacking a list with multiple 
+#' tibbles to their own global environment tibble.
+#'     
 #' @examples
 #' \donttest{
-#' # download all data sets
-#' get_data(which = "all", verbose = FALSE)
-#' 
 #' # download transactions data
-#' get_data(which = "transactions", verbose = FALSE)
+#' transactions <- get_data(which = "transactions", verbose = FALSE)
 #' 
 #' # download multiple data sets
-#' get_data(which = c("transactions", "promotions"), verbose = FALSE)
+#' c(transactions, promotions) %<-% get_data(which = c("transactions", "promotions"))
+#' 
+#' # download all data sets?
+#' c(campaigns, campaign_descriptions, coupons,
+#'   coupon_redemptions, demographics, products,
+#'   promotions, transactions) %<-% get_data(which = "all")
+#' 
 #' }
 #' @export
 get_data <- function(which = "all", verbose = TRUE) {
@@ -63,6 +70,3 @@ get_data <- function(which = "all", verbose = TRUE) {
   download_data(which = which, verbose = verbose)
   
 }
-
-
-

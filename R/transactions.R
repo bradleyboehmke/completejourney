@@ -21,11 +21,10 @@
 #'   \item{transaction_timestamp}{Date and time of when the transaction occurred}
 #' }
 #'
-#'
 #' @examples
 #' \donttest{
 #' # if data hasn't been imported yet
-#' get_data(which = "all", verbose = FALSE)
+#' transactions <- get_data(which = "transactions", verbose = FALSE)
 #' 
 #' head(transactions)
 #' }

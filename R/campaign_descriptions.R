@@ -1,4 +1,4 @@
-#' Campaign metadata.
+#' @title Campaign metadata.
 #'
 #' Campaign metadata for all campaigns run for the Customer Journey study. This
 #' dataset gives the length of time for which a campaign runs. So, any coupons
@@ -13,10 +13,13 @@
 #' \item{start_date}{Start date of campaign}
 #' \item{end_date}{End date of campaign}
 #' }
+#' 
 #' @examples
 #' \donttest{
 #' # if data hasn't been imported yet
-#' get_data(which = "all", verbose = FALSE)
+#' c(campaigns, campaign_descriptions, coupons,
+#'   coupon_redemptions, demographics, products,
+#'   promotions, transactions) %<-% get_data(which = "all")
 #' 
 #' campaign_descriptions
 #'

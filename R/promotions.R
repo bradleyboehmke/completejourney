@@ -43,7 +43,9 @@
 #' @examples
 #' \donttest{
 #' # if data hasn't been imported yet
-#' get_data(which = "all", verbose = FALSE)
+#' c(campaigns, campaign_descriptions, coupons,
+#'   coupon_redemptions, demographics, products,
+#'   promotions, transactions) %<-% get_data(which = "all")
 #' 
 #' promotions
 #'

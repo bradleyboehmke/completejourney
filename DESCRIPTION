@@ -23,7 +23,8 @@ Imports:
     httr,
     digest,
     progress,
-    stringr
+    stringr,
+    zeallot
 Suggests:
     dplyr,
     lubridate,
