@@ -15,10 +15,10 @@ grocery store shopping transactions over one year from a group of 2,469
 households who are frequent shoppers at a retailer. It contains all of
 each household’s purchases, not just those from a limited number of
 categories. For certain households, demographic information as well as
-direct marketing contact history are included. The data sets provided by
-`completejourney::get_data()` include:
+direct marketing contact history are included.
 
-  - `transactions`: products purchased by households
+  - `transactions_sample`: a sampling of the products purchased by
+    households
   - `products`: product metadata (brand, description, etc.)
   - `demographics`: household demographic data (age, income, family
     size, etc.)
@@ -27,8 +27,8 @@ direct marketing contact history are included. The data sets provided by
   - `coupons`: coupon metadata (UPC code, campaign, etc.)
   - `coupon_redemptions`: coupon redemptions (household, day, UPC code,
     campaign)
-  - `promotions`: product placement in mailers and in stores
-    corresponding to advertising campaigns
+  - `promotions_sample`: a sampling of the product placement in mailers
+    and in stores corresponding to advertising campaigns
 
 ## Installation
 
@@ -39,26 +39,21 @@ You can install `completejourney` from GitHub with:
 remotes::install_github("bradleyboehmke/completejourney")
 ```
 
-## Downloading the Data
-
-The data sets available through this package are quite sizeable; and too
-large to be contained within the package. `get_data()` provides an
-efficient method for downloading one or more of the data sets from the
-source GitHub repository.
-
 ``` r
 library(completejourney)
-
-c(campaigns, campaign_descriptions, coupons,
-  coupon_redemptions, demographics, products,
-  promotions, transactions) %<-% get_data(which = "all", verbose = FALSE)
 ```
 
-Each downloaded data set is attached to the user search path and can be
-called directly (i.e. `transactions`). For specifc details on a given
-data set see the data sets respective help file (i.e. `?transactions`).
+## Downloading full data sets
+
+Due to the size of the transactions and promotions data, the package
+provides a sampling of the data built-in with `transactions_sample` and
+`promotions_sample`. However, you can access the full promotions and
+transactions data sets from the source GitHub repository with the
+following:
 
 ``` r
+# get the full transactions data set
+transactions <- get_transactions()
 transactions
 #> # A tibble: 1,469,307 x 11
 #>    household_id store_id basket_id product_id quantity sales_value
@@ -76,6 +71,35 @@ transactions
 #> # … with 1,469,297 more rows, and 5 more variables: retail_disc <dbl>,
 #> #   coupon_disc <dbl>, coupon_match_disc <dbl>, week <int>,
 #> #   transaction_timestamp <dttm>
+```
+
+``` r
+# get the full promotions data set
+promotions <- get_promotions()
+promotions
+#> # A tibble: 20,940,529 x 5
+#>    product_id store_id display_location mailer_location  week
+#>    <chr>      <chr>    <fct>            <fct>           <int>
+#>  1 1000050    316      9                0                   1
+#>  2 1000050    337      3                0                   1
+#>  3 1000050    441      5                0                   1
+#>  4 1000092    292      0                A                   1
+#>  5 1000092    293      0                A                   1
+#>  6 1000092    295      0                A                   1
+#>  7 1000092    298      0                A                   1
+#>  8 1000092    299      0                A                   1
+#>  9 1000092    304      0                A                   1
+#> 10 1000092    306      0                A                   1
+#> # … with 20,940,519 more rows
+```
+
+``` r
+# a convenience function to get both
+c(promotions, transactions) %<-% get_data(which = 'both', verbose = FALSE)
+dim(promotions)
+#> [1] 20940529        5
+dim(transactions)
+#> [1] 1469307      11
 ```
 
 ## Learn more

@@ -6,9 +6,9 @@
 #' source GitHub repository. An internet connection is required.
 #' 
 #' @param which Character string of one or more data sets to be downloaded.
-#'   Can be one of the following; default is \code{"all"}:
+#'   Can be one of the following; default is \code{"both"}:
 #'   \itemize{
-#'       \item{"all"}
+#'       \item{"both"}
 #'       \item{"promotions"}
 #'       \item{"transactions"}
 #'      }
@@ -30,13 +30,13 @@
 #' @examples
 #' \donttest{
 #' # download transactions and promotions data sets
-#' c(promotions, transactions) %<-% get_data(which = 'all')
+#' c(promotions, transactions) %<-% get_data(which = 'both')
 #' }
 #' @export
-get_data <- function(which = "all", verbose = TRUE) {
+get_data <- function(which = "both", verbose = TRUE) {
   
   valid <- c(
-    "all", 
+    "both", 
     "promotions",
     "transactions"
     )

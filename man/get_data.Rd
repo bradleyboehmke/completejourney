@@ -9,13 +9,13 @@ Downloading from \url{https://github.com/bradleyboehmke/completejourney/tree/mas
   and were processes for analysis.
 }
 \usage{
-get_data(which = "all", verbose = TRUE)
+get_data(which = "both", verbose = TRUE)
 }
 \arguments{
 \item{which}{Character string of one or more data sets to be downloaded.
-Can be one of the following; default is \code{"all"}:
+Can be one of the following; default is \code{"both"}:
 \itemize{
-    \item{"all"}
+    \item{"both"}
     \item{"promotions"}
     \item{"transactions"}
    }}
@@ -37,7 +37,7 @@ source GitHub repository. An internet connection is required.
 \examples{
 \donttest{
 # download transactions and promotions data sets
-c(promotions, transactions) \%<-\% get_data(which = 'all')
+c(promotions, transactions) \%<-\% get_data(which = 'both')
 }
 }
 \seealso{
