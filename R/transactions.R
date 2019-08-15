@@ -1,12 +1,13 @@
-#' @title Complete Journey transactions.
+#' @title Sampling of the full Complete Journey transactions.
 #'
-#' @description All products purchased by households within the Complete Journey
+#' @description 
+#' A sampling of all products purchased by households within the Complete Journey
 #' study. Each line found in this table is essentially the same line that would
 #' be found on a store receipt. This is only a subsample of the complete
 #' data set to keep package size manageable.
 #'
 #' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
-#' @format A data frame with 1,469,307 rows and 11 variables
+#' @format A data frame with 100,000 rows and 11 variables
 #' \describe{
 #'   \item{household_id}{Uniquely identifies each household}
 #'   \item{store_id}{Uniquely identifies each store}
@@ -20,15 +21,15 @@
 #'   \item{week}{Week of the transaction; Ranges 1-53}
 #'   \item{transaction_timestamp}{Date and time of when the transaction occurred}
 #' }
+#' 
+#' @seealso Use \code{\link{get_transactions}} to download the entire transactions
+#'   data containing all 1,469,307 rows.
 #'
 #' @examples
 #' \donttest{
-#' # if data hasn't been imported yet
-#' transactions <- get_data(which = "transactions", verbose = FALSE)
-#' 
-#' head(transactions)
+#' transactions_sample
 #' }
-"transactions"
+"transactions_sample"
 
 #' @importFrom tibble tibble
 NULL

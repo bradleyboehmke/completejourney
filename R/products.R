@@ -1,26 +1,23 @@
-#' Product metadata.
+#' @title Product metadata.
 #'
+#' @description 
 #' Product metadata for all products purchased by households participating in
 #' the Customer Journey study.
 #'
 #' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 92,331 rows and 7 variables
-#' \describe{
-#' \item{product_id}{Uniquely identifies each product}
-#' \item{manufacturer_id}{Uniquely identifies each manufacturer}
-#' \item{department}{Groups similar products together}
-#' \item{brand}{Indicates Private or National label brand}
-#' \item{product_category}{Groups similar products together at lower level}
-#' \item{product_type}{Groups similar products together at lowest level}
-#' \item{package_size}{Indicates package size (not available for all products)}
+#' \itemize{
+#' \item product_id: Uniquely identifies each product
+#' \item manufacturer_id: Uniquely identifies each manufacturer
+#' \item department: Groups similar products together
+#' \item brand: Indicates Private or National label brand
+#' \item product_category: Groups similar products together at lower level
+#' \item product_type: Groups similar products together at lowest level
+#' \item package_size: Indicates package size (not available for all products)
 #' }
 #' @examples
 #' \donttest{
-#' # if data hasn't been imported yet
-#' c(campaigns, campaign_descriptions, coupons,
-#'   coupon_redemptions, demographics, products,
-#'   promotions, transactions) %<-% get_data(which = "all")
-#' 
+#' # full data set
 #' products
 #'
 #' # Transaction line items that don't have product metadata

@@ -1,17 +1,18 @@
-#' Promotions data.
-#'
-#' Promotions data of the Complete Journey study signifying whether a given 
-#' product was featured in the weekly mailer or was part of an in-store display 
-#' (other than regular product placement). 
+#' @title Sampling of the full promotions data set.
+#' 
+#' @description 
+#' A sampling of the promotions data from the Complete Journey study signifying 
+#' whether a given product was featured in the weekly mailer or was part of an 
+#' in-store display (other than regular product placement). 
 #'
 #' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
-#' @format A data frame with 20,940,529 rows and 5 variables
-#' \describe{
-#'   \item{product_id}{Uniquely identifies each product}
-#'   \item{store_id}{Uniquely identifies each store}
-#'   \item{display_location}{Display location  (see details for range of values)}
-#'   \item{mailer_location}{Mailer location (see details for range of values)}
-#'   \item{week}{Week of the transaction; Ranges 1-53}
+#' @format A data frame with 1,948,597 rows and 5 variables
+#' \itemize{
+#'   \item product_id: Uniquely identifies each product
+#'   \item store_id: Uniquely identifies each store
+#'   \item display_location: Display location  (see details for range of values)
+#'   \item mailer_location: Mailer location (see details for range of values)
+#'   \item week: Week of the transaction; Ranges 1-53
 #' }
 #' @section Display Location Codes:
 #' \itemize{
@@ -40,23 +41,23 @@
 #'   \item X - Free on interior page
 #'   \item Z - Free on front page, back page or wrap
 #' }
+#' 
+#' @seealso Use \code{\link{get_promotions}} to download the entire promotions
+#'   data containing all 20,940,529 rows.
+#' 
 #' @examples
 #' \donttest{
-#' # if data hasn't been imported yet
-#' c(campaigns, campaign_descriptions, coupons,
-#'   coupon_redemptions, demographics, products,
-#'   promotions, transactions) %<-% get_data(which = "all")
-#' 
-#' promotions
+#' # sampled promotions data set
+#' promotions_sample
 #'
 #' # Join promotions to transactions to analyze
 #' # product promotion/location
 #' require("dplyr")
 #' transactions %>%
-#'   left_join(promotions,
+#'   left_join(promotions_sample,
 #'             c("product_id", "store_id", "week"))
 #' }
-"promotions"
+"promotions_sample"
 
 #' @importFrom tibble tibble
 NULL

@@ -1,7 +1,6 @@
 #' @keywords internal
 download_data <- function(which = "all", verbose = TRUE) {
-  dataset_names <- c("campaigns", "campaign_descriptions", "coupons", "coupon_redemptions",
-                     "demographics", "products", "promotions", "transactions")
+  dataset_names <- c("promotions", "transactions")
   
   if (any(which != "all")) {
     dataset_names <- dataset_names[dataset_names %in% which]
