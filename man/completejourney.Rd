@@ -12,3 +12,20 @@ Retail shopping transactions for 2,469 households over one year
 Learn more here:
 \href{https://github.com/bradleyboehmke/completejourney}{GitHub}
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/bradleyboehmke/completejourney}
+  \item Report bugs at \url{https://github.com/bradleyboehmke/completejourney/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Brad Boehmke \email{bradleyboehmke@gmail.com} (0000-0002-3611-8516)
+
+Authors:
+\itemize{
+  \item Steven M. Mortimer \email{reportmort@gmail.com}
+}
+
+}

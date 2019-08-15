@@ -9,4 +9,4 @@
 #' @name completejourney
 #' @importFrom dplyr %>%
 #' @importFrom zeallot %<-%
-NULL
+"_PACKAGE"

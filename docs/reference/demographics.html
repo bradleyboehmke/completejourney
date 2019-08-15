@@ -138,16 +138,16 @@ households.</p>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 801 rows and 8 variables</p><dl class='dl-horizontal'>
-<dt>household_id</dt><dd><p>Uniquely identifies each household</p></dd>
-<dt>age</dt><dd><p>Estimated age range</p></dd>
-<dt>income</dt><dd><p>Household income range</p></dd>
-<dt>home_ownership</dt><dd><p>Homeowner status (Homeowner, Renter, Unknown)</p></dd>
-<dt>marital_status</dt><dd><p>Marital status (Married, Single, Unknown)</p></dd>
-<dt>household_size</dt><dd><p>Size of household up to 5+</p></dd>
-<dt>household_comp</dt><dd><p>Household composition description</p></dd>
-<dt>kids_count</dt><dd><p>Number of children present up to 3+</p></dd>
-</dl>
+    <p>A data frame with 801 rows and 8 variables</p><ul>
+<li><p>household_id: Uniquely identifies each household</p></li>
+<li><p>age: Estimated age range</p></li>
+<li><p>income: Household income range</p></li>
+<li><p>home_ownership: Homeowner status (Homeowner, Renter, Unknown)</p></li>
+<li><p>marital_status: Marital status (Married, Single, Unknown)</p></li>
+<li><p>household_size: Size of household up to 5+</p></li>
+<li><p>household_comp: Household composition description</p></li>
+<li><p>kids_count: Number of children present up to 3+</p></li>
+</ul>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
@@ -155,9 +155,7 @@ households.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># if data hasn't been imported yet</span>
-<span class='fu'><a href='get_data.html'>get_data</a></span>(<span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
+    <pre class="examples"><div class='input'><span class='co'># full data set</span>
 <span class='no'>demographics</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 801 x 8</span><span>
 #&gt;    household_id age   income home_ownership marital_status household_size
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>         
@@ -176,21 +174,7 @@ households.</p>
 <span class='co'># Transaction line items that don't have household metadata</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 640,457 x 11</span><span>
-#&gt;    household_id store_id basket_id product_id quantity sales_value retail_disc
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 1058         381      31198676… 985893            1        1.88        0.21
-#&gt; </span><span style='color: #555555;'> 2</span><span> 1058         381      31198676… 988791            1        1.5         1.29
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1058         381      31198676… 9297106           1        2.69        0   
-#&gt; </span><span style='color: #555555;'> 4</span><span> 749          346      31198970… 1082310           1        1.61        0   
-#&gt; </span><span style='color: #555555;'> 5</span><span> 749          346      31198970… 5564931           1        1.59        0   
-#&gt; </span><span style='color: #555555;'> 6</span><span> 850          292      31198700… 995242            1        1.99        0   
-#&gt; </span><span style='color: #555555;'> 7</span><span> 850          292      31198700… 1022254           1        1.27        0   
-#&gt; </span><span style='color: #555555;'> 8</span><span> 850          292      31198700… 1082185           1        0.97        0   
-#&gt; </span><span style='color: #555555;'> 9</span><span> 70           380      31198975… 1039156           1        1.5         0   
-#&gt; </span><span style='color: #555555;'>10</span><span> 83           381      31198676… 1046485           1       11.0         0   
-#&gt; </span><span style='color: #555555;'># … with 640,447 more rows, and 4 more variables: coupon_disc </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   coupon_match_disc </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, week </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, transaction_timestamp </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span></div></span><div class='input'>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'transactions' not found</span></div></span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

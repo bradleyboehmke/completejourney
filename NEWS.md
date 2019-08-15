@@ -13,7 +13,7 @@ contain 'metadata' on the products, coupons, campaigns, and promotions.
   * Restrict the data to only 2017 to remove some anomalous spending patterns and 
   reduce the overall size of the package (#7)
   * Re-numbered campaign ID to be 1-27 (#12)
-  * Created importing capabilities so that data sets do not need to be included
+  * Created importing capabilities so that large data sets do not need to be included
     in package (due to size).
 
 ### Bug Fixes

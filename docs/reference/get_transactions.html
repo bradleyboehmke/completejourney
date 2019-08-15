@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Coupon metadata. — coupons • completejourney</title>
+<title>Get full Complete Journey transactions data set. — get_transactions • completejourney</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,11 @@
 
 
 
-<meta property="og:title" content="Coupon metadata. — coupons" />
+<meta property="og:title" content="Get full Complete Journey transactions data set. — get_transactions" />
 
-<meta property="og:description" content="Coupon metadata for all coupons used in campaigns advertised to households
-participating in the Customer Journey study." />
+<meta property="og:description" content="The complete transactions data set for the Complete Journey is too large to be
+contained within the package. get_transactions() provides an efficient
+method for downloading the full data set from the source GitHub repository." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -120,62 +121,58 @@ participating in the Customer Journey study." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Coupon metadata.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/coupons.R'><code>R/coupons.R</code></a></small>
-    <div class="hidden name"><code>coupons.Rd</code></div>
+    <h1>Get full Complete Journey transactions data set.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bradleyboehmke/completejourney/blob/master/R/get_transactions.R'><code>R/get_transactions.R</code></a></small>
+    <div class="hidden name"><code>get_transactions.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Coupon metadata for all coupons used in campaigns advertised to households
-participating in the Customer Journey study.</p>
+    <p>The complete transactions data set for the Complete Journey is too large to be
+contained within the package. <code>get_transactions()</code> provides an efficient
+method for downloading the full data set from the source GitHub repository.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>coupons</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A data frame with 116,204 rows and 3 variables</p><ul>
-<li><p>coupon_upc: Uniquely identifies each coupon (unique to household and campaign)</p></li>
-<li><p>product_id: Uniquely identifies each product</p></li>
-<li><p>campaign_id: Uniquely identifies each campaign</p></li>
-</ul>
+    <pre class="usage"><span class='fu'>get_transactions</span>(<span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>verbose</th>
+      <td><p>Logical indicator whether or not to download silently.</p></td>
+    </tr>
+    </table>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>84.51°, Customer Journey study, <a href='http://www.8451.com/area51/'>http://www.8451.com/area51/</a></p>
+    <p>Downloading from <a href='https://github.com/bradleyboehmke/completejourney/tree/master/data'>https://github.com/bradleyboehmke/completejourney/tree/master/data</a>.
+  Data originated from 84.51°, Customer Journey study, <a href='http://www.8451.com/area51/'>http://www.8451.com/area51/</a> 
+  and were processes for analysis.</p>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A data frame with 1,469,307 rows and 5 variables</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code>transactions_sample</code> for details regarding the variables.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># full data set</span>
-<span class='no'>coupon</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'coupon' not found</span></div><div class='input'>
-<span class='co'># Join product metadata to coupon dataset</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
-<span class='no'>coupons</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 116,204 x 9</span><span>
-#&gt;    coupon_upc product_id campaign_id manufacturer_id department brand
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 100000852… 9676830    26          1722            GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'> 2</span><span> 100000852… 9676943    26          317             GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'> 3</span><span> 100000852… 9676944    26          317             GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'> 4</span><span> 100000852… 9676947    26          1722            GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'> 5</span><span> 100000852… 9677008    26          1722            GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'> 6</span><span> 100000852… 9677052    26          317             GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'> 7</span><span> 100000852… 9677385    26          317             GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'> 8</span><span> 100000852… 9677479    26          317             GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'> 9</span><span> 100000852… 9677791    26          317             GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'>10</span><span> 100000852… 9677878    26          317             GROCERY    Nati…
-#&gt; </span><span style='color: #555555;'># … with 116,194 more rows, and 3 more variables: product_category </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,
-#&gt; #   product_type </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, package_size </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='no'>transactions</span> <span class='kw'>&lt;-</span> <span class='fu'>get_transactions</span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-
       <li><a href="#source">Source</a></li>
+
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

@@ -38,10 +38,23 @@ download_data <- function(which = "both", verbose = TRUE) {
 #' Assign values to names
 #'
 #' See \code{\link[zeallot]{\%<-\%}} for more details.
+#' 
+#' @param x A name structure.
+#' @param value A list of values, vector of values, or R objects to assign.
 #'
 #' @name %<-%
 #' @rdname multi-assign
 #' @export
 #' @import zeallot
 #' @usage x \%<-\% value
+NULL
+
+#' Pipe operator
+#'
+#' @name %>%
+#' @rdname pipe
+#' @keywords internal
+#' @export
+#' @importFrom dplyr %>%
+#' @usage lhs \%>\% rhs
 NULL

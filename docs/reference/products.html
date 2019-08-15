@@ -136,15 +136,15 @@ the Customer Journey study.</p>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 92,331 rows and 7 variables</p><dl class='dl-horizontal'>
-<dt>product_id</dt><dd><p>Uniquely identifies each product</p></dd>
-<dt>manufacturer_id</dt><dd><p>Uniquely identifies each manufacturer</p></dd>
-<dt>department</dt><dd><p>Groups similar products together</p></dd>
-<dt>brand</dt><dd><p>Indicates Private or National label brand</p></dd>
-<dt>product_category</dt><dd><p>Groups similar products together at lower level</p></dd>
-<dt>product_type</dt><dd><p>Groups similar products together at lowest level</p></dd>
-<dt>package_size</dt><dd><p>Indicates package size (not available for all products)</p></dd>
-</dl>
+    <p>A data frame with 92,331 rows and 7 variables</p><ul>
+<li><p>product_id: Uniquely identifies each product</p></li>
+<li><p>manufacturer_id: Uniquely identifies each manufacturer</p></li>
+<li><p>department: Groups similar products together</p></li>
+<li><p>brand: Indicates Private or National label brand</p></li>
+<li><p>product_category: Groups similar products together at lower level</p></li>
+<li><p>product_type: Groups similar products together at lowest level</p></li>
+<li><p>package_size: Indicates package size (not available for all products)</p></li>
+</ul>
     
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
@@ -152,9 +152,7 @@ the Customer Journey study.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># if data hasn't been imported yet</span>
-<span class='fu'><a href='get_data.html'>get_data</a></span>(<span class='kw'>which</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
+    <pre class="examples"><div class='input'><span class='co'># full data set</span>
 <span class='no'>products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 92,331 x 7</span><span>
 #&gt;    product_id manufacturer_id department brand product_category product_type
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       
@@ -172,21 +170,7 @@ the Customer Journey study.</p>
 <span class='co'># Transaction line items that don't have product metadata</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 4,836 x 11</span><span>
-#&gt;    household_id store_id basket_id product_id quantity sales_value retail_disc
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 1519         356      31198795… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'> 2</span><span> 1029         438      31198980… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1421         31742    31198511… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'> 4</span><span> 825          402      31198986… 1093587           2        13.9           0
-#&gt; </span><span style='color: #555555;'> 5</span><span> 856          381      31198677… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'> 6</span><span> 647          438      31198982… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'> 7</span><span> 936          321      31198853… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'> 8</span><span> 853          367      31225405… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'> 9</span><span> 574          427      31225415… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'>10</span><span> 93           32004    31225436… 5978656           0         0             0
-#&gt; </span><span style='color: #555555;'># … with 4,826 more rows, and 4 more variables: coupon_disc </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>,
-#&gt; #   coupon_match_disc </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, week </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, transaction_timestamp </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span></div></span></pre>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'transactions' not found</span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

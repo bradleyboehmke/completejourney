@@ -6,6 +6,11 @@
 \usage{
 x \%<-\% value
 }
+\arguments{
+\item{x}{A name structure.}
+
+\item{value}{A list of values, vector of values, or R objects to assign.}
+}
 \description{
 See \code{\link[zeallot]{\%<-\%}} for more details.
 }

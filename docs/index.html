@@ -98,10 +98,10 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p>An R data package that provides access to data in the Complete Journey Study provided by <a href="http://www.8451.com">84.51°</a>. The data represents grocery store shopping transactions over one year from a group of 2,469 households who are frequent shoppers at a retailer. It contains all of each household’s purchases, not just those from a limited number of categories. For certain households, demographic information as well as direct marketing contact history are included. The data sets provided by <code><a href="reference/get_data.html">completejourney::get_data()</a></code> include:</p>
+<p>An R data package that provides access to data in the Complete Journey Study provided by <a href="http://www.8451.com">84.51°</a>. The data represents grocery store shopping transactions over one year from a group of 2,469 households who are frequent shoppers at a retailer. It contains all of each household’s purchases, not just those from a limited number of categories. For certain households, demographic information as well as direct marketing contact history are included.</p>
 <ul>
 <li>
-<code>transactions</code>: products purchased by households</li>
+<code>transactions_sample</code>: a sampling of the products purchased by households</li>
 <li>
 <code>products</code>: product metadata (brand, description, etc.)</li>
 <li>
@@ -115,7 +115,7 @@
 <li>
 <code>coupon_redemptions</code>: coupon redemptions (household, day, UPC code, campaign)</li>
 <li>
-<code>promotions</code>: product placement in mailers and in stores corresponding to advertising campaigns</li>
+<code>promotions_sample</code>: a sampling of the product placement in mailers and in stores corresponding to advertising campaigns</li>
 </ul>
 </div>
 <div id="installation" class="section level2">
@@ -124,34 +124,54 @@
 <p>You can install <code>completejourney</code> from GitHub with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"bradleyboehmke/completejourney"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(completejourney)</a></code></pre></div>
 </div>
-<div id="downloading-the-data" class="section level2">
+<div id="downloading-full-data-sets" class="section level2">
 <h2 class="hasAnchor">
-<a href="#downloading-the-data" class="anchor"></a>Downloading the Data</h2>
-<p>The data sets available through this package are quite sizeable; and too large to be contained within the package. <code><a href="reference/get_data.html">get_data()</a></code> provides an efficient method for downloading one or more of the data sets from the source GitHub repository.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(completejourney)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(campaigns, campaign_descriptions, coupons,</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  coupon_redemptions, demographics, products,</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  promotions, transactions) <span class="op">%&lt;-%</span><span class="st"> </span><span class="kw"><a href="reference/get_data.html">get_data</a></span>(<span class="dt">which =</span> <span class="st">"all"</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<p>Each downloaded data set is attached to the user search path and can be called directly (i.e. <code>transactions</code>). For specifc details on a given data set see the data sets respective help file (i.e. <code>?transactions</code>).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">transactions</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; # A tibble: 1,469,307 x 11</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;    household_id store_id basket_id product_id quantity sales_value</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;  1 900          330      31198570… 1095275           1        0.5 </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;  2 900          330      31198570… 9878513           1        0.99</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  3 1228         406      31198655… 1041453           1        1.43</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  4 906          319      31198705… 1020156           1        1.5 </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  5 906          319      31198705… 1053875           2        2.78</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  6 906          319      31198705… 1060312           1        5.49</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  7 906          319      31198705… 1075313           1        1.5 </span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  8 1058         381      31198676… 985893            1        1.88</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  9 1058         381      31198676… 988791            1        1.5 </span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 10 1058         381      31198676… 9297106           1        2.69</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; # … with 1,469,297 more rows, and 5 more variables: retail_disc &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; #   coupon_disc &lt;dbl&gt;, coupon_match_disc &lt;dbl&gt;, week &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; #   transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
+<a href="#downloading-full-data-sets" class="anchor"></a>Downloading full data sets</h2>
+<p>Due to the size of the transactions and promotions data, the package provides a sampling of the data built-in with <code>transactions_sample</code> and <code>promotions_sample</code>. However, you can access the full promotions and transactions data sets from the source GitHub repository with the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># get the full transactions data set</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">transactions &lt;-<span class="st"> </span><span class="kw">get_transactions</span>()</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">transactions</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">## # A tibble: 1,469,307 x 11</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">##    household_id store_id basket_id product_id quantity sales_value retail_disc</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">##    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">##  1 900          330      31198570… 1095275           1        0.5        0    </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">##  2 900          330      31198570… 9878513           1        0.99       0.1  </span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">##  3 1228         406      31198655… 1041453           1        1.43       0.15 </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">##  4 906          319      31198705… 1020156           1        1.5        0.290</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">##  5 906          319      31198705… 1053875           2        2.78       0.8  </span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">##  6 906          319      31198705… 1060312           1        5.49       0.5  </span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">##  7 906          319      31198705… 1075313           1        1.5        0.290</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">##  8 1058         381      31198676… 985893            1        1.88       0.21 </span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">##  9 1058         381      31198676… 988791            1        1.5        1.29 </span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">## 10 1058         381      31198676… 9297106           1        2.69       0    </span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">## # … with 1,469,297 more rows, and 4 more variables: coupon_disc &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">## #   coupon_match_disc &lt;dbl&gt;, week &lt;int&gt;, transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># get the full promotions data set</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">promotions &lt;-<span class="st"> </span><span class="kw">get_promotions</span>()</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">promotions</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">## # A tibble: 20,940,529 x 5</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">##    product_id store_id display_location mailer_location  week</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">##    &lt;chr&gt;      &lt;chr&gt;    &lt;fct&gt;            &lt;fct&gt;           &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">##  1 1000050    316      9                0                   1</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">##  2 1000050    337      3                0                   1</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">##  3 1000050    441      5                0                   1</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">##  4 1000092    292      0                A                   1</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">##  5 1000092    293      0                A                   1</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">##  6 1000092    295      0                A                   1</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">##  7 1000092    298      0                A                   1</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">##  8 1000092    299      0                A                   1</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">##  9 1000092    304      0                A                   1</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">## 10 1000092    306      0                A                   1</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">## # … with 20,940,519 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># a convenience function to get both</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(promotions, transactions) <span class="op">%&lt;-%</span><span class="st"> </span><span class="kw">get_data</span>(<span class="dt">which =</span> <span class="st">'both'</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(promotions)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">## [1] 20940529        5</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(transactions)</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">## [1] 1469307      11</span></a></code></pre></div>
 </div>
 <div id="learn-more" class="section level2">
 <h2 class="hasAnchor">

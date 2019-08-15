@@ -30,15 +30,17 @@ reference:
   - title: Datasets
     desc: A complete list of package datasets
     contents:
-      - '`demographics`'
-      - '`transactions`'
       - '`campaigns`'
       - '`campaign_descriptions`'
-      - '`products`'
       - '`coupons`'
       - '`coupon_redemptions`'
-      - '`promotions`'
+      - '`demographics`'
+      - '`products`'
+      - '`promotions_sample`'
+      - '`transactions_sample`'
   - title: Data importing
-    desc: Download available data sets
+    desc: Download full promotions and transactions data sets
     contents:
+      - '`get_promotions`'
+      - '`get_transactions`'
       - '`get_data`'
