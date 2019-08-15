@@ -29,7 +29,8 @@ Imports:
 Suggests:
     lubridate,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 URL: https://github.com/bradleyboehmke/completejourney
 BugReports: https://github.com/bradleyboehmke/completejourney/issues
 RoxygenNote: 6.1.1
