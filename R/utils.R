@@ -26,7 +26,7 @@ download_data <- function(which = "all", verbose = TRUE) {
       df = readRDS(gzcon(url(url)))
       df_list[[dataset_names[i]]] <- df
   }
-  msg <- "Download complete. Learn more about these data sets at https://bradleyboehmke.github.io/completejourney"
+  msg <- "Download complete. Learn more about these data sets at http://bit.ly/completejourney"
   if (verbose) message(paste(strwrap(msg), collapse = "\n"))
   
   if (length(df_list) == 1 ) df_list <- df_list[[1]]

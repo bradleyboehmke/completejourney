@@ -9,4 +9,3 @@ x \%<-\% value
 \description{
 See \code{\link[zeallot]{\%<-\%}} for more details.
 }
-\keyword{internal}

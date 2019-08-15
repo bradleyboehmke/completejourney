@@ -6,7 +6,7 @@
 #' \href{https://github.com/bradleyboehmke/completejourney}{GitHub}
 #'
 #' @docType package
-#' @name kpi
+#' @name completejourney
 #' @importFrom dplyr %>%
 #' @importFrom zeallot %<-%
 NULL

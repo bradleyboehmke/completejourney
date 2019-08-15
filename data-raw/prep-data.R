@@ -47,7 +47,7 @@ transactions <- read_csv("../../Data sets/Complete_Journey_UV_Version/transactio
          retail_disc, coupon_disc, coupon_match_disc, week, transaction_timestamp)
 
 # save final data set
-readr::write_rds(transactions, path = 'data/transactions.rds', compress = 'gz')
+usethis::use_data(transactions, overwrite = TRUE)
 
 # demographics -----------------------------------------------------------------
 
@@ -138,7 +138,7 @@ demographics <- read_csv("../../Data sets/Complete_Journey_UV_Version/hh_demogra
          household_size, household_comp, kids_count)
 
 # save final data set
-readr::write_rds(demographics, path = 'data/demographics.rds', compress = 'gz')
+usethis::use_data(demographics, overwrite = TRUE)
 
 # products ---------------------------------------------------------------------
 
@@ -202,7 +202,7 @@ products <- read_csv("../../Data sets/Complete_Journey_UV_Version/product.csv") 
   select(product_id, manufacturer_id, department, brand, product_category, product_type, package_size)
 
 # save final data set
-readr::write_rds(products, path = 'data/products.rds', compress = 'gz')
+usethis::use_data(products, overwrite = TRUE)
 
 # promotions -----------------------------------------------------------------
 
@@ -223,6 +223,12 @@ promotions <- read_csv("../../Data sets/Complete_Journey_UV_Version/causal_data.
 
 # save final data set
 readr::write_rds(promotions, path = 'data/promotions.rds', compress = 'gz')
+
+# save sample dataset
+promotions %>%
+  group_by(store_id) %>%
+  sample_frac(.5) %>%
+  usethis::use_data(overwrite = TRUE)
 
 # campaign_descriptions --------------------------------------------------------
 

@@ -130,8 +130,11 @@
 <a href="#downloading-the-data" class="anchor"></a>Downloading the Data</h2>
 <p>The data sets available through this package are quite sizeable; and too large to be contained within the package. <code><a href="reference/get_data.html">get_data()</a></code> provides an efficient method for downloading one or more of the data sets from the source GitHub repository.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(completejourney)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="reference/get_data.html">get_data</a></span>(<span class="dt">which =</span> <span class="st">"all"</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<p>Each downloaded data set is attached to the user search path and can be called directly (i.e. <code>transactions</code>). For specifc details on a given data set see the data sets respective help file (i.e. <code><a href="reference/transactions.html">?transactions</a></code>).</p>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(campaigns, campaign_descriptions, coupons,</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  coupon_redemptions, demographics, products,</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  promotions, transactions) <span class="op">%&lt;-%</span><span class="st"> </span><span class="kw"><a href="reference/get_data.html">get_data</a></span>(<span class="dt">which =</span> <span class="st">"all"</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p>Each downloaded data set is attached to the user search path and can be called directly (i.e. <code>transactions</code>). For specifc details on a given data set see the data sets respective help file (i.e. <code>?transactions</code>).</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">transactions</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; # A tibble: 1,469,307 x 11</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;    household_id store_id basket_id product_id quantity sales_value</span></a>
@@ -153,7 +156,7 @@
 <div id="learn-more" class="section level2">
 <h2 class="hasAnchor">
 <a href="#learn-more" class="anchor"></a>Learn more</h2>
-<p>Learn more about the completejourney data, and the type of insights you can look for, at <a href="https://bradleyboehmke.github.io/completejourney/">https://bradleyboehmke.github.io/completejourney</a>.</p>
+<p>Learn more about the completejourney data, and the type of insights you can look for, at <a href="https://bradleyboehmke.github.io/completejourney/">http://bit.ly/completejourney</a>.</p>
 </div>
 <div id="source" class="section level2">
 <h2 class="hasAnchor">

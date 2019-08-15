@@ -48,7 +48,10 @@ source GitHub repository.
 
 ``` r
 library(completejourney)
-get_data(which = "all", verbose = FALSE)
+
+c(campaigns, campaign_descriptions, coupons,
+  coupon_redemptions, demographics, products,
+  promotions, transactions) %<-% get_data(which = "all", verbose = FALSE)
 ```
 
 Each downloaded data set is attached to the user search path and can be
@@ -79,7 +82,7 @@ transactions
 
 Learn more about the completejourney data, and the type of insights you
 can look for, at
-[https://bradleyboehmke.github.io/completejourney](https://bradleyboehmke.github.io/completejourney/).
+[http://bit.ly/completejourney](https://bradleyboehmke.github.io/completejourney/).
 
 ## Source
 

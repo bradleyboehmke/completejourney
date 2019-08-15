@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 ## The Complete Journey
 
-completejourney provides access to data sets characterizing household level 
+**completejourney** provides access to data sets characterizing household level 
 transactions over one year from a group of 2,469 households who are frequent 
 shoppers at a grocery store. It contains all of each household’s purchases, not 
 just those from a limited number of categories. For certain households, demographic 
