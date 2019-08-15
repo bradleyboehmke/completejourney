@@ -209,7 +209,7 @@ in-store display (other than regular product placement).</p>
 <span class='co'># product promotion/location</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>promotions_sample</span>,
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/join'>left_join</a></span>(<span class='no'>promotions_sample</span>,
             <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"product_id"</span>, <span class='st'>"store_id"</span>, <span class='st'>"week"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'transactions' not found</span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

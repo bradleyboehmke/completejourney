@@ -167,7 +167,7 @@ Journey study.</p>
 <span class='co'># Join coupon metadata to coupon_redempt dataset</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>coupon_redemptions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>coupons</span>, <span class='st'>"coupon_upc"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2,265,375 x 6</span><span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/join'>left_join</a></span>(<span class='no'>coupons</span>, <span class='st'>"coupon_upc"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2,265,375 x 6</span><span>
 #&gt;    household_id coupon_upc campaign_id.x redemption_date product_id
 #&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;date&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     
 #&gt; </span><span style='color: #555555;'> 1</span><span> 1029         513800410… 26            2017-01-01      12781564  

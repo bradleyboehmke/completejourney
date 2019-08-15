@@ -174,7 +174,7 @@ households.</p>
 <span class='co'># Transaction line items that don't have household metadata</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'transactions' not found</span></div></span><div class='input'>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/join'>anti_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'transactions' not found</span></div></span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
