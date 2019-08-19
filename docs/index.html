@@ -131,7 +131,7 @@
 <a href="#downloading-full-data-sets" class="anchor"></a>Downloading full data sets</h2>
 <p>Due to the size of the transactions and promotions data, the package provides a sampling of the data built-in with <code>transactions_sample</code> and <code>promotions_sample</code>. However, you can access the full promotions and transactions data sets from the source GitHub repository with the following:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># get the full transactions data set</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">transactions &lt;-<span class="st"> </span><span class="kw">get_transactions</span>()</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">transactions &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_transactions.html">get_transactions</a></span>()</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">transactions</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">## # A tibble: 1,469,307 x 11</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">##    household_id store_id basket_id product_id quantity sales_value retail_disc</span></a>
@@ -149,7 +149,7 @@
 <a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">## # … with 1,469,297 more rows, and 4 more variables: coupon_disc &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">## #   coupon_match_disc &lt;dbl&gt;, week &lt;int&gt;, transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># get the full promotions data set</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">promotions &lt;-<span class="st"> </span><span class="kw">get_promotions</span>()</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">promotions &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_promotions.html">get_promotions</a></span>()</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">promotions</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">## # A tibble: 20,940,529 x 5</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">##    product_id store_id display_location mailer_location  week</span></a>
@@ -166,7 +166,7 @@
 <a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">## 10 1000092    306      0                A                   1</span></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">## # … with 20,940,519 more rows</span></a></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># a convenience function to get both</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(promotions, transactions) <span class="op">%&lt;-%</span><span class="st"> </span><span class="kw">get_data</span>(<span class="dt">which =</span> <span class="st">'both'</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(promotions, transactions) <span class="op">%&lt;-%</span><span class="st"> </span><span class="kw"><a href="reference/get_data.html">get_data</a></span>(<span class="dt">which =</span> <span class="st">'both'</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(promotions)</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">## [1] 20940529        5</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"></a>

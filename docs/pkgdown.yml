@@ -1,7 +1,8 @@
 pandoc: 2.3.1
 pkgdown: 1.3.0
 pkgdown_sha: ~
-articles: []
+articles:
+  completejourney: completejourney.html
 urls:
   reference: https://bradleyboehmke.github.io/completejourney/reference
   article: https://bradleyboehmke.github.io/completejourney/articles

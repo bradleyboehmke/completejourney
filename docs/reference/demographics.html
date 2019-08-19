@@ -134,7 +134,6 @@ households.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>demographics</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
@@ -155,26 +154,15 @@ households.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># full data set</span>
-<span class='no'>demographics</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 801 x 8</span><span>
-#&gt;    household_id age   income home_ownership marital_status household_size
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>         
-#&gt; </span><span style='color: #555555;'> 1</span><span> 1            65+   35-49K Homeowner      Married        2             
-#&gt; </span><span style='color: #555555;'> 2</span><span> 1001         45-54 50-74K Homeowner      Unmarried      1             
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1003         35-44 25-34K </span><span style='color: #BB0000;'>NA</span><span>             Unmarried      1             
-#&gt; </span><span style='color: #555555;'> 4</span><span> 1004         25-34 15-24K </span><span style='color: #BB0000;'>NA</span><span>             Unmarried      1             
-#&gt; </span><span style='color: #555555;'> 5</span><span> 101          45-54 Under… Homeowner      Married        4             
-#&gt; </span><span style='color: #555555;'> 6</span><span> 1012         35-44 35-49K </span><span style='color: #BB0000;'>NA</span><span>             Married        5+            
-#&gt; </span><span style='color: #555555;'> 7</span><span> 1014         45-54 15-24K </span><span style='color: #BB0000;'>NA</span><span>             Married        4             
-#&gt; </span><span style='color: #555555;'> 8</span><span> 1015         45-54 50-74K Homeowner      Unmarried      1             
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1018         45-54 35-49K Homeowner      Married        5+            
-#&gt; </span><span style='color: #555555;'>10</span><span> 1020         45-54 25-34K Homeowner      Married        2             
-#&gt; </span><span style='color: #555555;'># … with 791 more rows, and 2 more variables: household_comp </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span style='color: #555555;'>,
-#&gt; #   kids_count </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span></div><div class='input'>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># full data set</span>
+<span class='no'>demographics</span>
+
 <span class='co'># Transaction line items that don't have household metadata</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/join'>anti_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'transactions' not found</span></div></span><div class='input'>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)
+<span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

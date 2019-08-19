@@ -132,7 +132,6 @@ Each household received a different set of marketing campaigns.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>campaigns</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
@@ -147,39 +146,15 @@ Each household received a different set of marketing campaigns.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># full data set</span>
-<span class='no'>campaigns</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6,589 x 2</span><span>
-#&gt;    campaign_id household_id
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       
-#&gt; </span><span style='color: #555555;'> 1</span><span> 1           105         
-#&gt; </span><span style='color: #555555;'> 2</span><span> 1           1238        
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1           1258        
-#&gt; </span><span style='color: #555555;'> 4</span><span> 1           1483        
-#&gt; </span><span style='color: #555555;'> 5</span><span> 1           2200        
-#&gt; </span><span style='color: #555555;'> 6</span><span> 1           293         
-#&gt; </span><span style='color: #555555;'> 7</span><span> 1           529         
-#&gt; </span><span style='color: #555555;'> 8</span><span> 1           536         
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1           568         
-#&gt; </span><span style='color: #555555;'>10</span><span> 1           630         
-#&gt; </span><span style='color: #555555;'># … with 6,579 more rows</span><span></div><div class='input'>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># full data set</span>
+<span class='no'>campaigns</span>
+
 <span class='co'># Join household demographics metadata to campaigns dataset</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>campaigns</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/join'>left_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6,589 x 9</span><span>
-#&gt;    campaign_id household_id age   income home_ownership marital_status
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>         
-#&gt; </span><span style='color: #555555;'> 1</span><span> 1           105          25-34 Under… Homeowner      Unmarried     
-#&gt; </span><span style='color: #555555;'> 2</span><span> 1           1238         </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>            
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1           1258         45-54 75-99K Homeowner      Unmarried     
-#&gt; </span><span style='color: #555555;'> 4</span><span> 1           1483         19-24 Under… </span><span style='color: #BB0000;'>NA</span><span>             Unmarried     
-#&gt; </span><span style='color: #555555;'> 5</span><span> 1           2200         45-54 Under… </span><span style='color: #BB0000;'>NA</span><span>             Unmarried     
-#&gt; </span><span style='color: #555555;'> 6</span><span> 1           293          </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>            
-#&gt; </span><span style='color: #555555;'> 7</span><span> 1           529          </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>            
-#&gt; </span><span style='color: #555555;'> 8</span><span> 1           536          </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>            
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1           568          </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>     </span><span style='color: #BB0000;'>NA</span><span>             </span><span style='color: #BB0000;'>NA</span><span>            
-#&gt; </span><span style='color: #555555;'>10</span><span> 1           630          35-44 35-49K Homeowner      Married       
-#&gt; </span><span style='color: #555555;'># … with 6,579 more rows, and 3 more variables: household_size </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span style='color: #555555;'>,
-#&gt; #   household_comp </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span style='color: #555555;'>, kids_count </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span></div></span></pre>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>demographics</span>, <span class='st'>"household_id"</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

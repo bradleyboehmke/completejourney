@@ -132,7 +132,6 @@ the Customer Journey study.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>products</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
@@ -152,25 +151,15 @@ the Customer Journey study.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># full data set</span>
-<span class='no'>products</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 92,331 x 7</span><span>
-#&gt;    product_id manufacturer_id department brand product_category product_type
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       
-#&gt; </span><span style='color: #555555;'> 1</span><span> 25671      2               GROCERY    Nati… FRZN ICE         ICE - CRUSH…
-#&gt; </span><span style='color: #555555;'> 2</span><span> 26081      2               MISCELLAN… Nati… </span><span style='color: #BB0000;'>NA</span><span>               </span><span style='color: #BB0000;'>NA</span><span>          
-#&gt; </span><span style='color: #555555;'> 3</span><span> 26093      69              PASTRY     Priv… BREAD            BREAD:ITALI…
-#&gt; </span><span style='color: #555555;'> 4</span><span> 26190      69              GROCERY    Priv… FRUIT - SHELF S… APPLE SAUCE 
-#&gt; </span><span style='color: #555555;'> 5</span><span> 26355      69              GROCERY    Priv… COOKIES/CONES    SPECIALTY C…
-#&gt; </span><span style='color: #555555;'> 6</span><span> 26426      69              GROCERY    Priv… SPICES &amp; EXTRAC… SPICES &amp; SE…
-#&gt; </span><span style='color: #555555;'> 7</span><span> 26540      69              GROCERY    Priv… COOKIES/CONES    TRAY PACK/C…
-#&gt; </span><span style='color: #555555;'> 8</span><span> 26601      69              DRUG GM    Priv… VITAMINS         VITAMIN - M…
-#&gt; </span><span style='color: #555555;'> 9</span><span> 26636      69              PASTRY     Priv… BREAKFAST SWEETS SW GDS: SW …
-#&gt; </span><span style='color: #555555;'>10</span><span> 26691      16              GROCERY    Priv… PNT BTR/JELLY/J… HONEY       
-#&gt; </span><span style='color: #555555;'># … with 92,321 more rows, and 1 more variable: package_size </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># full data set</span>
+<span class='no'>products</span>
+
 <span class='co'># Transaction line items that don't have product metadata</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/join'>anti_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'transactions' not found</span></div></span></pre>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>anti_join</a></span>(<span class='no'>products</span>, <span class='st'>"product_id"</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -134,7 +134,6 @@ in-store display (other than regular product placement).</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>promotions_sample</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
@@ -185,32 +184,22 @@ in-store display (other than regular product placement).</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Use <code>get_promotions</code> to download the entire promotions
+    <div class='dont-index'><p>Use <code><a href='get_promotions.html'>get_promotions</a></code> to download the entire promotions
   data containing all 20,940,529 rows.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># sampled promotions data set</span>
-<span class='no'>promotions_sample</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1,948,597 x 5</span><span>
-#&gt;    product_id store_id display_location mailer_location  week
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 1000050    337      3                0                   1
-#&gt; </span><span style='color: #555555;'> 2</span><span> 1000092    317      0                A                   1
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1000092    329      0                A                   1
-#&gt; </span><span style='color: #555555;'> 4</span><span> 1000092    343      0                A                   1
-#&gt; </span><span style='color: #555555;'> 5</span><span> 1000092    356      0                A                   1
-#&gt; </span><span style='color: #555555;'> 6</span><span> 1000092    358      0                A                   1
-#&gt; </span><span style='color: #555555;'> 7</span><span> 1000092    359      0                A                   1
-#&gt; </span><span style='color: #555555;'> 8</span><span> 1000092    362      0                A                   1
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1000092    369      0                A                   1
-#&gt; </span><span style='color: #555555;'>10</span><span> 1000214    317      6                0                   1
-#&gt; </span><span style='color: #555555;'># … with 1,948,587 more rows</span><span></div><div class='input'>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># sampled promotions data set</span>
+<span class='no'>promotions_sample</span>
+
 <span class='co'># Join promotions to transactions to analyze</span>
 <span class='co'># product promotion/location</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"dplyr"</span>)
 <span class='no'>transactions</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/join'>left_join</a></span>(<span class='no'>promotions_sample</span>,
-            <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"product_id"</span>, <span class='st'>"store_id"</span>, <span class='st'>"week"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent): object 'transactions' not found</span></div></span></pre>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/join.html'>left_join</a></span>(<span class='no'>promotions_sample</span>,
+            <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"product_id"</span>, <span class='st'>"store_id"</span>, <span class='st'>"week"</span>))
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
