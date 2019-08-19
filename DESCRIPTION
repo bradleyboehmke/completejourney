@@ -21,8 +21,6 @@ Depends:
 Imports:
     dplyr,
     tibble,
-    httr,
-    digest,
     progress,
     stringr,
     zeallot
