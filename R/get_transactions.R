@@ -16,7 +16,7 @@
 #' @seealso \code{\link{transactions_sample}} for details regarding the variables.
 #' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' transactions <- get_transactions()
 #' }
 #' @export

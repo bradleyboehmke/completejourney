@@ -12,8 +12,12 @@
 #'   \item campaign_id: Uniquely identifies each campaign
 #'   \item redemption_date: Date when the coupon was redeemed
 #' }
+#' 
+#' @docType data
+#' @name coupon_redemptions
+#' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # full data set
 #' coupon_redemptions
 #'
@@ -22,7 +26,5 @@
 #' coupon_redemptions %>%
 #'   left_join(coupons, "coupon_upc")
 #' }
-"coupon_redemptions"
-
 #' @importFrom tibble tibble
 NULL

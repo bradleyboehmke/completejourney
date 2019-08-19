@@ -15,9 +15,6 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
-\usage{
-promotions_sample
-}
 \description{
 A sampling of the promotions data from the Complete Journey study signifying 
 whether a given product was featured in the weekly mailer or was part of an 
@@ -57,7 +54,7 @@ in-store display (other than regular product placement).
 }
 
 \examples{
-\donttest{
+\dontrun{
 # sampled promotions data set
 promotions_sample
 
@@ -73,4 +70,3 @@ transactions \%>\%
 Use \code{\link{get_promotions}} to download the entire promotions
   data containing all 20,940,529 rows.
 }
-\keyword{datasets}

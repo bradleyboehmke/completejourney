@@ -25,11 +25,12 @@
 #' @seealso Use \code{\link{get_transactions}} to download the entire transactions
 #'   data containing all 1,469,307 rows.
 #'
+#' @docType data
+#' @name transactions_sample
+#'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' transactions_sample
 #' }
-"transactions_sample"
-
 #' @importFrom tibble tibble
 NULL

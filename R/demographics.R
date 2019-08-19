@@ -17,8 +17,12 @@
 #' \item household_comp: Household composition description
 #' \item kids_count: Number of children present up to 3+
 #' }
+#' 
+#' @docType data
+#' @name demographics
+#' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # full data set
 #' demographics
 #'
@@ -28,7 +32,5 @@
 #'   anti_join(demographics, "household_id")
 #' }
 #' 
-"demographics"
-
 #' @importFrom tibble tibble
 NULL

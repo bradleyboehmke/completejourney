@@ -16,7 +16,7 @@
 #' @seealso \code{\link{promotions_sample}} for details regarding the variables.
 #' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' promotions <- get_promotions()
 #' }
 #' @export

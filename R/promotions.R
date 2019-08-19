@@ -45,8 +45,11 @@
 #' @seealso Use \code{\link{get_promotions}} to download the entire promotions
 #'   data containing all 20,940,529 rows.
 #' 
+#' @docType data
+#' @name promotions_sample
+#' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # sampled promotions data set
 #' promotions_sample
 #'
@@ -57,7 +60,5 @@
 #'   left_join(promotions_sample,
 #'             c("product_id", "store_id", "week"))
 #' }
-"promotions_sample"
-
 #' @importFrom tibble tibble
 NULL

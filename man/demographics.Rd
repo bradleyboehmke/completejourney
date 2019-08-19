@@ -18,16 +18,13 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
-\usage{
-demographics
-}
 \description{
 Household demographic metadata for households participating in the Customer Journey study.
 Due to nature of the data, the demographic information is not available for all
 households.
 }
 \examples{
-\donttest{
+\dontrun{
 # full data set
 demographics
 
@@ -38,4 +35,3 @@ transactions \%>\%
 }
 
 }
-\keyword{datasets}

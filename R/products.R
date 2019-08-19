@@ -15,8 +15,12 @@
 #' \item product_type: Groups similar products together at lowest level
 #' \item package_size: Indicates package size (not available for all products)
 #' }
+#' 
+#' @docType data
+#' @name products
+#' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # full data set
 #' products
 #'
@@ -25,7 +29,5 @@
 #' transactions %>%
 #'   anti_join(products, "product_id")
 #' }
-"products"
-
 #' @importFrom tibble tibble
 NULL

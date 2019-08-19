@@ -21,9 +21,6 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
-\usage{
-transactions_sample
-}
 \description{
 A sampling of all products purchased by households within the Complete Journey
 study. Each line found in this table is essentially the same line that would
@@ -31,7 +28,7 @@ be found on a store receipt. This is only a subsample of the complete
 data set to keep package size manageable.
 }
 \examples{
-\donttest{
+\dontrun{
 transactions_sample
 }
 }
@@ -39,4 +36,3 @@ transactions_sample
 Use \code{\link{get_transactions}} to download the entire transactions
   data containing all 1,469,307 rows.
 }
-\keyword{datasets}

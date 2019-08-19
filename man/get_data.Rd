@@ -35,7 +35,7 @@ full promotions and transactions data sets simultaneously from the
 source GitHub repository. An internet connection is required.
 }
 \examples{
-\donttest{
+\dontrun{
 # download transactions and promotions data sets
 c(promotions, transactions) \%<-\% get_data(which = 'both')
 }

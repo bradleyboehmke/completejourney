@@ -15,8 +15,11 @@
 #' \item end_date: End date of campaign
 #' }
 #' 
+#' @docType data
+#' @name campaign_descriptions
+#' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # full data set
 #' campaign_descriptions
 #'
@@ -25,7 +28,5 @@
 #' campaigns %>%
 #'   left_join(campaign_descriptions, "campaign_id")
 #' }
-"campaign_descriptions"
-
 #' @importFrom tibble tibble
 NULL

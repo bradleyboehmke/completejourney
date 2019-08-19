@@ -17,15 +17,12 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
-\usage{
-products
-}
 \description{
 Product metadata for all products purchased by households participating in
 the Customer Journey study.
 }
 \examples{
-\donttest{
+\dontrun{
 # full data set
 products
 
@@ -35,4 +32,3 @@ transactions \%>\%
   anti_join(products, "product_id")
 }
 }
-\keyword{datasets}

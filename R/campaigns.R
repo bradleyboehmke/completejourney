@@ -10,8 +10,12 @@
 #' \item campaign_id: Uniquely identifies each campaign; Ranges 1-27
 #' \item household_id: Uniquely identifies each household
 #' }
+#' 
+#' @docType data
+#' @name campaigns
+#' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # full data set
 #' campaigns
 #'
@@ -20,7 +24,5 @@
 #' campaigns %>%
 #'   left_join(demographics, "household_id")
 #' }
-"campaigns"
-
 #' @importFrom tibble tibble
 NULL

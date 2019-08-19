@@ -11,8 +11,12 @@
 #' \item product_id: Uniquely identifies each product
 #' \item campaign_id: Uniquely identifies each campaign
 #' }
+#' 
+#' @docType data
+#' @name coupons
+#' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # full data set
 #' coupon
 #'
@@ -21,7 +25,5 @@
 #' coupons %>%
 #'   left_join(products, "product_id")
 #' }
-"coupons"
-
 #' @importFrom tibble tibble
 NULL

@@ -14,15 +14,12 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
-\usage{
-coupon_redemptions
-}
 \description{
 Coupon data identifying the coupons that each household redeemed in the Complete
 Journey study.
 }
 \examples{
-\donttest{
+\dontrun{
 # full data set
 coupon_redemptions
 
@@ -32,4 +29,3 @@ coupon_redemptions \%>\%
   left_join(coupons, "coupon_upc")
 }
 }
-\keyword{datasets}

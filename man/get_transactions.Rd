@@ -23,7 +23,7 @@ contained within the package. \code{get_transactions()} provides an efficient
 method for downloading the full data set from the source GitHub repository.
 }
 \examples{
-\donttest{
+\dontrun{
 transactions <- get_transactions()
 }
 }
