@@ -29,7 +29,7 @@
 #' @name transactions_sample
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' transactions_sample
 #' }
 #' @importFrom tibble tibble

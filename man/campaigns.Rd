@@ -17,7 +17,7 @@ Data on the campaigns received by each household in the Complete Journey study.
 Each household received a different set of marketing campaigns.
 }
 \examples{
-\dontrun{
+\donttest{
 # full data set
 campaigns
 

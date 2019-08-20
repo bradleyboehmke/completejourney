@@ -16,7 +16,7 @@
 #' @name coupons
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # full data set
 #' coupon
 #'

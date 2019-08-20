@@ -49,7 +49,7 @@
 #' @name promotions_sample
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # sampled promotions data set
 #' promotions_sample
 #'

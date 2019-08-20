@@ -19,7 +19,7 @@
 #' @name campaign_descriptions
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # full data set
 #' campaign_descriptions
 #'

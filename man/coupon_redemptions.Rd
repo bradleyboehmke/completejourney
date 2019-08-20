@@ -19,7 +19,7 @@ Coupon data identifying the coupons that each household redeemed in the Complete
 Journey study.
 }
 \examples{
-\dontrun{
+\donttest{
 # full data set
 coupon_redemptions
 

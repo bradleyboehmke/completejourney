@@ -21,7 +21,7 @@ received as part of a campaign are valid within the dates contained in this
 dataset.
 }
 \examples{
-\dontrun{
+\donttest{
 # full data set
 campaign_descriptions
 

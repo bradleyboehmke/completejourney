@@ -18,7 +18,7 @@ Coupon metadata for all coupons used in campaigns advertised to households
 participating in the Customer Journey study.
 }
 \examples{
-\dontrun{
+\donttest{
 # full data set
 coupon
 

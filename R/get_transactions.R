@@ -17,6 +17,7 @@
 #' 
 #' @examples
 #' \dontrun{
+#' # requires internet connection
 #' transactions <- get_transactions()
 #' }
 #' @export

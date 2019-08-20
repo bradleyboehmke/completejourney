@@ -15,7 +15,7 @@
 #' @name campaigns
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # full data set
 #' campaigns
 #'

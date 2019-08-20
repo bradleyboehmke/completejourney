@@ -30,6 +30,7 @@
 #' @examples
 #' \dontrun{
 #' # download transactions and promotions data sets
+#' # requires internet connection
 #' c(promotions, transactions) %<-% get_data(which = 'both')
 #' }
 #' @export

@@ -22,7 +22,7 @@ Product metadata for all products purchased by households participating in
 the Customer Journey study.
 }
 \examples{
-\dontrun{
+\donttest{
 # full data set
 products
 

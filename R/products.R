@@ -20,7 +20,7 @@
 #' @name products
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # full data set
 #' products
 #'

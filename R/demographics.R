@@ -22,7 +22,7 @@
 #' @name demographics
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # full data set
 #' demographics
 #'

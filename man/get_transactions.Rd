@@ -24,6 +24,7 @@ method for downloading the full data set from the source GitHub repository.
 }
 \examples{
 \dontrun{
+# requires internet connection
 transactions <- get_transactions()
 }
 }

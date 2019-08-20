@@ -28,7 +28,7 @@ be found on a store receipt. This is only a subsample of the complete
 data set to keep package size manageable.
 }
 \examples{
-\dontrun{
+\donttest{
 transactions_sample
 }
 }

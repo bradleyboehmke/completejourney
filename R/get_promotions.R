@@ -17,6 +17,7 @@
 #' 
 #' @examples
 #' \dontrun{
+#' # requires internet connection
 #' promotions <- get_promotions()
 #' }
 #' @export

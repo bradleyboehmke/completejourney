@@ -54,7 +54,7 @@ in-store display (other than regular product placement).
 }
 
 \examples{
-\dontrun{
+\donttest{
 # sampled promotions data set
 promotions_sample
 

@@ -24,7 +24,7 @@ Due to nature of the data, the demographic information is not available for all
 households.
 }
 \examples{
-\dontrun{
+\donttest{
 # full data set
 demographics
 
