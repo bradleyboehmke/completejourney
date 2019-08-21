@@ -16,7 +16,7 @@
 #' @seealso \code{\link{promotions_sample}} for details regarding the variables.
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # requires internet connection
 #' promotions <- get_promotions()
 #' }

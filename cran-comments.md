@@ -5,9 +5,7 @@ replace `\dontrun{}` by `\donttest{}` in your Rd-files (there is not need to
 frighten users with the # Not run statement in your examples)."
 
 Reply:
-* For all the datasets I have replaced `\dontrun{}` with `\donttest{}`.
-* For the three `get_xxx()` functions I left `\dontrun{}` simply becuase they
-require internet connections for the examples to work.
+* For all examples I have replaced `\dontrun{}` with `\donttest{}`
 
 ## Test environments
 * local OS X install, R 3.6.1

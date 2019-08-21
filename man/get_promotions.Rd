@@ -23,7 +23,7 @@ contained within the package. \code{get_promotions()} provides an efficient
 method for downloading the full data set from the source GitHub repository.
 }
 \examples{
-\dontrun{
+\donttest{
 # requires internet connection
 promotions <- get_promotions()
 }

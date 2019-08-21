@@ -28,7 +28,7 @@
 #' single data set with \code{\link{get_promotions}} and \code{\link{get_transactions}}.
 #'     
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # download transactions and promotions data sets
 #' # requires internet connection
 #' c(promotions, transactions) %<-% get_data(which = 'both')

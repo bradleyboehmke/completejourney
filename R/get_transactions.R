@@ -16,7 +16,7 @@
 #' @seealso \code{\link{transactions_sample}} for details regarding the variables.
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # requires internet connection
 #' transactions <- get_transactions()
 #' }
