@@ -94,6 +94,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <div id="completejourney" class="section level1">
 
+<!-- badges: start -->
 
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
@@ -121,33 +122,35 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install <code>completejourney</code> from GitHub with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"bradleyboehmke/completejourney"</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(completejourney)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"completejourney"</span>)</a></code></pre></div>
+<p>To get a bug fix, or use a feature from the development version, you can install <code>completejourney</code> from GitHub with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"bradleyboehmke/completejourney"</span>)</a></code></pre></div>
 </div>
 <div id="downloading-full-data-sets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#downloading-full-data-sets" class="anchor"></a>Downloading full data sets</h2>
 <p>Due to the size of the transactions and promotions data, the package provides a sampling of the data built-in with <code>transactions_sample</code> and <code>promotions_sample</code>. However, you can access the full promotions and transactions data sets from the source GitHub repository with the following:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># get the full transactions data set</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">transactions &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_transactions.html">get_transactions</a></span>()</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">transactions</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">## # A tibble: 1,469,307 x 11</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">##    household_id store_id basket_id product_id quantity sales_value retail_disc</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">##    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">##  1 900          330      31198570… 1095275           1        0.5        0    </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">##  2 900          330      31198570… 9878513           1        0.99       0.1  </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">##  3 1228         406      31198655… 1041453           1        1.43       0.15 </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">##  4 906          319      31198705… 1020156           1        1.5        0.290</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">##  5 906          319      31198705… 1053875           2        2.78       0.8  </span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">##  6 906          319      31198705… 1060312           1        5.49       0.5  </span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">##  7 906          319      31198705… 1075313           1        1.5        0.290</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">##  8 1058         381      31198676… 985893            1        1.88       0.21 </span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">##  9 1058         381      31198676… 988791            1        1.5        1.29 </span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">## 10 1058         381      31198676… 9297106           1        2.69       0    </span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">## # … with 1,469,297 more rows, and 4 more variables: coupon_disc &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">## #   coupon_match_disc &lt;dbl&gt;, week &lt;int&gt;, transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(completejourney)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># get the full transactions data set</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">transactions &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_transactions.html">get_transactions</a></span>()</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">transactions</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">## # A tibble: 1,469,307 x 11</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">##    household_id store_id basket_id product_id quantity sales_value retail_disc</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">##    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">##  1 900          330      31198570… 1095275           1        0.5        0    </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">##  2 900          330      31198570… 9878513           1        0.99       0.1  </span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">##  3 1228         406      31198655… 1041453           1        1.43       0.15 </span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">##  4 906          319      31198705… 1020156           1        1.5        0.290</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">##  5 906          319      31198705… 1053875           2        2.78       0.8  </span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">##  6 906          319      31198705… 1060312           1        5.49       0.5  </span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">##  7 906          319      31198705… 1075313           1        1.5        0.290</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">##  8 1058         381      31198676… 985893            1        1.88       0.21 </span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">##  9 1058         381      31198676… 988791            1        1.5        1.29 </span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">## 10 1058         381      31198676… 9297106           1        2.69       0    </span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">## # … with 1,469,297 more rows, and 4 more variables: coupon_disc &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">## #   coupon_match_disc &lt;dbl&gt;, week &lt;int&gt;, transaction_timestamp &lt;dttm&gt;</span></a></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># get the full promotions data set</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">promotions &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_promotions.html">get_promotions</a></span>()</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">promotions</a>
@@ -190,6 +193,8 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=completejourney">https://​cloud.r-project.org/​package=completejourney</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/bradleyboehmke/completejourney">https://​github.com/​bradleyboehmke/​completejourney</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/bradleyboehmke/completejourney/issues">https://​github.com/​bradleyboehmke/​completejourney/​issues</a>
@@ -213,6 +218,7 @@
       <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=completejourney"><img src="https://www.r-pkg.org/badges/version/completejourney" alt="CRAN status"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="lifecycle"></a></li>
 <li><a href="https://travis-ci.org/bradleyboehmke/completejourney"><img src="https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master" alt="Travis-CI Build Status"></a></li>
 <li><a href="https://ci.appveyor.com/project/bradleyboehmke/completejourney"><img src="https://ci.appveyor.com/api/projects/status/github/bradleyboehmke/completejourney?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
