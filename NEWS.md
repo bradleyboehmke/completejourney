@@ -1,10 +1,6 @@
-## completejourney 1.0.0
+# completejourney 1.0.0 (2019-08-23)
 
-This package provides access to 8 datasets that cover retail shopping transactions for 2,469 
-households over one year. In addition to the transaction details, the datasets 
-contain 'metadata' on the products, coupons, campaigns, and promotions.
-
-### Features
+## New features
 
   * Add `completejourney` vignette to demonstrate basic usage (#1)
   * Add a pkgdown site as a web resource for the package (#3)
@@ -16,6 +12,6 @@ contain 'metadata' on the products, coupons, campaigns, and promotions.
   * Created importing capabilities so that large data sets do not need to be included
     in package (due to size).
 
-### Bug Fixes
+## Bug fixes
 
   * NONE
