@@ -24,18 +24,18 @@ each household’s purchases, not just those from a limited number of
 categories. For certain households, demographic information as well as
 direct marketing contact history are included.
 
-  - `transactions_sample`: a sampling of the products purchased by
-    households
-  - `products`: product metadata (brand, description, etc.)
-  - `demographics`: household demographic data (age, income, family
-    size, etc.)
   - `campaigns`: campaigns received by each household
   - `campaign_descriptions`: campaign metadata (length of time active)
   - `coupons`: coupon metadata (UPC code, campaign, etc.)
   - `coupon_redemptions`: coupon redemptions (household, day, UPC code,
     campaign)
+  - `demographics`: household demographic data (age, income, family
+    size, etc.)
+  - `products`: product metadata (brand, description, etc.)
   - `promotions_sample`: a sampling of the product placement in mailers
     and in stores corresponding to advertising campaigns
+  - `transactions_sample`: a sampling of the products purchased by
+    households
 
 ## Installation
 
