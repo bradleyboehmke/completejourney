@@ -26,4 +26,4 @@
 #'   left_join(products, "product_id")
 #' }
 #' @importFrom tibble tibble
-NULL
+"coupons"

@@ -13,6 +13,9 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
+\usage{
+coupons
+}
 \description{
 Coupon metadata for all coupons used in campaigns advertised to households
 participating in the Customer Journey study.
@@ -28,3 +31,4 @@ coupons \%>\%
   left_join(products, "product_id")
 }
 }
+\keyword{datasets}

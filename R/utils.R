@@ -6,6 +6,13 @@ download_data <- function(which = "both", verbose = TRUE) {
     dataset_names <- dataset_names[dataset_names %in% which]
   }
   
+  if (!curl::has_internet()) {
+    msg <- paste("`curl::has_internet()` indicates that you currently do not",
+                 "have an internet connection, which is required to download",
+                 "the data.")
+    stop(msg, call. = FALSE)
+  }
+  
   progress_names <- stringr::str_pad(dataset_names, max(nchar(dataset_names)), side = "right")
  
   pb <- progress::progress_bar$new(
