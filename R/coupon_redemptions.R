@@ -13,10 +13,6 @@
 #'   \item redemption_date: Date when the coupon was redeemed
 #' }
 #' 
-#' @docType data
-#' @return \item{coupon_redemptions}{a tibble}
-#' @keywords datasets
-#' 
 #' @examples
 #' \donttest{
 #' # full data set

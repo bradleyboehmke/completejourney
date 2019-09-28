@@ -17,9 +17,6 @@
 \usage{
 coupon_redemptions
 }
-\value{
-\item{coupon_redemptions}{a tibble}
-}
 \description{
 Coupon data identifying the coupons that each household redeemed in the Complete
 Journey study.
