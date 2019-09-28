@@ -36,7 +36,7 @@ demographics
 
 # Transaction line items that don't have household metadata
 require("dplyr")
-transactions \%>\%
+transactions_sample \%>\%
   anti_join(demographics, "household_id")
 }
 

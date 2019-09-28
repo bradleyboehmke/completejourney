@@ -67,7 +67,7 @@ promotions_sample
 # Join promotions to transactions to analyze
 # product promotion/location
 require("dplyr")
-transactions \%>\%
+transactions_sample \%>\%
   left_join(promotions_sample,
             c("product_id", "store_id", "week"))
 }

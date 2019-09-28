@@ -1,3 +1,18 @@
+# completejourney 1.1.0 (2019-09-28)
+
+## New features
+
+  * Added an internet check with `curl::has_internet()` and condition handling to 
+    provide informative error when downloading online data sets.
+
+## Bug fixes
+
+  * Removed `^data$` from .Rbuildignore and only specified ignoring the .rds 
+    files. This resolved issue ([#14](https://github.com/bradleyboehmke/completejourney/issues/14)). 
+    As a consequence, the package was too large now that the build included the 
+    required data sets so I downsampled the `transactions_sample` and 
+    `promotions_sample` data sets.
+
 # completejourney 1.0.0 (2019-08-23)
 
 ## New features

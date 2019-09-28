@@ -34,7 +34,7 @@ products
 
 # Transaction line items that don't have product metadata
 require("dplyr")
-transactions \%>\%
+transactions_sample \%>\%
   anti_join(products, "product_id")
 }
 }

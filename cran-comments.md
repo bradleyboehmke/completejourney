@@ -1,11 +1,11 @@
-## Resubmission
+## Changes
 
-This is a resubmission addressing Swetlana Herbrandt's comment: "Thanks, please 
-replace `\dontrun{}` by `\donttest{}` in your Rd-files (there is not need to 
-frighten users with the # Not run statement in your examples)."
+This is a resubmission. This versions:
 
-Reply:
-* For all examples I have replaced `\dontrun{}` with `\donttest{}`
+* resolves a bug fix in .Rbuildignore that  wasn't allowing namespacing to the 
+  data sets
+* adds condition handling to provide informative errors regarding internet 
+  connection when trying to download online data sets
 
 ## Test environments
 * local OS X install, R 3.6.1
@@ -18,5 +18,4 @@ Reply:
 
 ## Reverse dependencies
 
-This is a new release, so there are no reverse dependencies.
-
+There are currently no downstream dependencies for this package.

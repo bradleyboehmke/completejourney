@@ -19,7 +19,7 @@
 #' @examples
 #' \donttest{
 #' # full data set
-#' coupon
+#' coupons
 #'
 #' # Join product metadata to coupon dataset
 #' require("dplyr")
