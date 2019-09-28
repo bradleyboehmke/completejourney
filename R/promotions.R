@@ -6,7 +6,7 @@
 #' in-store display (other than regular product placement). 
 #'
 #' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
-#' @format A data frame with 1,948,597 rows and 5 variables
+#' @format A data frame with 360,535 rows and 5 variables
 #' \itemize{
 #'   \item product_id: Uniquely identifies each product
 #'   \item store_id: Uniquely identifies each store

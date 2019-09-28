@@ -4,7 +4,7 @@
 \name{transactions_sample}
 \alias{transactions_sample}
 \title{Sampling of the full Complete Journey transactions.}
-\format{A data frame with 100,000 rows and 11 variables
+\format{A data frame with 75,000 rows and 11 variables
 \describe{
   \item{household_id}{Uniquely identifies each household}
   \item{store_id}{Uniquely identifies each store}

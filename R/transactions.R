@@ -7,7 +7,7 @@
 #' data set to keep package size manageable.
 #'
 #' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
-#' @format A data frame with 100,000 rows and 11 variables
+#' @format A data frame with 75,000 rows and 11 variables
 #' \describe{
 #'   \item{household_id}{Uniquely identifies each household}
 #'   \item{store_id}{Uniquely identifies each store}

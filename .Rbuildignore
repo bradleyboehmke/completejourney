@@ -7,7 +7,7 @@
 ^cran-comments\.md$
 ^_pkgdown\.yml$
 ^docs$
-^data$
+^.*\.rds$
 ^data-raw$
 ^prep-data\.R$
 ^appveyor\.yml$

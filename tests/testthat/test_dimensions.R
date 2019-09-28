@@ -8,6 +8,6 @@ test_that("built in data dimensions are correct", {
   expect_equal(dim(coupons), c(116204, 3))
   expect_equal(dim(demographics), c(801, 8))
   expect_equal(dim(products), c(92331, 7))
-  expect_equal(dim(promotions_sample), c(1948597, 5))
-  expect_equal(dim(transactions_sample), c(100000, 11))
+  expect_equal(dim(promotions_sample), c(360535, 5))
+  expect_equal(dim(transactions_sample), c(75000, 11))
 })

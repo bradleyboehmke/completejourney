@@ -50,7 +50,7 @@ transactions <- read_csv("../../Data sets/Complete_Journey_UV_Version/transactio
 readr::write_rds(transactions, path = 'data/transactions.rds', compress = 'gz')
 
 set.seed(8451)
-transactions_sample <- transactions %>% sample_n(100000)
+transactions_sample <- transactions %>% sample_n(75000)
 usethis::use_data(transactions_sample, overwrite = TRUE)
 
 # demographics -----------------------------------------------------------------
@@ -232,7 +232,7 @@ readr::write_rds(promotions, path = 'data/promotions.rds', compress = 'gz')
 set.seed(8451)
 stores <- promotions %>%
   distinct(store_id) %>%
-  sample_frac(.09)
+  sample_frac(0.02)
 
 promotions_sample <- promotions %>%
   semi_join(stores)
