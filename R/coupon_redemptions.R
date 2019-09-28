@@ -14,7 +14,8 @@
 #' }
 #' 
 #' @docType data
-#' @name coupon_redemptions
+#' @return \item{coupon_redemptions}{a tibble}
+#' @keywords datasets
 #' 
 #' @examples
 #' \donttest{
@@ -27,4 +28,4 @@
 #'   left_join(coupons, "coupon_upc")
 #' }
 #' @importFrom tibble tibble
-NULL
+"coupon_redemptions"

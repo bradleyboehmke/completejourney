@@ -19,7 +19,8 @@
 #' }
 #' 
 #' @docType data
-#' @name demographics
+#' @return \item{demographics}{a tibble}
+#' @keywords datasets
 #' 
 #' @examples
 #' \donttest{
@@ -33,4 +34,4 @@
 #' }
 #' 
 #' @importFrom tibble tibble
-NULL
+"demographics"

@@ -26,11 +26,12 @@
 #'   data containing all 1,469,307 rows.
 #'
 #' @docType data
-#' @name transactions_sample
+#' @return \item{transactions_sample}{a tibble}
+#' @keywords datasets
 #'
 #' @examples
 #' \donttest{
 #' transactions_sample
 #' }
 #' @importFrom tibble tibble
-NULL
+"transactions_sample"

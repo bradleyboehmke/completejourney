@@ -46,7 +46,8 @@
 #'   data containing all 20,940,529 rows.
 #' 
 #' @docType data
-#' @name promotions_sample
+#' @return \item{promotions_sample}{a tibble}
+#' @keywords datasets
 #' 
 #' @examples
 #' \donttest{
@@ -61,4 +62,4 @@
 #'             c("product_id", "store_id", "week"))
 #' }
 #' @importFrom tibble tibble
-NULL
+"promotions_sample"

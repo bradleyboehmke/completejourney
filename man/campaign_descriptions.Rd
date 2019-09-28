@@ -14,6 +14,12 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
+\usage{
+campaign_descriptions
+}
+\value{
+\item{campaign_descriptions}{a tibble}
+}
 \description{
 Campaign metadata for all campaigns run for the Customer Journey study. This
 dataset gives the length of time for which a campaign runs. So, any coupons
@@ -31,3 +37,4 @@ campaigns \%>\%
   left_join(campaign_descriptions, "campaign_id")
 }
 }
+\keyword{datasets}

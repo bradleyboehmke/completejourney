@@ -17,6 +17,12 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
+\usage{
+products
+}
+\value{
+\item{products}{a tibble}
+}
 \description{
 Product metadata for all products purchased by households participating in
 the Customer Journey study.
@@ -32,3 +38,4 @@ transactions \%>\%
   anti_join(products, "product_id")
 }
 }
+\keyword{datasets}

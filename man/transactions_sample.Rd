@@ -21,6 +21,12 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
+\usage{
+transactions_sample
+}
+\value{
+\item{transactions_sample}{a tibble}
+}
 \description{
 A sampling of all products purchased by households within the Complete Journey
 study. Each line found in this table is essentially the same line that would
@@ -36,3 +42,4 @@ transactions_sample
 Use \code{\link{get_transactions}} to download the entire transactions
   data containing all 1,469,307 rows.
 }
+\keyword{datasets}

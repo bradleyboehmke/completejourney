@@ -12,6 +12,8 @@ status](https://www.r-pkg.org/badges/version/completejourney)](https://CRAN.R-pr
 Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)](https://travis-ci.org/bradleyboehmke/completejourney)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/bradleyboehmke/completejourney?branch=master&svg=true)](https://ci.appveyor.com/project/bradleyboehmke/completejourney)
+[![Downloads](http://cranlogs.r-pkg.org/badges/completejourney)](https://CRAN.R-project.org/package=completejourney)
+![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
 <!-- badges: end -->
 
 ## Overview

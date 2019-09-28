@@ -22,6 +22,8 @@ knitr::opts_chunk$set(
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![Travis-CI Build Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)](https://travis-ci.org/bradleyboehmke/completejourney)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/bradleyboehmke/completejourney?branch=master&svg=true)](https://ci.appveyor.com/project/bradleyboehmke/completejourney)
+[![Downloads](http://cranlogs.r-pkg.org/badges/completejourney)](https://CRAN.R-project.org/package=completejourney)
+![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
 <!-- badges: end -->
 
 ## Overview
@@ -44,13 +46,13 @@ demographic information as well as direct marketing contact history are included
 
 ## Installation
 
-```{r}
+```{r, eval=FALSE}
 install.packages("completejourney")
 ```
 
 To get a bug fix, or use a feature from the development version, you can install `completejourney` from GitHub with:
 
-```{r gh-installation}
+```{r gh-installation, eval=FALSE}
 # install.packages("remotes")
 remotes::install_github("bradleyboehmke/completejourney")
 ```
@@ -63,7 +65,7 @@ sampling of the data built-in with `transactions_sample` and `promotions_sample`
 However, you can access the full promotions and transactions data sets from the 
 source GitHub repository with the following: 
 
-```{r load-transactions}
+```{r load-transactions, eval=FALSE}
 library(completejourney)
 
 # get the full transactions data set
@@ -86,7 +88,7 @@ transactions
 ## #   coupon_match_disc <dbl>, week <int>, transaction_timestamp <dttm>
 ```
 
-```{r load-promotions}
+```{r load-promotions, eval=FALSE}
 # get the full promotions data set
 promotions <- get_promotions()
 promotions
@@ -106,7 +108,7 @@ promotions
 ## # … with 20,940,519 more rows
 ```
 
-```{r load-both}
+```{r load-both, eval=FALSE}
 # a convenience function to get both
 c(promotions, transactions) %<-% get_data(which = 'both', verbose = FALSE)
 dim(promotions)

@@ -17,7 +17,8 @@
 #' }
 #' 
 #' @docType data
-#' @name products
+#' @return \item{products}{a tibble}
+#' @keywords datasets
 #' 
 #' @examples
 #' \donttest{
@@ -30,4 +31,4 @@
 #'   anti_join(products, "product_id")
 #' }
 #' @importFrom tibble tibble
-NULL
+"products"

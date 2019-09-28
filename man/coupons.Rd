@@ -16,6 +16,9 @@
 \usage{
 coupons
 }
+\value{
+\item{coupons}{a tibble}
+}
 \description{
 Coupon metadata for all coupons used in campaigns advertised to households
 participating in the Customer Journey study.

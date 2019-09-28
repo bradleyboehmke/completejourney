@@ -12,6 +12,12 @@
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }
+\usage{
+campaigns
+}
+\value{
+\item{campaigns}{a tibble}
+}
 \description{
 Data on the campaigns received by each household in the Complete Journey study.
 Each household received a different set of marketing campaigns.
@@ -27,3 +33,4 @@ campaigns \%>\%
   left_join(demographics, "household_id")
 }
 }
+\keyword{datasets}

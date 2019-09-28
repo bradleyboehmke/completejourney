@@ -13,7 +13,8 @@
 #' }
 #' 
 #' @docType data
-#' @name coupons
+#' @return \item{coupons}{a tibble}
+#' @keywords datasets
 #' 
 #' @examples
 #' \donttest{

@@ -16,7 +16,8 @@
 #' }
 #' 
 #' @docType data
-#' @name campaign_descriptions
+#' @return \item{campaign_descriptions}{a tibble}
+#' @keywords datasets
 #' 
 #' @examples
 #' \donttest{
@@ -29,4 +30,4 @@
 #'   left_join(campaign_descriptions, "campaign_id")
 #' }
 #' @importFrom tibble tibble
-NULL
+"campaign_descriptions"
