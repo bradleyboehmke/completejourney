@@ -294,7 +294,7 @@ Variable | Definition
 ------------- | --------------------------------------------
 `product_id` | Uniquely identifies each product
 `store_id` | Uniquely identifies each store
-`display_location` | Display location (0-display, 1-store front, 2-store rear, 3-front end cap, 4-mid-aisle end cap, 5-rear end cap, 6-side aisle end cap, 7-in-aisle, 9-secondary location display, A-in-shelf)
+`display_location` | Display location (0-no display, 1-store front, 2-store rear, 3-front end cap, 4-mid-aisle end cap, 5-rear end cap, 6-side aisle end cap, 7-in-aisle, 9-secondary location display, A-in-shelf)
 `mailer_location` | Mailer location (0-not on ad, A-interior page feature, C-interior page line item, D-front page feature, F-back page feature, H-wrap front feature, J-wrap interior coupon, L-wrap back feature, P-interior page coupon, X-free on interior page, Z-free on front page, back page, or wrap)
 `week` | Week of the transaction; Ranges 1-53
 

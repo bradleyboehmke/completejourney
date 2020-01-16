@@ -1,6 +1,6 @@
 # completejourney (development version)
 
-  * Updates TBD
+  * Fixed typo in vignette [issue #17](https://github.com/bradleyboehmke/completejourney/issues/17)
 
 # completejourney 1.1.0 (2019-09-28)
 
