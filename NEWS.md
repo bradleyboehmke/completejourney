@@ -10,7 +10,7 @@
   * Fixed typo in vignette [issue #17](https://github.com/bradleyboehmke/completejourney/issues/17)
   * Updated all HTTP URLs to HTTPS to comply with CRAN URL standards
   * Fixed DESCRIPTION file author metadata formatting to resolve Authors@R discrepancies
-  * Updated AppVeyor configuration to prevent MSBuild errors in CI environment
+  * Removed AppVeyor and TravisCI and added GH Actions workflows
 
 # completejourney 1.1.0 (2019-09-28)
 
