@@ -1,5 +1,7 @@
 # DO NOT CHANGE the "init" and "install" sections below
 
+platform: x64
+
 # Download script file from GitHub
 init:
   ps: |
@@ -10,11 +12,7 @@ init:
 install:
   ps: Bootstrap
 
-# --- THE FIX IS HERE ---
-# This tells AppVeyor "Do not try to compile this project."
-# It stops it from looking for MSBuild XML files.
 build: off
-# -----------------------
 
 cache:
   - C:\RLibrary
