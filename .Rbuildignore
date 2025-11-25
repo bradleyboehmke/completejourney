@@ -12,3 +12,6 @@
 ^appveyor\.yml$
 ^data/promotions\.rds$
 ^data/transactions\.rds$
+^\.claude$
+^CLAUDE\.md$
+^CONTRIBUTING\.md$
