@@ -7,7 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/completejourney)](https://CRAN.R-project.org/package=completejourney)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://tidyverse.org/lifecycle/#stable)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages)
 [![Travis-CI Build
 Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)](https://app.travis-ci.com/bradleyboehmke/completejourney)
 [![AppVeyor build

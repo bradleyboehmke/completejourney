@@ -16,7 +16,7 @@ fail gracefully with an informative message if the resource is not available."
 ## Test environments
 * local macOS install, R 4.5.1
 * win-builder (devel and release)
-* R-hub (ubuntu-latest, windows-latest, macos-latest)
+* R-hub (linux-latest, ubuntu-latest, windows-latest, macos-arm64, m1-san)
 
 ## R CMD check results
 
