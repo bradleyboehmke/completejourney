@@ -1,9 +1,9 @@
 #' @title Sampling of the full promotions data set.
-#' 
-#' @description 
-#' A sampling of the promotions data from the Complete Journey study signifying 
-#' whether a given product was featured in the weekly mailer or was part of an 
-#' in-store display (other than regular product placement). 
+#'
+#' @description
+#' A sampling of the promotions data from the Complete Journey study signifying
+#' whether a given product was featured in the weekly mailer or was part of an
+#' in-store display (other than regular product placement).
 #'
 #' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 #' @format A data frame with 360,535 rows and 5 variables
@@ -41,14 +41,14 @@
 #'   \item X - Free on interior page
 #'   \item Z - Free on front page, back page or wrap
 #' }
-#' 
+#'
 #' @seealso Use \code{\link{get_promotions}} to download the entire promotions
 #'   data containing all 20,940,529 rows.
-#' 
+#'
 #' @docType data
 #' @return \item{promotions_sample}{a tibble}
 #' @keywords datasets
-#' 
+#'
 #' @examples
 #' \donttest{
 #' # sampled promotions data set
@@ -58,8 +58,10 @@
 #' # product promotion/location
 #' require("dplyr")
 #' transactions_sample %>%
-#'   left_join(promotions_sample,
-#'             c("product_id", "store_id", "week"))
+#'   left_join(
+#'     promotions_sample,
+#'     c("product_id", "store_id", "week")
+#'   )
 #' }
 #' @importFrom tibble tibble
 "promotions_sample"

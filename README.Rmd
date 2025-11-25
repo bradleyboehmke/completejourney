@@ -20,8 +20,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/completejourney)](https://CRAN.R-project.org/package=completejourney)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages)
-[![Travis-CI Build Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)](https://app.travis-ci.com/bradleyboehmke/completejourney)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/bradleyboehmke/completejourney?branch=master&svg=true)](https://ci.appveyor.com/project/bradleyboehmke/completejourney)
+[![R-CMD-check](https://github.com/bradleyboehmke/completejourney/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bradleyboehmke/completejourney/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Overview

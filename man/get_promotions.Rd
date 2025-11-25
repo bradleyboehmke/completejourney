@@ -5,7 +5,7 @@
 \title{Get full Complete Journey promotions data set.}
 \source{
 Downloading from \url{https://github.com/bradleyboehmke/completejourney/tree/master/data}.
-  Data originated from 84.51°, Customer Journey study, \url{http://www.8451.com/area51/} 
+  Data originated from 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
   and were processes for analysis.
 }
 \usage{

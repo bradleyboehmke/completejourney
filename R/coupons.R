@@ -1,6 +1,6 @@
 #' @title Coupon metadata.
 #'
-#' @description 
+#' @description
 #' Coupon metadata for all coupons used in campaigns advertised to households
 #' participating in the Customer Journey study.
 #'
@@ -11,11 +11,11 @@
 #' \item product_id: Uniquely identifies each product
 #' \item campaign_id: Uniquely identifies each campaign
 #' }
-#' 
+#'
 #' @docType data
 #' @return \item{coupons}{a tibble}
 #' @keywords datasets
-#' 
+#'
 #' @examples
 #' \donttest{
 #' # full data set

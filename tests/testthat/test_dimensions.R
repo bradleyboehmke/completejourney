@@ -1,7 +1,7 @@
 test_that("built in data dimensions are correct", {
   skip_on_cran()
   skip_on_ci()
-  
+
   expect_equal(dim(campaigns), c(6589, 2))
   expect_equal(dim(campaign_descriptions), c(27, 4))
   expect_equal(dim(coupon_redemptions), c(2102, 4))

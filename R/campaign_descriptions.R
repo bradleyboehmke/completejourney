@@ -1,6 +1,6 @@
 #' @title Campaign metadata.
 #'
-#' @description 
+#' @description
 #' Campaign metadata for all campaigns run for the Customer Journey study. This
 #' dataset gives the length of time for which a campaign runs. So, any coupons
 #' received as part of a campaign are valid within the dates contained in this
@@ -14,11 +14,11 @@
 #' \item start_date: Start date of campaign
 #' \item end_date: End date of campaign
 #' }
-#' 
+#'
 #' @docType data
 #' @return \item{campaign_descriptions}{a tibble}
 #' @keywords datasets
-#' 
+#'
 #' @examples
 #' \donttest{
 #' # full data set

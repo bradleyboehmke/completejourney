@@ -1,6 +1,6 @@
 #' @title Sampling of the full Complete Journey transactions.
 #'
-#' @description 
+#' @description
 #' A sampling of all products purchased by households within the Complete Journey
 #' study. Each line found in this table is essentially the same line that would
 #' be found on a store receipt. This is only a subsample of the complete
@@ -21,7 +21,7 @@
 #'   \item{week}{Week of the transaction; Ranges 1-53}
 #'   \item{transaction_timestamp}{Date and time of when the transaction occurred}
 #' }
-#' 
+#'
 #' @seealso Use \code{\link{get_transactions}} to download the entire transactions
 #'   data containing all 1,469,307 rows.
 #'

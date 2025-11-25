@@ -5,7 +5,7 @@
 \title{Download full promotions and transactions data simultaneously.}
 \source{
 Downloading from \url{https://github.com/bradleyboehmke/completejourney/tree/master/data}.
-  Data originated from 84.51°, Customer Journey study, \url{http://www.8451.com/area51/} 
+  Data originated from 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
   and were processes for analysis.
 }
 \usage{
@@ -31,7 +31,7 @@ Downloading a single data set will result in a tibble whereas
   file (i.e. \code{?transactions_sample}).
 }
 \description{
-The promotions and transactions data sets are too large to be contained within 
+The promotions and transactions data sets are too large to be contained within
 the package. \code{get_data()} is a convenience function to download both
 full promotions and transactions data sets simultaneously from the
 source GitHub repository. An internet connection is required.
@@ -40,11 +40,11 @@ source GitHub repository. An internet connection is required.
 \donttest{
 # download transactions and promotions data sets
 # requires internet connection
-c(promotions, transactions) \%<-\% get_data(which = 'both')
+c(promotions, transactions) \%<-\% get_data(which = "both")
 }
 }
 \seealso{
-Use \code{\link[zeallot]{\%<-\%}} for unpacking a list with multiple 
+Use \code{\link[zeallot]{\%<-\%}} for unpacking a list with multiple
 tibbles to their own global environment tibble. You can also download a
 single data set with \code{\link{get_promotions}} and \code{\link{get_transactions}}.
 }

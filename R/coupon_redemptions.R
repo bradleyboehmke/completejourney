@@ -1,6 +1,6 @@
 #' @title Coupon redemption data.
 #'
-#' @description 
+#' @description
 #' Coupon data identifying the coupons that each household redeemed in the Complete
 #' Journey study.
 #'
@@ -12,7 +12,7 @@
 #'   \item campaign_id: Uniquely identifies each campaign
 #'   \item redemption_date: Date when the coupon was redeemed
 #' }
-#' 
+#'
 #' @examples
 #' \donttest{
 #' # full data set

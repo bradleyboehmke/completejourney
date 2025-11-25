@@ -16,3 +16,4 @@
 ^CLAUDE\.md$
 ^CONTRIBUTING\.md$
 ^\.github$
+^\.lintr$

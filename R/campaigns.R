@@ -1,6 +1,6 @@
 #' @title Campaigns to household data.
 #'
-#' @description 
+#' @description
 #' Data on the campaigns received by each household in the Complete Journey study.
 #' Each household received a different set of marketing campaigns.
 #'
@@ -10,11 +10,11 @@
 #' \item campaign_id: Uniquely identifies each campaign; Ranges 1-27
 #' \item household_id: Uniquely identifies each household
 #' }
-#' 
+#'
 #' @docType data
 #' @return \item{campaigns}{a tibble}
 #' @keywords datasets
-#' 
+#'
 #' @examples
 #' \donttest{
 #' # full data set

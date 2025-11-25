@@ -1,6 +1,6 @@
 #' @title Product metadata.
 #'
-#' @description 
+#' @description
 #' Product metadata for all products purchased by households participating in
 #' the Customer Journey study.
 #'
@@ -15,11 +15,11 @@
 #' \item product_type: Groups similar products together at lowest level
 #' \item package_size: Indicates package size (not available for all products)
 #' }
-#' 
+#'
 #' @docType data
 #' @return \item{products}{a tibble}
 #' @keywords datasets
-#' 
+#'
 #' @examples
 #' \donttest{
 #' # full data set
