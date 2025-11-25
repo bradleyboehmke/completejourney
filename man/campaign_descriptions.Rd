@@ -4,13 +4,15 @@
 \name{campaign_descriptions}
 \alias{campaign_descriptions}
 \title{Campaign metadata.}
-\format{A data frame with 27 rows and 4 variables
+\format{
+A data frame with 27 rows and 4 variables
 \itemize{
 \item campaign_id: Uniquely identifies each campaign; Ranges 1-27
 \item campaign_type: Type of campaign (Type A, Type B, Type C)
 \item start_date: Start date of campaign
 \item end_date: End date of campaign
-}}
+}
+}
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }

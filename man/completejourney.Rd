@@ -2,8 +2,8 @@
 % Please edit documentation in R/completejourney.R
 \docType{package}
 \name{completejourney}
-\alias{completejourney}
 \alias{completejourney-package}
+\alias{completejourney}
 \title{\code{completejourney} package}
 \description{
 Retail shopping transactions for 2,469 households over one year
@@ -21,7 +21,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Brad Boehmke \email{bradleyboehmke@gmail.com} (0000-0002-3611-8516)
+\strong{Maintainer}: Brad Boehmke \email{bradleyboehmke@gmail.com} (\href{https://orcid.org/0000-0002-3611-8516}{ORCID})
 
 Authors:
 \itemize{

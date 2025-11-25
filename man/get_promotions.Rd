@@ -15,7 +15,9 @@ get_promotions(verbose = FALSE)
 \item{verbose}{Logical indicator whether or not to download silently.}
 }
 \value{
-A data frame with 20,940,529 rows and 5 variables
+A data frame with 20,940,529 rows and 5 variables. Returns \code{NULL}
+  if the download fails (e.g., network timeout, GitHub unavailability) with
+  an informative message about the failure.
 }
 \description{
 The complete promotions data set for the Complete Journey is too large to be

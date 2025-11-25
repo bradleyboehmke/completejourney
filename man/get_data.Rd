@@ -23,9 +23,11 @@ Can be one of the following; default is \code{"both"}:
 \item{verbose}{Logical indicator whether or not to download silently.}
 }
 \value{
-Downloading a single data set will result in a tibble whereas 
-  downloading multiple data sets will return a list containing each tibble. 
-  For specific details on a given data set see the data sets respective help 
+Downloading a single data set will result in a tibble whereas
+  downloading multiple data sets will return a list containing each tibble.
+  Returns \code{NULL} if the download fails (e.g., network timeout, GitHub
+  unavailability) with an informative message about the failure.
+  For specific details on a given data set see the data sets respective help
   file (i.e. \code{?transactions_sample}).
 }
 \description{

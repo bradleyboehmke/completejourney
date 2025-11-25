@@ -11,7 +11,9 @@
 #'   Data originated from 84.51°, Customer Journey study, \url{http://www.8451.com/area51/} 
 #'   and were processes for analysis.
 #' 
-#' @return A data frame with 20,940,529 rows and 5 variables
+#' @return A data frame with 20,940,529 rows and 5 variables. Returns \code{NULL}
+#'   if the download fails (e.g., network timeout, GitHub unavailability) with
+#'   an informative message about the failure.
 #' 
 #' @seealso \code{\link{promotions_sample}} for details regarding the variables.
 #' 

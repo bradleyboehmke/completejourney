@@ -4,14 +4,16 @@
 \name{promotions_sample}
 \alias{promotions_sample}
 \title{Sampling of the full promotions data set.}
-\format{A data frame with 360,535 rows and 5 variables
+\format{
+A data frame with 360,535 rows and 5 variables
 \itemize{
   \item product_id: Uniquely identifies each product
   \item store_id: Uniquely identifies each store
   \item display_location: Display location  (see details for range of values)
   \item mailer_location: Mailer location (see details for range of values)
   \item week: Week of the transaction; Ranges 1-53
-}}
+}
+}
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }

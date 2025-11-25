@@ -4,7 +4,8 @@
 \name{transactions_sample}
 \alias{transactions_sample}
 \title{Sampling of the full Complete Journey transactions.}
-\format{A data frame with 75,000 rows and 11 variables
+\format{
+A data frame with 75,000 rows and 11 variables
 \describe{
   \item{household_id}{Uniquely identifies each household}
   \item{store_id}{Uniquely identifies each store}
@@ -17,7 +18,8 @@
   \item{coupon_match_disc}{Discount applied due to retailer's match of manufacturer coupon}
   \item{week}{Week of the transaction; Ranges 1-53}
   \item{transaction_timestamp}{Date and time of when the transaction occurred}
-}}
+}
+}
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }

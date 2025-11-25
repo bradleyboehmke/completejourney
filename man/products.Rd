@@ -4,7 +4,8 @@
 \name{products}
 \alias{products}
 \title{Product metadata.}
-\format{A data frame with 92,331 rows and 7 variables
+\format{
+A data frame with 92,331 rows and 7 variables
 \itemize{
 \item product_id: Uniquely identifies each product
 \item manufacturer_id: Uniquely identifies each manufacturer
@@ -13,7 +14,8 @@
 \item product_category: Groups similar products together at lower level
 \item product_type: Groups similar products together at lowest level
 \item package_size: Indicates package size (not available for all products)
-}}
+}
+}
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }

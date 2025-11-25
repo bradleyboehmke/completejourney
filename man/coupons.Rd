@@ -4,12 +4,14 @@
 \name{coupons}
 \alias{coupons}
 \title{Coupon metadata.}
-\format{A data frame with 116,204 rows and 3 variables
+\format{
+A data frame with 116,204 rows and 3 variables
 \itemize{
 \item coupon_upc: Uniquely identifies each coupon (unique to household and campaign)
 \item product_id: Uniquely identifies each product
 \item campaign_id: Uniquely identifies each campaign
-}}
+}
+}
 \source{
 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
 }

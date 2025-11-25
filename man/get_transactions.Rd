@@ -15,7 +15,9 @@ get_transactions(verbose = FALSE)
 \item{verbose}{Logical indicator whether or not to download silently.}
 }
 \value{
-A data frame with 1,469,307 rows and 5 variables
+A data frame with 1,469,307 rows and 11 variables. Returns \code{NULL}
+  if the download fails (e.g., network timeout, GitHub unavailability) with
+  an informative message about the failure.
 }
 \description{
 The complete transactions data set for the Complete Journey is too large to be

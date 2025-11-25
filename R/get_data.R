@@ -18,9 +18,11 @@
 #'   Data originated from 84.51°, Customer Journey study, \url{http://www.8451.com/area51/} 
 #'   and were processes for analysis.
 #'   
-#' @return Downloading a single data set will result in a tibble whereas 
-#'   downloading multiple data sets will return a list containing each tibble. 
-#'   For specific details on a given data set see the data sets respective help 
+#' @return Downloading a single data set will result in a tibble whereas
+#'   downloading multiple data sets will return a list containing each tibble.
+#'   Returns \code{NULL} if the download fails (e.g., network timeout, GitHub
+#'   unavailability) with an informative message about the failure.
+#'   For specific details on a given data set see the data sets respective help
 #'   file (i.e. \code{?transactions_sample}).
 #' 
 #' @seealso Use \code{\link[zeallot]{\%<-\%}} for unpacking a list with multiple 
