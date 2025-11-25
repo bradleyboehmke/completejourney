@@ -17,3 +17,4 @@
 ^CONTRIBUTING\.md$
 ^\.github$
 ^\.lintr$
+^CRAN-SUBMISSION$
