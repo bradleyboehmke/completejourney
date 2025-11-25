@@ -75,6 +75,9 @@
 <ul><li>Download functions (<code><a href="../reference/get_data.html">get_data()</a></code>, <code><a href="../reference/get_transactions.html">get_transactions()</a></code>, <code><a href="../reference/get_promotions.html">get_promotions()</a></code>) now fail gracefully with informative messages when internet resources are unavailable (e.g., network timeout, GitHub unavailability) instead of throwing errors. This complies with CRAN policy for packages using internet resources. Functions now return <code>NULL</code> on failure with clear guidance for users.</li>
 <li>Fixed typo in vignette <a href="https://github.com/bradleyboehmke/completejourney/issues/17" class="external-link">issue </a><a href="https://github.com/bradleyboehmke/completejourney/issues/17" class="external-link">#17</a>
 </li>
+<li>Updated all HTTP URLs to HTTPS to comply with CRAN URL standards</li>
+<li>Fixed DESCRIPTION file author metadata formatting to resolve <a href="mailto:Authors@R" class="email">Authors@R</a> discrepancies</li>
+<li>Updated AppVeyor configuration to prevent MSBuild errors in CI environment</li>
 </ul></div>
 </div>
     <div class="section level2">

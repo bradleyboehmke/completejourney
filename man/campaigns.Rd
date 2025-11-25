@@ -12,7 +12,7 @@ A data frame with 6,589 rows and 2 variables
 }
 }
 \source{
-84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
+84.51°, Customer Journey study, \url{https://www.8451.com/area51/}
 }
 \usage{
 campaigns

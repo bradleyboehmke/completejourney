@@ -7,9 +7,9 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/completejourney)](https://CRAN.R-project.org/package=completejourney)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://tidyverse.org/lifecycle/#stable)
 [![Travis-CI Build
-Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)](https://travis-ci.org/bradleyboehmke/completejourney)
+Status](https://travis-ci.org/bradleyboehmke/completejourney.svg?branch=master)](https://app.travis-ci.com/bradleyboehmke/completejourney)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/bradleyboehmke/completejourney?branch=master&svg=true)](https://ci.appveyor.com/project/bradleyboehmke/completejourney)
 <!-- badges: end -->
@@ -17,25 +17,25 @@ status](https://ci.appveyor.com/api/projects/status/github/bradleyboehmke/comple
 ## Overview
 
 An R data package that provides access to data in the Complete Journey
-Study provided by [84.51°](http://www.8451.com). The data represents
+Study provided by [84.51°](https://www.8451.com/). The data represents
 grocery store shopping transactions over one year from a group of 2,469
 households who are frequent shoppers at a retailer. It contains all of
 each household’s purchases, not just those from a limited number of
 categories. For certain households, demographic information as well as
 direct marketing contact history are included.
 
-  - `campaigns`: campaigns received by each household
-  - `campaign_descriptions`: campaign metadata (length of time active)
-  - `coupons`: coupon metadata (UPC code, campaign, etc.)
-  - `coupon_redemptions`: coupon redemptions (household, day, UPC code,
-    campaign)
-  - `demographics`: household demographic data (age, income, family
-    size, etc.)
-  - `products`: product metadata (brand, description, etc.)
-  - `promotions_sample`: a sampling of the product placement in mailers
-    and in stores corresponding to advertising campaigns
-  - `transactions_sample`: a sampling of the products purchased by
-    households
+- `campaigns`: campaigns received by each household
+- `campaign_descriptions`: campaign metadata (length of time active)
+- `coupons`: coupon metadata (UPC code, campaign, etc.)
+- `coupon_redemptions`: coupon redemptions (household, day, UPC code,
+  campaign)
+- `demographics`: household demographic data (age, income, family size,
+  etc.)
+- `products`: product metadata (brand, description, etc.)
+- `promotions_sample`: a sampling of the product placement in mailers
+  and in stores corresponding to advertising campaigns
+- `transactions_sample`: a sampling of the products purchased by
+  households
 
 ## Installation
 
@@ -121,4 +121,4 @@ can look for, at
 ## Source
 
 The Complete Journey data is available at:
-<http://www.8451.com/area51/>.
+<https://www.8451.com/area51/>.

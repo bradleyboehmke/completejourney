@@ -4,7 +4,7 @@
 #' Product metadata for all products purchased by households participating in
 #' the Customer Journey study.
 #'
-#' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
+#' @source 84.51°, Customer Journey study, \url{https://www.8451.com/area51/}
 #' @format A data frame with 92,331 rows and 7 variables
 #' \itemize{
 #' \item product_id: Uniquely identifies each product

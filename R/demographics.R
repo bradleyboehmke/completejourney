@@ -5,7 +5,7 @@
 #' Due to nature of the data, the demographic information is not available for all
 #' households.
 #'
-#' @source 84.51°, Customer Journey study, \url{http://www.8451.com/area51/}
+#' @source 84.51°, Customer Journey study, \url{https://www.8451.com/area51/}
 #' @format A data frame with 801 rows and 8 variables
 #' \itemize{
 #' \item household_id: Uniquely identifies each household

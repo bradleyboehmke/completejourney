@@ -8,6 +8,9 @@
     throwing errors. This complies with CRAN policy for packages using internet
     resources. Functions now return `NULL` on failure with clear guidance for users.
   * Fixed typo in vignette [issue #17](https://github.com/bradleyboehmke/completejourney/issues/17)
+  * Updated all HTTP URLs to HTTPS to comply with CRAN URL standards
+  * Fixed DESCRIPTION file author metadata formatting to resolve Authors@R discrepancies
+  * Updated AppVeyor configuration to prevent MSBuild errors in CI environment
 
 # completejourney 1.1.0 (2019-09-28)
 

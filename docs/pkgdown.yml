@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   completejourney: completejourney.html
-last_built: 2025-11-25T16:12Z
+last_built: 2025-11-25T19:05Z
 urls:
   reference: https://bradleyboehmke.github.io/completejourney/reference
   article: https://bradleyboehmke.github.io/completejourney/articles
