@@ -27,6 +27,10 @@ navbar:
       href: https://github.com/bradleyboehmke/completejourney
       
 reference:
+  - title: Package overview
+    desc: Overview of the completejourney package
+    contents:
+      - '`completejourney`'
   - title: Datasets
     desc: A complete list of package datasets
     contents:
@@ -44,3 +48,7 @@ reference:
       - '`get_promotions`'
       - '`get_transactions`'
       - '`get_data`'
+  - title: Utilities
+    desc: Utility functions and operators
+    contents:
+      - '`%<-%`'

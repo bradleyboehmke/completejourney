@@ -1,5 +1,12 @@
-# completejourney (development version)
+# completejourney 1.1.1
 
+## Bug fixes
+
+  * Download functions (`get_data()`, `get_transactions()`, `get_promotions()`)
+    now fail gracefully with informative messages when internet resources are
+    unavailable (e.g., network timeout, GitHub unavailability) instead of
+    throwing errors. This complies with CRAN policy for packages using internet
+    resources. Functions now return `NULL` on failure with clear guidance for users.
   * Fixed typo in vignette [issue #17](https://github.com/bradleyboehmke/completejourney/issues/17)
 
 # completejourney 1.1.0 (2019-09-28)

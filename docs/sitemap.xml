@@ -1,51 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/index.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/campaign_descriptions.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/campaigns.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/completejourney.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/coupon_redemptions.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/coupons.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/demographics.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/get_data.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/get_promotions.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/get_transactions.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/multi-assign.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/products.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/promotions_sample.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/reference/transactions_sample.html</loc>
-  </url>
-  <url>
-    <loc>https://bradleyboehmke.github.io/completejourney/articles/completejourney.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://bradleyboehmke.github.io/completejourney/404.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/CLAUDE.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/TESTING.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/articles/completejourney.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/articles/index.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/authors.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/index.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/news/index.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/campaign_description.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/campaign_descriptions.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/campaign_table.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/campaigns.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/causal_data.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/completejourney.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/coupon_redemption.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/coupon_redemptions.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/coupons.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/demographics.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/get_data.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/get_promotions.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/get_transactions.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/hh_demographics.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/index.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/multi-assign.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/pipe.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/product_placements.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/products.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/promotions.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/promotions_sample.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/transactions.html</loc></url>
+<url><loc>https://bradleyboehmke.github.io/completejourney/reference/transactions_sample.html</loc></url>
 </urlset>
+
